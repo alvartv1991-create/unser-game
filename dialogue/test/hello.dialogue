@@ -2,22 +2,22 @@
 # Open the debug menu (F1) -> test_hello_dialogue to play it.
 
 ~ start
-System: [TEMP] Hallo {{GameState.player_name()}}. Das ist ein Test.
-System: [TEMP] Diese Zeile kommt aus der Übersetzungstabelle. [ID:HELLO_TRANSLATION_TEST]
-System: [TEMP] Was willst du tun?
-- [TEMP] Einen Flag setzen
+system: [TEMP] Hallo {{GameState.player_name()}}. Das ist ein Test. [ID:HELLO_START_01]
+system: [TEMP] Diese Zeile kommt aus der Übersetzungstabelle. [ID:HELLO_TRANSLATION_TEST]
+system: [TEMP] Was willst du tun? [ID:HELLO_START_03]
+- [TEMP] Einen Flag setzen [ID:HELLO_START_04]
 	$> GameState.set_flag("hello_flag", true)
-	System: [TEMP] Flag "hello_flag" gesetzt.
-- [TEMP] Nett sein (+10 Moral)
+	system: [TEMP] Flag "hello_flag" gesetzt. [ID:HELLO_START_05]
+- [TEMP] Nett sein (+10 Moral) [ID:HELLO_START_06]
 	$> GameState.add_moral(10)
-	System: [TEMP] Wie nett. Moral jetzt: {{GameState.moral}}.
-- [TEMP] Gemein sein (-10 Moral)
+	system: [TEMP] Wie nett. Moral jetzt: {{GameState.moral}}. [ID:HELLO_START_07]
+- [TEMP] Gemein sein (-10 Moral) [ID:HELLO_START_08]
 	$> GameState.add_moral(-10)
-	System: [TEMP] Autsch. Moral jetzt: {{GameState.moral}}.
-- [TEMP] Als Arzt: Puls fühlen [if GameState.job_is("doctor") /]
-	System: [TEMP] Puls ist da. Glückwunsch.
-- [TEMP] Umarmen (nur bei hoher Moral sichtbar) [if GameState.moral_is("high") /]
-	System: [TEMP] Das hat gutgetan.
-- [TEMP] Tschüss
-	System: [TEMP] Bis dann.
+	system: [TEMP] Autsch. Moral jetzt: {{GameState.moral}}. [ID:HELLO_START_09]
+- [TEMP] Puls fühlen (nur als Arzt/Ärztin) [if GameState.job_is("doctor") /] [ID:HELLO_START_10]
+	system: [TEMP] Puls ist da. Glückwunsch. [ID:HELLO_START_11]
+- [TEMP] Umarmen (nur bei hoher Moral sichtbar) [if GameState.moral_is("high") /] [ID:HELLO_START_12]
+	system: [TEMP] Das hat gutgetan. [ID:HELLO_START_13]
+- [TEMP] Tschüss [ID:HELLO_START_14]
+	system: [TEMP] Bis dann. [ID:HELLO_START_15]
 => END

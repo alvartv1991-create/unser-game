@@ -1,8 +1,83 @@
 {
-	"_note": "Short lines companions say on their own (after a glitch, after a fight, ...). H3 fills this in. Format: speaker -> situation -> list of {de, en}.",
+	"_note": "Short lines companions say on their own. Format: speaker -> situation -> list of {de, en}; one is picked at random. Situations: glitch (a device glitches), after_fight, enter_area, sword_broke (the holy sword breaks), died_<companion id> (another companion died). Wired in scripts/story/story_director.gd.",
+	"cook": {
+		"glitch": [
+			{
+				"de": "[TEMP] Der Fernseher macht das Geräusch, das mein Toaster vor dem Brand gemacht hat.",
+				"en": "[TEMP] The TV is making the noise my toaster made before the fire."
+			},
+			{
+				"de": "[TEMP] Ich mag das nicht. Elektrik soll leise sein.",
+				"en": "[TEMP] I don't like that. Electrics should be quiet."
+			}
+		],
+		"after_fight": [
+			{
+				"de": "[TEMP] Alle noch dran? Arme, Beine, Appetit?",
+				"en": "[TEMP] Everyone still in one piece? Arms, legs, appetite?"
+			},
+			{
+				"de": "[TEMP] Danach gibt's Eintopf. Zur Beruhigung.",
+				"en": "[TEMP] Stew afterwards. To calm down."
+			}
+		],
+		"enter_area": [
+			{
+				"de": "[TEMP] Hier riecht es nach niemandem. Das ist kein gutes Zeichen.",
+				"en": "[TEMP] It smells like nobody here. That's not a good sign."
+			}
+		],
+		"sword_broke": [
+			{
+				"de": "[TEMP] Ein Schlag! Das ist mehr, als mein Schneebesen je geschafft hat.",
+				"en": "[TEMP] One hit! That's more than my whisk ever managed."
+			}
+		],
+		"died_tinkerer": [
+			{
+				"de": "[TEMP] Nein. Nein, nein. Wer erklärt mir jetzt die Geräte?",
+				"en": "[TEMP] No. No, no. Who's going to explain the devices to me now?"
+			}
+		]
+	},
 	"tinkerer": {
 		"glitch": [
-			{"de": "[TEMP] Hörst du das? Das ist kein Rauschen. Das ist Grammatik.", "en": "[TEMP] Hear that? That's not static. That's grammar."}
+			{
+				"de": "[TEMP] Hörst du das? Das ist kein Rauschen. Das ist Grammatik.",
+				"en": "[TEMP] Hear that? That's not static. That's grammar."
+			},
+			{
+				"de": "[TEMP] Schon wieder das Muster! Ich muss das aufschreiben. Hat jemand einen Bleistift?",
+				"en": "[TEMP] The pattern again! I need to write it down. Anyone got a pencil?"
+			},
+			{
+				"de": "[TEMP] Dreiundzwanzig Hertz. Nein, vierundzwanzig. Es lernt.",
+				"en": "[TEMP] Twenty-three hertz. No, twenty-four. It's learning."
+			}
+		],
+		"after_fight": [
+			{
+				"de": "[TEMP] Ich hab während des Kampfs die Frequenz gemessen. Ist das unpassend?",
+				"en": "[TEMP] I measured the frequency during the fight. Is that inappropriate?"
+			}
+		],
+		"enter_area": [
+			{
+				"de": "[TEMP] Viele Antennen hier. Das wird ein guter Tag.",
+				"en": "[TEMP] Lots of antennas here. This will be a good day."
+			}
+		],
+		"sword_broke": [
+			{
+				"de": "[TEMP] Pappmaché hat eine Bruchfestigkeit von ungefähr null. Hätte ich sagen können.",
+				"en": "[TEMP] Papier-mâché has a breaking strength of about zero. I could have told you."
+			}
+		],
+		"died_cook": [
+			{
+				"de": "[TEMP] Das ... das war nicht berechnet. Das war überhaupt nicht berechnet.",
+				"en": "[TEMP] That ... that wasn't in the calculation. That wasn't in it at all."
+			}
 		]
 	}
 }

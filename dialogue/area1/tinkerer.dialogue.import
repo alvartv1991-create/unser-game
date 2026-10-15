@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://32mqgxb1vxpl"
+path="res://.godot/imported/tinkerer.dialogue-dbbd80b3e3356654b8934074d425f687.tres"
+
+[deps]
+
+source_file="res://dialogue/area1/tinkerer.dialogue"
+dest_files=["res://.godot/imported/tinkerer.dialogue-dbbd80b3e3356654b8934074d425f687.tres"]
+
+[params]
+
+defaults=true

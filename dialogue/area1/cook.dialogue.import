@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://r7destu7djm3"
+path="res://.godot/imported/cook.dialogue-31d9150b210f3bc86ace97d918adc468.tres"
+
+[deps]
+
+source_file="res://dialogue/area1/cook.dialogue"
+dest_files=["res://.godot/imported/cook.dialogue-31d9150b210f3bc86ace97d918adc468.tres"]
+
+[params]
+
+defaults=true

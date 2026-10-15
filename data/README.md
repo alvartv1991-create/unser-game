@@ -56,7 +56,7 @@ Up to 10 jobs are planned; add one by copying an existing block.
 `kind` is `human`, `alien` or `animal`. `hp`, `power` (damage), `initiative` (who acts first; the party's is Ausdauer + Intelligenz / 2), `resolve` (how hard to talk down, in %), `flee_below` (flees below this share of HP, e.g. 0.3 = 30%), `finishes_downed` (chance to finish off a downed character), `talkable`, `invulnerable`, `ai` (behavior), `art_id`.
 
 ## `encounters.json`: fights
-`enemies` (list of enemy ids), `party` (`"active"` = the active party fights, `"all"` = every recruited, living companion fights), `can_flee`, `music` (audio id), `cheats` (cheat codes that work here), `loot` (items after winning).
+`enemies` (list of enemy ids), `party` (`"active"` = the active party fights, `"all"` = every recruited, living companion fights), `can_flee`, `music` (audio id), `cheats` (cheat codes that work here), `loot` (items after winning), `backdrop` (optional art id behind the fight: `street`, `camp` or `alien_zone`; unknown ids fall back to the street).
 
 ## `cheats.json`: cheat codes hidden in the world
 `sequence` is a list of `up`, `down`, `left`, `right`. A code only works in fights whose `cheats` list contains it. `hint` says where the player can find it.

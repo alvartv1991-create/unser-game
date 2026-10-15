@@ -1,2 +1,11 @@
 keys,de,en
 OBJ_TEST_DEBUG_MENU,[TEMP] Probier das Debug-Menü aus (F1).,[TEMP] Try the debug menu (F1).
+DLG_MISSING_TEXT,[TEMP] Kein Text: %s : %s,[TEMP] No text: %s : %s
+OBJ_TALK_TO_COOK,[TEMP] Sprich mit der Person am Herd.,[TEMP] Talk to the person at the stove.
+OBJ_LEAVE_BUNKER,[TEMP] Verlasse den Bunker.,[TEMP] Leave the bunker.
+OBJ_VISIT_VIDEOSTORE,[TEMP] Sieh dich im Videospielladen um.,[TEMP] Look around the video game store.
+OBJ_CHECK_ROOFTOP,[TEMP] Wer redet da auf dem Dach mit dem Himmel?,[TEMP] Who is talking to the sky on the roof?
+OBJ_PASS_RAIDER_CAMP,[TEMP] Komm am Lager der Plünderer vorbei.,[TEMP] Get past the raider camp.
+OBJ_CROSS_ALIEN_ZONE,[TEMP] Durchquere die Zone. Leise.,[TEMP] Cross the zone. Quietly.
+OBJ_OPEN_GATE,[TEMP] Öffne das Tor.,[TEMP] Open the gate.
+OBJ_CHOOSE_AREA,"[TEMP] Wähle, wohin es weitergeht.",[TEMP] Choose where to go next.

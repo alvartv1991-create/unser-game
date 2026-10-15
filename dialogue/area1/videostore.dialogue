@@ -1,0 +1,47 @@
+# [TEMP] The video game store: the clerk who keeps the shop open, and the holy sword. Placeholder text.
+
+~ clerk
+clerk: [TEMP] Willkommen bei Videospiele Krüger! Wir haben geöffnet. Wir haben immer geöffnet. [ID:VIDEOSTORE_CLERK_01]
+clerk: [TEMP] Die Welt geht unter, aber die Öffnungszeiten stehen an der Tür. [ID:VIDEOSTORE_CLERK_02]
+- [TEMP] Ich helfe dir, die Rollläden zu reparieren. [ID:VIDEOSTORE_CLERK_03]
+	$> GameState.add_moral(10)
+	clerk: [TEMP] Wirklich? Dann sind wir der einzige Laden mit Rollläden in der ganzen Stadt! [#mood=happy] [ID:VIDEOSTORE_CLERK_04]
+	clerk: [TEMP] Nimm dir eine Konserve aus der Kasse. Ich hab keine Münzen mehr, nur noch Erbsen. [ID:VIDEOSTORE_CLERK_05]
+	$> GameState.add_item("canned_food")
+- [TEMP] Ich nehme mir, was in der Kasse ist. [ID:VIDEOSTORE_CLERK_06]
+	$> GameState.add_moral(-15)
+	clerk: [TEMP] Da sind nur Erbsen drin. Und Spielmarken. Nimm sie halt. [#mood=sad] [ID:VIDEOSTORE_CLERK_07]
+	$> GameState.add_item("scrap")
+- [TEMP] Der Automat hat einen Wackelkontakt. Gib mir zwei Minuten. [if GameState.job_is("craftsman") /] [#show_locked] [ID:VIDEOSTORE_CLERK_08]
+	$> GameState.add_moral(5)
+	clerk: [TEMP] Er läuft! Zum ersten Mal seit der Apokalypse läuft Galaxy Raiders! [#mood=happy] [ID:VIDEOSTORE_CLERK_09]
+- [TEMP] Ich hätte gern eine Quittung über meinen Besuch. [if GameState.job_is("civil_servant") /] [#show_locked] [ID:VIDEOSTORE_CLERK_10]
+	clerk: [TEMP] Für einen Besuch? [ID:VIDEOSTORE_CLERK_11]
+	player: [TEMP] Für die Akten. [ID:VIDEOSTORE_CLERK_12]
+	clerk: [TEMP] Welche Akten? Das Amt ist doch ... [ID:VIDEOSTORE_CLERK_13]
+	player: [TEMP] Die Akten sind in meinem Herzen. [ID:VIDEOSTORE_CLERK_14]
+- [TEMP] Nur umsehen. [ID:VIDEOSTORE_CLERK_15]
+	clerk: [TEMP] Fass das Schwert nicht an. Das ist ein Werbeaufsteller. [ID:VIDEOSTORE_CLERK_16]
+if GameState.get_flag("tinkerer_met") == false
+	clerk: [TEMP] Auf dem Dach sitzt übrigens jemand mit einer Satellitenschüssel und redet mit dem Himmel. [ID:VIDEOSTORE_CLERK_17]
+	$> GameState.set_objective("OBJ_CHECK_ROOFTOP")
+=> END
+
+~ sword_shelf
+[TEMP] Im Regal steht das Heilige Schwert von [TEMP]. Aus Pappmaché, Plastik und Hoffnung. [ID:VIDEOSTORE_SWORD_SHELF_01]
+[TEMP] Auf dem Schild steht "Promo-Artikel, nicht zum Verkauf, nicht zum Kämpfen". [ID:VIDEOSTORE_SWORD_SHELF_02]
+- [TEMP] Nehmen. [ID:VIDEOSTORE_SWORD_SHELF_03]
+	$> GameState.add_item("holy_sword")
+	$> GameState.equip_weapon("holy_sword")
+	$> GameState.set_flag("holy_sword_taken")
+	$> GameState.add_moral(-5)
+	clerk: [TEMP] Hey! ... Ach, nimm es. Es zerbricht eh beim ersten Schlag. [ID:VIDEOSTORE_SWORD_SHELF_04]
+	player: [TEMP] Dann muss der erste Schlag sitzen. [ID:VIDEOSTORE_SWORD_SHELF_05]
+- [TEMP] Fragen, ob ich es haben darf. [ID:VIDEOSTORE_SWORD_SHELF_06]
+	clerk: [TEMP] Du fragst? Das hat seit der Invasion niemand getan. Nimm es! [#mood=happy] [ID:VIDEOSTORE_SWORD_SHELF_07]
+	$> GameState.add_item("holy_sword")
+	$> GameState.equip_weapon("holy_sword")
+	$> GameState.set_flag("holy_sword_taken")
+- [TEMP] Stehen lassen. [ID:VIDEOSTORE_SWORD_SHELF_08]
+	[TEMP] Das Schwert sieht dich enttäuscht an. Zumindest fühlt es sich so an. [ID:VIDEOSTORE_SWORD_SHELF_09]
+=> END

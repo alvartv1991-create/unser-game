@@ -1,0 +1,81 @@
+# [TEMP] The alien zone: the swarm, the dilemma and the cheat fight. Placeholder text, no alien lore.
+
+~ enter
+$> EventBus.device_glitch.emit(0.4, 1.5)
+[TEMP] Die Luft summt. Autos stehen herum, als hätte jemand sie vergessen. Manche nur noch zur Hälfte. [ID:ALIEN_ZONE_ENTER_01]
+if GameState.in_party("tinkerer")
+	tinkerer: [TEMP] Mein Messgerät zeigt Werte, die es nicht kennt. Es zeigt einfach "E". [#mood=happy] [ID:ALIEN_ZONE_ENTER_02]
+if GameState.in_party("cook")
+	cook: [TEMP] Hier riecht es nach heißem Metall. Und ein bisschen nach Zimt. Warum Zimt? [ID:ALIEN_ZONE_ENTER_03]
+=> END
+
+~ snatching
+$> EventBus.device_glitch.emit(0.6, 2.0)
+[TEMP] Im Hintergrund hebt der Schwarm einen Kleinwagen an. Ganz vorsichtig. Wie ein Kind ein Geschenk. [ID:ALIEN_ZONE_SNATCHING_01]
+[TEMP] Dann nimmt er ihn auseinander. Schraube für Schraube. Die Schrauben behält er. [ID:ALIEN_ZONE_SNATCHING_02]
+- [TEMP] Wir sollten leise sein. [ID:ALIEN_ZONE_SNATCHING_03]
+	[TEMP] Der Schwarm bemerkt euch nicht. Oder es ist ihm egal. Beides fühlt sich gleich an. [ID:ALIEN_ZONE_SNATCHING_04]
+- [TEMP] HEY! DAS IST EIN OPEL! [ID:ALIEN_ZONE_SNATCHING_05]
+	[TEMP] Der Schwarm bemerkt euch nicht. Das ist fast beleidigend. [ID:ALIEN_ZONE_SNATCHING_06]
+=> END
+
+~ dilemma
+[TEMP] Vor euch zerlegt der Schwarm einen Bus. Drinnen sitzt ein alter Mann und hält sich an seinem Hut fest. [ID:ALIEN_ZONE_DILEMMA_01]
+[TEMP] Noch ein paar Sekunden, dann ist der Bus nur noch Einzelteile. Der Mann auch. [ID:ALIEN_ZONE_DILEMMA_02]
+=> dilemma_choices
+
+~ dilemma_choices
+- [TEMP] Koch/Köchin, du lenkst ihn ab. Klapper mit der Pfanne, dann laufen wir. [if GameState.in_party("cook") /] [ID:ALIEN_ZONE_DILEMMA_CHOICES_01]
+	cook: [TEMP] Klar. Laut sein kann ich. [#mood=happy] [ID:ALIEN_ZONE_DILEMMA_CHOICES_02]
+	[TEMP] Die Pfanne klappert. Der Schwarm dreht sich um. Zum ersten Mal sieht er jemanden an. [ID:ALIEN_ZONE_DILEMMA_CHOICES_03]
+	[TEMP] Dann ist da nur noch die Pfanne. [ID:ALIEN_ZONE_DILEMMA_CHOICES_04]
+	$> GameState.kill_companion("cook", "story:dilemma")
+	$> GameState.set_flag("dilemma_choice", "cook_distraction")
+	[TEMP] Der alte Mann ist frei. Er nickt euch zu. Er weiß nicht, was er sagen soll. Niemand weiß das. [ID:ALIEN_ZONE_DILEMMA_CHOICES_05]
+- [TEMP] Wir holen ihn zusammen raus. Schnell. [ID:ALIEN_ZONE_DILEMMA_CHOICES_06]
+	[TEMP] Ihr zerrt den Mann durch das Fenster. Der Schwarm nimmt euch dabei die Taschen auseinander. [ID:ALIEN_ZONE_DILEMMA_CHOICES_07]
+	$> GameState.remove_item("canned_food")
+	$> GameState.remove_item("scrap")
+	$> GameState.add_moral(10)
+	$> GameState.set_flag("dilemma_choice", "rescue_together")
+	[TEMP] Ihr habt ihn. Und ein paar Konserven weniger. [ID:ALIEN_ZONE_DILEMMA_CHOICES_08]
+- [TEMP] Bastler/in, kannst du ihr Signal kurz stören? [if GameState.in_party("tinkerer") /] [ID:ALIEN_ZONE_DILEMMA_CHOICES_09]
+	tinkerer: [TEMP] Drei Sekunden. Mehr schaffe ich nicht. Lauft! [#mood=happy] [ID:ALIEN_ZONE_DILEMMA_CHOICES_10]
+	[TEMP] Der Schwarm hält inne, als hätte er seinen Namen gehört. Ihr zieht den Mann heraus. [ID:ALIEN_ZONE_DILEMMA_CHOICES_11]
+	$> GameState.set_flag("dilemma_choice", "tinkerer_jam")
+- [TEMP] Er reagiert auf Bewegung. Wirf was Glänzendes in die andere Richtung! [if GameState.job_is("scientist") /] [#show_locked] [ID:ALIEN_ZONE_DILEMMA_CHOICES_12]
+	[TEMP] Ein Radkappen-Wurf später schwebt der Schwarm einer Radkappe hinterher. Der Mann ist frei. [ID:ALIEN_ZONE_DILEMMA_CHOICES_13]
+	$> GameState.set_flag("dilemma_choice", "scientist_distraction")
+- [TEMP] Ich ordne hiermit die Evakuierung des Busses an! [if GameState.job_is("civil_servant") /] [#show_locked] [ID:ALIEN_ZONE_DILEMMA_CHOICES_14]
+	[TEMP] Der Schwarm reagiert nicht auf Anordnungen. Der Mann auch nicht. [ID:ALIEN_ZONE_DILEMMA_CHOICES_15]
+	=> dilemma_choices
+- [TEMP] Weitergehen. Nicht unser Problem. [ID:ALIEN_ZONE_DILEMMA_CHOICES_16]
+	$> GameState.add_moral(-15)
+	$> GameState.set_flag("dilemma_choice", "walk_away")
+	[TEMP] Ihr geht weiter. Hinter euch klirrt es. Dann ist es still. [ID:ALIEN_ZONE_DILEMMA_CHOICES_17]
+	if GameState.in_party("cook")
+		cook: [TEMP] Ich werde dieses Geräusch nicht vergessen. [#mood=sad] [ID:ALIEN_ZONE_DILEMMA_CHOICES_18]
+=> END
+
+~ swarm_blocks_gate
+$> EventBus.device_glitch.emit(0.9, 2.5)
+[TEMP] Der Schwarm sammelt sich vor dem Tor. Er wird dichter, bis man durch ihn nicht mehr hindurchsieht. [ID:ALIEN_ZONE_SWARM_BLOCKS_GATE_01]
+[TEMP] Diesmal ignoriert er euch nicht. [ID:ALIEN_ZONE_SWARM_BLOCKS_GATE_02]
+if GameState.in_party("tinkerer")
+	tinkerer: [TEMP] Wenn wir das kämpfen, verlieren wir. Wir müssen schummeln! Ich kann ihr Signal senden! [ID:ALIEN_ZONE_SWARM_BLOCKS_GATE_03]
+elif GameState.has_item("jammer")
+	player: [TEMP] Der Störsender aus dem Lager. Vielleicht ... [ID:ALIEN_ZONE_SWARM_BLOCKS_GATE_04]
+else
+	player: [TEMP] Hoch, hoch, runter, runter ... Woher kenne ich das? [ID:ALIEN_ZONE_SWARM_BLOCKS_GATE_05]
+$> SceneRouter.start_combat("alien_swarm_zone")
+=> END
+
+~ after_cheat
+$> GameState.set_flag("aliens_dispersed")
+[TEMP] Der Schwarm zerfällt in tausend glitzernde Teile und treibt davon. Wie Konfetti nach einer Party, zu der niemand eingeladen war. [ID:ALIEN_ZONE_AFTER_CHEAT_01]
+if GameState.in_party("tinkerer")
+	tinkerer: [TEMP] Die haben uns nicht mal richtig bemerkt. Wir waren nur ein Fehler in ihrer Rechnung. [#mood=happy] [ID:ALIEN_ZONE_AFTER_CHEAT_02]
+if GameState.in_party("cook")
+	cook: [TEMP] Ich hab Hunger. Ist das normal nach einem Wunder? [ID:ALIEN_ZONE_AFTER_CHEAT_03]
+$> GameState.set_objective("OBJ_OPEN_GATE")
+=> END

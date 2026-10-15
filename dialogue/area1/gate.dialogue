@@ -1,0 +1,27 @@
+# [TEMP] The gate out of Area 1. Remembers the dead. Placeholder text.
+
+~ locked
+[TEMP] Das Tor ist zu. Davor summt es. Da ist noch etwas im Weg. [ID:GATE_LOCKED_01]
+if GameState.in_party("tinkerer")
+	tinkerer: [TEMP] Erst das Summen. Dann das Tor. [ID:GATE_LOCKED_02]
+=> END
+
+~ open
+[TEMP] Das Tor quietscht wie ein Kassettenrekorder beim Vorspulen. Dahinter liegt der Rest der Welt. [ID:GATE_OPEN_01]
+if GameState.is_recruited("cook") and not GameState.is_alive("cook")
+	[TEMP] An den Zaun hängst du die Pfanne. Jemand sollte sich erinnern. [ID:GATE_OPEN_02]
+	if GameState.is_alive("tinkerer") and GameState.is_recruited("tinkerer")
+		tinkerer: [TEMP] Die Pfanne gibt kein Signal mehr. Ich hab nachgemessen. Zweimal. [#mood=sad] [ID:GATE_OPEN_03]
+if GameState.is_recruited("tinkerer") and not GameState.is_alive("tinkerer")
+	[TEMP] Du legst eine Batterie auf den Torpfosten. Für alle, die zu viel wussten. [ID:GATE_OPEN_04]
+	if GameState.is_alive("cook") and GameState.is_recruited("cook")
+		cook: [TEMP] Ich koche heute nichts. Ich kann heute nicht. [#mood=sad] [ID:GATE_OPEN_05]
+$> GameState.set_flag("area2_unlocked")
+$> GameState.unlock_area("area2")
+$> GameState.set_objective("OBJ_CHOOSE_AREA")
+=> END
+
+~ coming_soon
+[TEMP] Ein Schild. "Demnächst". Darunter, kleiner, "Wirklich. Bald." [ID:GATE_COMING_SOON_01]
+[TEMP] Hier endet die Alpha. Danke fürs Spielen! [ID:GATE_COMING_SOON_02]
+=> END

@@ -12,6 +12,12 @@ var _file := ""
 var _title := ""
 var _resource: DialogueResource = null
 var _session := 0
+## German comes straight from the .dialogue files (so edited German shows at once, even before
+## the translation sync ran). English comes from localization/dialogue.csv; a line id the CSV
+## doesn't know yet shows the German text with an "[EN?]" prefix instead of the raw id.
+var _de := Translation.new()
+var _en_missing := Translation.new()
+var _registered: Dictionary = {}   # resource path -> true
 ## The balloon showing the current dialogue. Dialogue Manager puts it under the current scene,
 ## so a scene change frees it, and the runner then finishes the dialogue.
 var balloon: Node = null
@@ -19,6 +25,53 @@ var balloon: Node = null
 
 func _ready() -> void:
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
+	_de.locale = "de"
+	_en_missing.locale = "en"
+	TranslationServer.add_translation(_de)
+	TranslationServer.add_translation(_en_missing)
+	for path in dialogue_files("res://dialogue"):
+		register_source_text(load(path) as DialogueResource)
+
+
+## Every .dialogue file under a folder (also in exported builds, where files carry .remap/.import).
+static func dialogue_files(dir_path: String) -> PackedStringArray:
+	var found := PackedStringArray()
+	var dir := DirAccess.open(dir_path)
+	if dir == null:
+		return found
+	for sub in dir.get_directories():
+		found.append_array(dialogue_files(dir_path.path_join(sub)))
+	for file in dir.get_files():
+		var name := file.trim_suffix(".remap").trim_suffix(".import")
+		if name.ends_with(".dialogue") and not found.has(dir_path.path_join(name)):
+			found.append(dir_path.path_join(name))
+	return found
+
+
+## Makes the German text of every line in this dialogue the "de" translation of its line id.
+## Called for every dialogue the runner loads; the dialogue tester and tests call it directly.
+func register_source_text(resource: DialogueResource) -> void:
+	if resource == null or _registered.has(resource.resource_path):
+		return
+	if not resource.resource_path.is_empty():
+		_registered[resource.resource_path] = true
+	var english := _english_translation()
+	for line: Dictionary in resource.lines.values():
+		var id := str(line.get("static_id", ""))
+		if id.is_empty() or not line.has("text"):
+			continue
+		var text := str(line.text)
+		for context in ["", "dialogue"]:
+			_de.add_message(id, text, context)
+		if english == null or str(english.get_message(id)).is_empty():
+			for context in ["", "dialogue"]:
+				_en_missing.add_message(id, "[EN?] " + text, context)
+
+
+## The imported English dialogue table (compiled translations can't list their keys, only look them up).
+func _english_translation() -> Translation:
+	var path := "res://localization/dialogue.en.translation"
+	return load(path) as Translation if ResourceLoader.exists(path) else null
 
 
 ## Plays a cue ("title") from a .dialogue file, e.g. start("res://dialogue/area1/cook.dialogue", "first_meet").
@@ -60,6 +113,7 @@ func _load_resource(file: String, title: String) -> DialogueResource:
 	if resource == null:
 		push_warning("DialogueRunner: %s is not a dialogue file" % file)
 		return null
+	register_source_text(resource)
 	if not resource.get_cues().has(title):
 		push_warning("DialogueRunner: %s has no cue \"%s\"" % [file, title])
 		return null
@@ -67,7 +121,7 @@ func _load_resource(file: String, title: String) -> DialogueResource:
 
 
 func _missing_text_resource(file: String, title: String) -> DialogueResource:
-	var line := "System: [TEMP] Kein Text: %s : %s" % [file.trim_prefix("res://"), title]
+	var line := "system: " + tr("DLG_MISSING_TEXT") % [file.trim_prefix("res://"), title]
 	return DialogueManager.create_resource_from_text("~ start\n" + line + "\n=> END") as DialogueResource
 
 
