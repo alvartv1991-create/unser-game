@@ -47,13 +47,18 @@ func rebuild() -> void:
 			UiKit.button("UI_NEW_GAME", column, func() -> void: page = "jobs"; rebuild())
 			var load_button := UiKit.button("UI_LOAD", column, overlay_menu.bind("load"))
 			load_button.disabled = not SaveSystem.has_save(0) and not SaveSystem.has_save(1)
-			UiKit.button("UI_VISUAL_PREVIEW", column, func() -> void:
-				SceneRouter.go_to("res://scenes/levels/test_visual_street.tscn", "start"))
+			# The old street preview (one walkable screen) is only in F1 now: on the title it was
+			# easy to mistake for the game.
 			UiKit.button("UI_ART_GALLERY", column, func() -> void:
 				SceneRouter.go_to("res://scenes/ui/test_art_gallery.tscn"))
 			UiKit.button("UI_OPTIONS", column, overlay_menu.bind("options"))
 			UiKit.button("UI_QUIT", column, func() -> void: get_tree().quit())
 		"jobs": build_jobs(column)
+	# Shows which version is running, so testers can tell an old folder from the current main.
+	var build := UiKit.label(tr("BUILD_LABEL"), body)
+	build.position = Vector2(8, 344)
+	build.add_theme_font_size_override("font_size", 10)
+	build.modulate.a = 0.7
 	UiKit.focus_first(body)
 
 func language(locale: String) -> void:
