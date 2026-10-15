@@ -26,7 +26,7 @@ func _ready() -> void:
 ## Story reactions only happen in the real Area 1 levels (scenes/levels/area*.tscn), never in
 ## test scenes, art previews or the dialogue tester, so automated tests and previews stay predictable.
 func in_story_level() -> bool:
-	return SceneRouter.current_scene_path.get_file().begins_with("area")
+	return SceneRouter.current_scene_path.contains("/levels/area")
 
 
 func _on_combat_finished(result: Dictionary) -> void:
@@ -73,7 +73,7 @@ func _on_device_glitch(_intensity: float, _duration: float) -> void:
 
 
 func _on_scene_changed(scene_path: String) -> void:
-	if scene_path.get_file().begins_with("area") and _cooled_down("enter_area", AREA_COOLDOWN):
+	if scene_path.contains("/levels/area") and _cooled_down("enter_area", AREA_COOLDOWN):
 		bark_from_party("enter_area")
 
 

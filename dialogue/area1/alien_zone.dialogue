@@ -1,6 +1,8 @@
 # [TEMP] The alien zone: the swarm, the dilemma and the cheat fight. Placeholder text, no alien lore.
 
 ~ enter
+$> AudioManager.play_music("music_alien_zone")
+$> AudioManager.play_ambience("amb_alien_hum")
 $> EventBus.device_glitch.emit(0.4, 1.5)
 [TEMP] Die Luft summt. Autos stehen herum, als hätte jemand sie vergessen. Manche nur noch zur Hälfte. [ID:ALIEN_ZONE_ENTER_01]
 if GameState.in_party("tinkerer")

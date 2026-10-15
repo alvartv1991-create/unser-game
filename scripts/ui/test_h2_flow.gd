@@ -58,8 +58,15 @@ func get_tree_safe_attach() -> void:
 		await EventBus.scene_changed
 		while SceneRouter.is_changing_scene():
 			await get_tree().process_frame
-		check(SceneRouter.current_scene_path.ends_with("test_visual_street.tscn"), "New game does not use the original street graphics")
+		check(SceneRouter.current_scene_path.ends_with("area1_bunker.tscn"), "New game does not start in the bunker")
 		await shot(locale + "_new_game_street")
+		# The intro dialogue starts in the bunker; close it so the movement checks below can run.
+		for i in 30:
+			await get_tree().process_frame
+		if is_instance_valid(DialogueRunner.balloon):
+			DialogueRunner.balloon.queue_free()
+		while DialogueRunner.is_running():
+			await get_tree().process_frame
 		GameState.new_game("doctor")
 		GameState.recruit("cook")
 		GameState.recruit("tinkerer")

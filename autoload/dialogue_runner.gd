@@ -80,9 +80,10 @@ func start(file: String, title: String = "start") -> void:
 		push_warning("DialogueRunner.start(%s, %s) ignored: a dialogue is already running" % [file, title])
 		return
 	_running = true
-	if SceneRouter.is_changing_scene():
-		# Wait for the new scene. Otherwise the balloon lands in the old scene and vanishes with it.
-		await EventBus.scene_changed
+	# Wait until a scene change is over. Otherwise the balloon lands in the old scene and vanishes
+	# with it. (Polling, because scene_changed may already have fired for the new scene.)
+	while SceneRouter.is_changing_scene():
+		await get_tree().process_frame
 	var resource := _load_resource(file, title)
 	var cue := title
 	if resource == null:
