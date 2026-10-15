@@ -39,13 +39,18 @@ func build() -> void:
 	rect(Rect2(400, 238, 70, 4), "ash")
 	rect(Rect2(412, 230, 18, 8), "slate")
 	light(Vector2(430, 250), Vector2i(120, 90), "orange", 0.12)
-	# The campfire in an oil drum, and the hatch to the street.
-	rect(Rect2(700, 120, 60, FLOOR_Y - 120), "outline")
-	rect(Rect2(704, 124, 52, FLOOR_Y - 124), "concrete")
-	rect(Rect2(728, 150, 4, 90), "slate")
+	# The way out: a ladder up to the hatch, against the right wall, with a lit exit sign.
+	rect(Rect2(744, 150, 52, FLOOR_Y - 150), "outline")
+	rect(Rect2(748, 154, 44, FLOOR_Y - 154), "concrete")
+	for y in range(166, int(FLOOR_Y), 16):
+		rect(Rect2(756, y, 28, 3), "ash")
+	rect(Rect2(756, 154, 3, FLOOR_Y - 154), "ash")
+	rect(Rect2(781, 154, 3, FLOOR_Y - 154), "ash")
+	sign_text(Vector2(736, 128), "AREA_SIGN_EXIT", 11, "pale_green", "outline")
+	light(Vector2(770, 134), Vector2i(90, 50), "pale_green", 0.18)
 
 	spawn("start", 100)
-	spawn("from_vorstadt", 690)
+	spawn("from_vorstadt", 720)
 
 	var cook_first := talk("CookFirstMeet", 450, COOK, "first_meet", "cook")
 	cook_first.hidden_if_flag = "cook_met"
@@ -58,8 +63,8 @@ func build() -> void:
 	fire.after_title = "campfire"
 	light(Vector2(580, 266), Vector2i(140, 90), "orange", 0.16)
 
-	examine("BunkerDoor", 650, "bunker_door")
-	var hatch := thing("Hatch", 730, "Door")
+	examine("BunkerDoor", 660, "bunker_door")
+	var hatch := thing("Hatch", 772, "Door")
 	hatch.destination = STREET
 	hatch.spawn_id = "from_bunker"
 
