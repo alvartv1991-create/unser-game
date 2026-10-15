@@ -150,7 +150,7 @@ Both agents use these ids exactly. If you add a new id, list it in your handoff 
 
 **Audio:** `music_title`, `music_area1`, `music_combat`, `music_alien_zone`, `amb_wind`, `amb_alien_hum`, `sfx_jump`, `sfx_land`, `sfx_pickup`, `sfx_hit`, `sfx_heal`, `sfx_ko`, `sfx_death`, `sfx_sword_break`, `sfx_glitch`, `sfx_phone_ring`, `sfx_snatch`, `sfx_cheat`, `sfx_ui_click`, `sfx_ui_confirm`
 
-**Data files:** `data/rules.json`, `protagonist.json`, `jobs.json`, `skills.json`, `items.json`, `companions.json`, `enemies.json`, `encounters.json`, `cheats.json`, `combat_text.json`, `speakers.json`, `barks.json`, `audio.json`
+**Data files:** `data/rules.json`, `protagonist.json`, `jobs.json`, `skills.json`, `items.json`, `companions.json`, `enemies.json`, `encounters.json`, `cheats.json`, `talk.json`, `combat_text.json`, `speakers.json`, `barks.json`, `audio.json`
 **Localization files:** `localization/ui.csv`, `combat.csv`, `story.csv`, `dialogue.csv`
 
 ## Not in the alpha

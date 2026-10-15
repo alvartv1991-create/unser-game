@@ -129,6 +129,7 @@ func in_party(companion_id: String) -> bool
 func add_item(id: String, count: int = 1) -> void
 func remove_item(id: String, count: int = 1) -> bool
 func has_item(id: String, count: int = 1) -> bool
+func equip_weapon(item_id: String) -> bool  # must be in the inventory ("fists" always works); the equipped weapon is always an inventory item
 func set_objective(key: String) -> void
 func unlock_area(area_id: String) -> void
 func rest() -> void           # full heal for everyone; if "cook" is in the party, sets flag "well_fed" (combat may use it)
@@ -154,13 +155,16 @@ var current_scene_path: String
 var last_spawn_id: String
 func go_to(scene_path: String, spawn_id: String = "") -> void   # fades, puts the player at the SpawnPoint with that id, emits scene_changed
 func start_combat(encounter_id: String) -> void
+func is_in_combat() -> bool
+func is_changing_scene() -> bool
+func is_debug_menu_open() -> bool
 # The level stays loaded but is paused and hidden under the combat scene, then resumes afterwards.
 # If called while a dialogue is running, the combat starts once the dialogue ends.
 ```
 Scene hooks used by SceneRouter. Each one is optional, and a placeholder is used until it exists:
 - `res://scenes/ui/title.tscn` (Codex): boot goes here.
 - `res://scenes/ui/global_ui.tscn` (Codex): instantiated **once** at startup as a persistent overlay that survives scene changes. Put the HUD, pause menu, toasts and the F3 debug overlay here.
-- `res://scenes/combat/combat.tscn` (Claude): the root must have `func start(encounter_id: String)` and must emit `EventBus.combat_finished` when it's done. SceneRouter then frees it. Use a CanvasLayer root so level cameras don't affect it.
+- `res://scenes/combat/combat.tscn` (Claude): the root must have `func start(encounter_id: String)` and must emit `EventBus.combat_finished` when it's done. SceneRouter then frees it. Use a CanvasLayer root so level cameras don't affect it. Test hooks: `CombatScreen.force_autopilot = true` makes every fight play itself, `CombatScreen.force_speed = 0.0` removes all pauses (for automated walkthroughs).
 - Spawning: the player is in the group `player`. SpawnPoints are in the group `spawn_points` and have `@export var spawn_id: String`.
 - F1 (the debug menu) is handled globally by SceneRouter.
 
