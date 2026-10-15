@@ -78,11 +78,54 @@ func refresh_hud() -> void:
 	UiKit.clear(hud)
 	if GameState.player.is_empty():
 		return
-	add_health(hud, GameState.player_name(), GameState.player)
+	var cards := HBoxContainer.new()
+	cards.add_theme_constant_override("separation", 5)
+	hud.add_child(cards)
+	add_hud_card(cards, "player", GameState.player_name(), GameState.player)
 	for id in GameState.party:
-		add_health(hud, Data.text(Data.companion(id).name), GameState.companions[id])
+		add_hud_card(cards, id, Data.text(Data.companion(id).name), GameState.companions[id])
 	if GameState.objective != "":
 		UiKit.label(tr(GameState.objective), hud, true)
+
+func add_hud_card(parent: Node, art_id: String, display_name: String, state: Dictionary) -> void:
+	var panel := PanelContainer.new()
+	panel.custom_minimum_size = Vector2(169, 48)
+	panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	parent.add_child(panel)
+	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", 6)
+	panel.add_child(row)
+	var portrait := TextureRect.new()
+	portrait.custom_minimum_size = Vector2(32, 32)
+	portrait.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	portrait.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	var portrait_path := "res://assets/portraits/%s.png" % art_id
+	var frames_path := "res://assets/sprites/characters/%s.tres" % art_id
+	if ResourceLoader.exists(portrait_path):
+		portrait.texture = load(portrait_path)
+	elif ResourceLoader.exists(frames_path):
+		var frames := load(frames_path) as SpriteFrames
+		if frames.has_animation("idle") and frames.get_frame_count("idle") > 0:
+			portrait.texture = frames.get_frame_texture("idle", 0)
+	else:
+		portrait.texture = load("res://assets/ui/heart.png")
+	row.add_child(portrait)
+	var column := VBoxContainer.new()
+	column.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	column.add_theme_constant_override("separation", 1)
+	row.add_child(column)
+	var caption := UiKit.label(display_name, column)
+	caption.add_theme_font_size_override("font_size", 11)
+	caption.custom_minimum_size.x = 110
+	caption.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	var bar := ProgressBar.new()
+	bar.custom_minimum_size = Vector2(110, 6)
+	bar.max_value = state.max_hp
+	bar.value = state.hp
+	bar.show_percentage = false
+	column.add_child(bar)
+	var hp_caption := UiKit.label("%d / %d" % [state.hp, state.max_hp], column)
+	hp_caption.add_theme_font_size_override("font_size", 10)
 
 func add_health(parent: Node, display_name: String, state: Dictionary) -> void:
 	var row := HBoxContainer.new()

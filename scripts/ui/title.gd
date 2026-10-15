@@ -42,6 +42,8 @@ func rebuild() -> void:
 			UiKit.button("UI_NEW_GAME", column, func() -> void: page = "jobs"; rebuild())
 			var load_button := UiKit.button("UI_LOAD", column, overlay_menu.bind("load"))
 			load_button.disabled = not SaveSystem.has_save(0) and not SaveSystem.has_save(1)
+			UiKit.button("UI_VISUAL_PREVIEW", column, func() -> void:
+				SceneRouter.go_to("res://scenes/levels/test_visual_street.tscn", "start"))
 			UiKit.button("UI_OPTIONS", column, overlay_menu.bind("options"))
 			UiKit.button("UI_QUIT", column, func() -> void: get_tree().quit())
 		"jobs": build_jobs(column)

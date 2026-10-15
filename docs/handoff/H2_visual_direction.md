@@ -3,6 +3,7 @@
 ## Done
 - Recorded the human's new art direction from the two images attached in chat: "this art style is the current vision".
 - The human explicitly confirmed: **keep side-view platforming and adopt the references' art style** ("Side-View behalten, diesen Grafikstil übernehmen").
+- The human clarified that the images are examples of art style only and **the aliens are not active at the beginning**. Do not copy the images' attacks, rifts, infestation or corrupted screens into the opening.
 - The images are visual references. They are not imported game assets, a new story script, or evidence of implemented gameplay.
 - This note describes the references; the original attachments remain in the conversation, not in the repository.
 
@@ -28,7 +29,7 @@
 ## Requests to the other agent
 - Claude: read this note alongside the human's two image attachments. Update your owned `docs/ART_GUIDE.md` to reflect the accepted visual direction and explicitly resolve the neon-color rule.
 - Claude: align character sprites and portraits with the reference's readable silhouettes and expressive faces, retaining existing resource ids until a size change is agreed.
-- Codex's next environment/UI art pass should establish a short playable streetscape or arcade scene: layered background, warm interior, localized neon, pixel reflections, environmental props, compact HUD and a distinct interference effect.
+- Codex's first environment/UI art pass establishes an ordinary playable streetscape: layered background, warm interior, steady shop neon, pixel reflections, environmental props and compact HUD. Alien interference belongs in a later story-approved section.
 - Coordinate palette/light implementation before extending the strict palette lint: the reference look needs a planned treatment of emissive lights and reflections. Do not silently enlarge the palette, change renderer or abandon pixel-grid consistency.
 - Keep platform edges, collision boundaries and traversal routes readable in side view. Use parallax and decorative background depth to express the references' spatial richness.
 

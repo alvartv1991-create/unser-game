@@ -63,3 +63,8 @@ UI_LAB_PLATFORMS,SPRÜNGE / EINWEG-PLATTFORMEN,JUMPS / ONE-WAY PLATFORMS
 UI_LAB_DEVICES,STÖRUNGEN / 80ER-GERÄTE,INTERFERENCE / 80s DEVICES
 UI_LAB_HINT,F1: Gruppe vorbereiten · F3: Status · Im Dialog Flag setzen öffnet das Tor,F1: prepare party · F3: status · Setting the flag in dialogue opens the gate
 
+UI_VISUAL_PREVIEW,Grafikvorschau · 80er-Straße,Art preview · 80s street
+UI_STREET_CONTROLS,A/D: laufen · Leertaste: springen · Esc: Menü,A/D: move · Space: jump · Esc: menu
+UI_STREET_ARCADE,[TEMP] SPIELHALLE,[TEMP] ARCADE
+UI_STREET_CAFE,[TEMP] CAFÉ,[TEMP] CAFÉ
+UI_STREET_OPEN,OFFEN,OPEN
