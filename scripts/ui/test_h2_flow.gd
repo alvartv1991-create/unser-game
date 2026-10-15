@@ -126,12 +126,29 @@ func get_tree_safe_attach() -> void:
 		EventBus.combat_finished.emit({"encounter_id": "raiders_street", "outcome": "win", "loot": {}, "died": []})
 		await frames()
 		check(not SceneRouter.is_in_combat(), "Combat did not return to level")
+		var story := get_tree().current_scene.get_node("Story") as WorldInteractable
+		story.activate()
+		await frames()
+		check(DialogueRunner.is_running(), "Story trigger did not start dialogue")
+		check(not story.available(), "Story trigger was not remembered")
+		if is_instance_valid(DialogueRunner.balloon):
+			DialogueRunner.balloon.queue_free()
+		await frames()
+		GameState.set_flag("hello_flag")
+		var gate := get_tree().current_scene.get_node("Gate") as WorldInteractable
+		gate.activate()
+		await get_tree().create_timer(0.65).timeout
+		check(SceneRouter.current_scene_path.ends_with("test_side_room.tscn"), "Unlocked gate did not travel")
 		await SceneRouter.go_to("res://scenes/levels/test_side_room.tscn", "start")
 		await shot(locale + "_room")
 		await SceneRouter.go_to("res://scenes/levels/test_platforming.tscn", "from_room")
 		player = get_tree().get_first_node_in_group("player") as WorldPlayer
 		check(absf(player.position.x - 580) < 1, "Return spawn is wrong")
 		check(get_tree().get_nodes_in_group("global_ui").size() == 1, "Overlay duplicated")
+		player.position = Vector2(1820, 304)
+		await get_tree().create_timer(0.7).timeout
+		check(SceneRouter.current_scene_path.ends_with("test_side_room.tscn"), "Secret passage did not open on touch")
+		check(GameState.get_flag("picked_test_platforming_secret", false), "Secret discovery was not recorded")
 	# This test does not save language or settings.
 	check(overlay.settings.encode_to_text() == original_settings, "QA changed settings")
 	print("H2 flow: %d failures" % failures.size())
