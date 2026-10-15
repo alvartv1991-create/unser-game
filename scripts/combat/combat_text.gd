@@ -24,13 +24,13 @@ static func params(event: Dictionary, state: CombatState) -> Dictionary:
 	var result := {}
 	for key in ["actor", "target"]:
 		var f := state.fighter(str(event.get(key, "")))
-		result[key] = f.display_name() if f else ""
+		result[key] = f.short_name() if f else ""
 	result.amount = event.get("amount", 0)
 	result.turns = event.get("turns", 0)
 	if event.has("item"):
-		result.item = Data.text(Data.item(str(event.item)).name)
+		result.item = Data.text(Data.item(str(event.item)).name).replace("[TEMP] ", "")
 	if event.has("weapon"):
-		result.weapon = Data.text(Data.item(str(event.weapon)).name)
+		result.weapon = Data.text(Data.item(str(event.weapon)).name).replace("[TEMP] ", "")
 	if event.has("approach"):
 		result.approach = Data.text(Data.all("talk").get(str(event.approach), {}).get("name", ""))
 	return result

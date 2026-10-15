@@ -165,6 +165,10 @@ func perform(action: CombatAction) -> void:
 	if is_over():
 		return
 	var actor := fighter(action.actor_id)
+	if action.type == CombatAction.Type.CHEAT_CODE:
+		# A typed code works at any moment, whoever's turn it is.
+		_end_by_cheat("cheat_code", actor)
+		return
 	if actor == null or not actor.can_act():
 		return
 	var target := fighter(action.target_id)
@@ -185,8 +189,6 @@ func perform(action: CombatAction) -> void:
 			_talk(actor, action.approach_id)
 		CombatAction.Type.FLEE:
 			_flee(actor)
-		CombatAction.Type.CHEAT_CODE:
-			_end_by_cheat("cheat_code", actor)
 		CombatAction.Type.WAIT:
 			_event("swarm_idle" if actor.ai == "swarm" else "wait", {actor = actor.id})
 	_check_end()
@@ -453,7 +455,7 @@ func _flee(actor: Combatant) -> void:
 
 func _end_by_cheat(kind: String, actor: Combatant) -> void:
 	outcome = "cheat"
-	_event(kind, {actor = actor.id})
+	_event(kind, {actor = actor.id if actor else ""})
 
 
 func _first_opponent(actor: Combatant) -> Combatant:

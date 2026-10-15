@@ -59,6 +59,12 @@ func display_name() -> String:
 	return Data.text(name_text) + suffix
 
 
+## For the crowded combat screen and log lines: the name without the "[TEMP] " marker
+## (the data and the log template still carry it, so nothing is hidden from the humans).
+func short_name() -> String:
+	return display_name().trim_prefix("[TEMP] ")
+
+
 func is_enemy() -> bool:
 	return side == ENEMY
 
