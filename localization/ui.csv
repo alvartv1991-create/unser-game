@@ -1,2 +1,65 @@
 keys,de,en
-UI_EXAMPLE,Beispiel,Example
+UI_TITLE,[TEMP] Unser Game,[TEMP] Our Game
+UI_SUBTITLE,PLATFORMER / ALPHA-LABOR,PLATFORMER / ALPHA LAB
+UI_NEW_GAME,Neues Spiel,New game
+UI_LOAD,Laden,Load
+UI_OPTIONS,Optionen,Options
+UI_QUIT,Beenden,Quit
+UI_DE,Deutsch,Deutsch
+UI_EN,English,English
+UI_JOBS,Was warst du vorher?,What did you do before?
+UI_START,Los geht's,Let's go
+UI_BACK,Zurück,Back
+UI_PAUSE,Pause,Paused
+UI_RESUME,Weiter,Resume
+UI_INVENTORY,Inventar,Inventory
+UI_PARTY,Gruppe,Party
+UI_MAIN_MENU,Hauptmenü,Main menu
+UI_BUS_MASTER,Gesamtlautstärke,Master volume
+UI_BUS_MUSIC,Musik,Music
+UI_BUS_SFX,Geräusche,Sound effects
+UI_BUS_AMBIENCE,Umgebung,Ambience
+UI_FULLSCREEN,Vollbild,Fullscreen
+UI_REDUCE_EFFECTS,Effekte reduzieren,Reduce effects
+UI_STAT_INT,Intelligenz,Intelligence
+UI_STAT_STR,Stärke,Strength
+UI_STAT_END,Ausdauer,Endurance
+UI_STAT_KNO,Wissen,Knowledge
+UI_EMPTY,Leer,Empty
+UI_HEAL,%s heilen,Heal %s
+UI_MEMORY,In Erinnerung: %s,In memory: %s
+UI_DEATH_COMBAT,Im Kampf gestorben.,Died in combat.
+UI_DEATH_STORY,Durch eine Entscheidung gestorben.,Died following a decision.
+UI_SLOT,Spielstand %d,Save slot %d
+UI_LOAD_FAILED,Laden fehlgeschlagen.,Could not load save.
+UI_SAVED,Ausgeruht und gespeichert.,Rested and saved.
+UI_SAVE_UNAVAILABLE,Ausgeruht. Speichern ist erst ab H4 verfügbar.,Rested. Saving becomes available in H4.
+UI_SETTINGS_FAILED,Einstellungen konnten nicht gespeichert werden.,Could not save settings.
+UI_ITEM_CHANGED,%s: %d im Inventar,%s: %d in inventory
+UI_RECRUITED,%s ist dabei.,%s joined you.
+UI_DIED,%s ist gestorben.,%s has died.
+UI_AREA_UNLOCKED,Neues Gebiet freigeschaltet.,New area unlocked.
+UI_DEBUG,"DEBUG · Moral: %s\nGruppe: %s\nInventar: %s\nFlags: %s","DEBUG · Moral: %s\nParty: %s\nInventory: %s\nFlags: %s"
+UI_INTERACT,[E / X] %s,[E / X] %s
+UI_ACTION_TALK,Reden,Talk
+UI_ACTION_EXAMINE,Ansehen,Examine
+UI_ACTION_PICKUP,Aufheben,Pick up
+UI_ACTION_DOOR,Eintreten,Enter
+UI_ACTION_CAMPFIRE,Rasten,Rest
+UI_ACTION_GLITCHDEVICE,Untersuchen,Inspect
+UI_ACTION_GATE,Tor öffnen,Open gate
+UI_LAB_CONTROLS,A/D: laufen · Leertaste: springen · S+Sprung: durchfallen · E: benutzen · Esc: Menü,A/D: move · Space: jump · S+jump: drop · E: use · Esc: menu
+UI_LAB_TITLE,BEWEGUNG & INTERAKTIONEN,MOVEMENT & INTERACTIONS
+UI_LAB_TALK,Dialog / Tor-Schalter,Dialogue / gate switch
+UI_LAB_PICKUP,Verband,Bandage
+UI_LAB_REST,Rastplatz,Rest point
+UI_LAB_DOOR,Nebenraum,Side room
+UI_LAB_COMBAT,Kampf-Test,Combat test
+UI_LAB_STORY,Automatischer Dialog,Automatic dialogue
+UI_LAB_GATE,Tor: hello_flag,Gate: hello_flag
+UI_LAB_SECRET,Geheimer Durchgang,Secret passage
+UI_LAB_ROOM,Nebenraum · E: zurück,Side room · E: return
+UI_LAB_PLATFORMS,SPRÜNGE / EINWEG-PLATTFORMEN,JUMPS / ONE-WAY PLATFORMS
+UI_LAB_DEVICES,STÖRUNGEN / 80ER-GERÄTE,INTERFERENCE / 80s DEVICES
+UI_LAB_HINT,F1: Gruppe vorbereiten · F3: Status · Im Dialog Flag setzen öffnet das Tor,F1: prepare party · F3: status · Setting the flag in dialogue opens the gate
+
