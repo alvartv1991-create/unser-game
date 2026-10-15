@@ -1,0 +1,8 @@
+{
+	"_note": "Cheat codes hidden in the world. A code only works in encounters that list it. Inputs: up, down, left, right.",
+	"konami": {
+		"name": {"de": "Der Code vom Poster", "en": "The code from the poster"},
+		"sequence": ["up", "up", "down", "down", "left", "right", "left", "right"],
+		"hint": "dialogue/examine.dialogue:cheat_poster"
+	}
+}

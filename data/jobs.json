@@ -1,0 +1,63 @@
+{
+	"_note": "Former jobs = classes. Up to 10 jobs are planned; add new ones here. Stats go from 1 to 10. Explained in data/README.md.",
+	"doctor": {
+		"name": {"de": "Arzt/Ärztin", "en": "Doctor"},
+		"description": {
+			"de": "[TEMP] Hat Menschen zusammengeflickt, als es noch Krankenkassen gab. Heilt gut, hält wenig aus.",
+			"en": "[TEMP] Patched people up back when there was still health insurance. Heals well, can't take much."
+		},
+		"stats": {"int": 8, "str": 3, "end": 4, "kno": 6},
+		"skill": "first_aid",
+		"start_weapon": "fists",
+		"start_items": {"bandage": 2},
+		"perks": {"healing_item_bonus": 0.5}
+	},
+	"craftsman": {
+		"name": {"de": "Handwerker/in", "en": "Craftsman"},
+		"description": {
+			"de": "[TEMP] Kann alles reparieren außer der Welt. Stark und zäh, liest aber keine Anleitungen.",
+			"en": "[TEMP] Can fix anything except the world. Strong and tough, but never reads the manual."
+		},
+		"stats": {"int": 3, "str": 8, "end": 7, "kno": 3},
+		"skill": "barricade",
+		"start_weapon": "crowbar",
+		"start_items": {"scrap": 2},
+		"perks": {}
+	},
+	"police": {
+		"name": {"de": "Polizist/in", "en": "Police officer"},
+		"description": {
+			"de": "[TEMP] Die Dienstmarke beeindruckt nur noch Menschen, nicht Aliens. Gut im Einschüchtern.",
+			"en": "[TEMP] The badge still impresses people, just not aliens. Good at intimidating."
+		},
+		"stats": {"int": 5, "str": 6, "end": 6, "kno": 4},
+		"skill": "arrest",
+		"start_weapon": "fists",
+		"start_items": {"bandage": 1},
+		"perks": {"talk_bonus_intimidate": 15}
+	},
+	"scientist": {
+		"name": {"de": "Wissenschaftler/in", "en": "Scientist"},
+		"description": {
+			"de": "[TEMP] Versteht die Signale schneller als alle anderen. Trägt schwer an der eigenen Tasche.",
+			"en": "[TEMP] Understands the signals faster than anyone. Struggles to carry their own bag."
+		},
+		"stats": {"int": 7, "str": 2, "end": 3, "kno": 9},
+		"skill": "analyze",
+		"start_weapon": "fists",
+		"start_items": {"bandage": 1},
+		"perks": {"glitch_insight": true}
+	},
+	"civil_servant": {
+		"name": {"de": "Beamter/Beamtin", "en": "Civil servant"},
+		"description": {
+			"de": "[TEMP] Die schlechteste Klasse im Spiel. Absichtlich. Hat einen Stempel.",
+			"en": "[TEMP] The worst class in the game. On purpose. Has a rubber stamp."
+		},
+		"stats": {"int": 2, "str": 2, "end": 3, "kno": 2},
+		"skill": "file_form",
+		"start_weapon": "fists",
+		"start_items": {},
+		"perks": {}
+	}
+}

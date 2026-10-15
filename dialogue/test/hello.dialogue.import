@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://u1583vwsamf2"
+path="res://.godot/imported/hello.dialogue-161d5d8a64d2e29e90405a867ece739b.tres"
+
+[deps]
+
+source_file="res://dialogue/test/hello.dialogue"
+dest_files=["res://.godot/imported/hello.dialogue-161d5d8a64d2e29e90405a867ece739b.tres"]
+
+[params]
+
+defaults=true

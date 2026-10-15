@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://b4in4b1375uu6"
+
+[deps]
+
+files=["res://localization/combat.de.translation", "res://localization/combat.en.translation"]
+
+source_file="res://localization/combat.csv"
+dest_files=["res://localization/combat.de.translation", "res://localization/combat.en.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

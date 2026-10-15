@@ -1,0 +1,23 @@
+# [TEMP] H0 test dialogue: proves that commands ($>), conditions and translations work.
+# Open the debug menu (F1) -> test_hello_dialogue to play it.
+
+~ start
+System: [TEMP] Hallo {{GameState.player_name()}}. Das ist ein Test.
+System: [TEMP] Diese Zeile kommt aus der Übersetzungstabelle. [ID:HELLO_TRANSLATION_TEST]
+System: [TEMP] Was willst du tun?
+- [TEMP] Einen Flag setzen
+	$> GameState.set_flag("hello_flag", true)
+	System: [TEMP] Flag "hello_flag" gesetzt.
+- [TEMP] Nett sein (+10 Moral)
+	$> GameState.add_moral(10)
+	System: [TEMP] Wie nett. Moral jetzt: {{GameState.moral}}.
+- [TEMP] Gemein sein (-10 Moral)
+	$> GameState.add_moral(-10)
+	System: [TEMP] Autsch. Moral jetzt: {{GameState.moral}}.
+- [TEMP] Als Arzt: Puls fühlen [if GameState.job_is("doctor") /]
+	System: [TEMP] Puls ist da. Glückwunsch.
+- [TEMP] Umarmen (nur bei hoher Moral sichtbar) [if GameState.moral_is("high") /]
+	System: [TEMP] Das hat gutgetan.
+- [TEMP] Tschüss
+	System: [TEMP] Bis dann.
+=> END

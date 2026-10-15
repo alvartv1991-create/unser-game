@@ -1,0 +1,57 @@
+{
+	"_note": "Skills of jobs and companions. H1 (combat) defines what each 'effect' does. Explained in data/README.md.",
+	"first_aid": {
+		"name": {"de": "Erste Hilfe", "en": "First Aid"},
+		"description": {"de": "[TEMP] Heilt eine Person um 6 + Intelligenz. Holt Leute vom Boden hoch.", "en": "[TEMP] Heals one person for 6 + intelligence. Gets people back on their feet."},
+		"target": "ally",
+		"effect": "heal",
+		"power": 6,
+		"scales_with": "int",
+		"revives": true
+	},
+	"barricade": {
+		"name": {"de": "Barrikade", "en": "Barricade"},
+		"description": {"de": "[TEMP] Die Gruppe nimmt eine Runde lang nur halben Schaden.", "en": "[TEMP] The party takes half damage for one round."},
+		"target": "all_allies",
+		"effect": "damage_reduction",
+		"power": 50,
+		"duration": 1
+	},
+	"arrest": {
+		"name": {"de": "Festnehmen", "en": "Arrest"},
+		"description": {"de": "[TEMP] Ein Mensch setzt eine Runde aus. Bei Aliens zwecklos.", "en": "[TEMP] One human skips a turn. Useless against aliens."},
+		"target": "enemy",
+		"effect": "stun",
+		"duration": 1,
+		"only_vs": "human"
+	},
+	"analyze": {
+		"name": {"de": "Analysieren", "en": "Analyze"},
+		"description": {"de": "[TEMP] Findet eine Schwäche: +30 % Schaden gegen das Ziel für 3 Runden.", "en": "[TEMP] Finds a weakness: +30% damage against the target for 3 turns."},
+		"target": "enemy",
+		"effect": "analyze",
+		"power": 30,
+		"duration": 3
+	},
+	"file_form": {
+		"name": {"de": "Formular einreichen", "en": "File a Form"},
+		"description": {"de": "[TEMP] Es passiert nichts. Bearbeitungszeit: 6–8 Wochen.", "en": "[TEMP] Nothing happens. Processing time: 6–8 weeks."},
+		"target": "none",
+		"effect": "nothing"
+	},
+	"emergency_ration": {
+		"name": {"de": "Notration", "en": "Emergency Ration"},
+		"description": {"de": "[TEMP] Heilt die ganze Gruppe um 5. Schmeckt nach Bunker.", "en": "[TEMP] Heals the whole party for 5. Tastes like bunker."},
+		"target": "all_allies",
+		"effect": "heal",
+		"power": 5,
+		"revives": true
+	},
+	"send_signal": {
+		"name": {"de": "Signal senden", "en": "Send Signal"},
+		"description": {"de": "[TEMP] Funkt die Aliens in ihrer eigenen Sprache an. Nur gegen Aliens.", "en": "[TEMP] Radios the aliens in their own language. Only against aliens."},
+		"target": "all_enemies",
+		"effect": "cheat",
+		"only_vs": "alien"
+	}
+}

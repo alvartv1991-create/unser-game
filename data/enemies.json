@@ -1,0 +1,39 @@
+{
+	"_note": "kind: human, alien or animal. resolve = how hard to talk them down (percent). Explained in data/README.md.",
+	"raider_scavenger": {
+		"name": {"de": "[TEMP] Plünderer", "en": "[TEMP] Scavenger"},
+		"kind": "human",
+		"hp": 18,
+		"power": 3,
+		"resolve": 0,
+		"flee_below": 0.3,
+		"finishes_downed": 0.0,
+		"talkable": true,
+		"ai": "scavenger",
+		"art_id": "raider_scavenger"
+	},
+	"raider_brute": {
+		"name": {"de": "[TEMP] Schläger", "en": "[TEMP] Brute"},
+		"kind": "human",
+		"hp": 34,
+		"power": 6,
+		"resolve": 25,
+		"flee_below": 0.0,
+		"finishes_downed": 0.3,
+		"talkable": true,
+		"ai": "brute",
+		"art_id": "raider_brute"
+	},
+	"alien_swarm": {
+		"name": {"de": "Der Schwarm", "en": "The Swarm"},
+		"kind": "alien",
+		"hp": 9999,
+		"power": 12,
+		"invulnerable": true,
+		"attack_every": 2,
+		"attack_all": true,
+		"talkable": false,
+		"ai": "swarm",
+		"art_id": "alien_swarm"
+	}
+}

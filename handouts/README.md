@@ -29,7 +29,10 @@ Two agents must never work in the same folder. When H0 is done, run this in Powe
 ```powershell
 cd "C:\Users\marco\Desktop\Unser Game"
 git worktree add "..\Unser Game - codex" -b codex/h2-world-ui
+cd "..\Unser Game - codex"
+& "C:\Users\marco\Desktop\Random Thing\.tools\godot\Godot_v4.7.2-stable_win64_console.exe" --headless --path . --import
 ```
+The last line prepares Godot's cache in the new folder (takes a few seconds).
 - Claude works in `Unser Game`.
 - Codex works in `Unser Game - codex` (open Codex in that folder).
 - For Codex's next handout, inside its folder, after the merge: `git switch -c codex/h4-area1-fx-audio-save main`

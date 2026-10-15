@@ -1,0 +1,19 @@
+{
+	"_note": "All companions, recruited or not. The roster holds up to 4 (rules.json). Names are [TEMP]: the humans decide the real characters.",
+	"cook": {
+		"name": {"de": "[TEMP] Koch/Köchin", "en": "[TEMP] Cook"},
+		"role": {"de": "[TEMP] Hat im Bunker überlebt, weil er/sie als Einzige/r Konserven öffnen konnte.", "en": "[TEMP] Survived in the bunker as the only one who could open cans."},
+		"stats": {"int": 4, "str": 5, "end": 6, "kno": 4},
+		"skills": ["emergency_ration"],
+		"weapon": "fists",
+		"art_id": "cook"
+	},
+	"tinkerer": {
+		"name": {"de": "[TEMP] Bastler/in", "en": "[TEMP] Tinkerer"},
+		"role": {"de": "[TEMP] Funkamateur/in, der/die als Erste/r gemerkt hat, dass die Satelliten zurückfunken.", "en": "[TEMP] Ham-radio nerd who was first to notice the satellites talking back."},
+		"stats": {"int": 7, "str": 3, "end": 4, "kno": 8},
+		"skills": ["send_signal"],
+		"weapon": "fists",
+		"art_id": "tinkerer"
+	}
+}

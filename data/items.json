@@ -1,0 +1,50 @@
+{
+	"_note": "type: weapon, consumable, material or key. durability -1 = never breaks. Explained in data/README.md.",
+	"fists": {
+		"name": {"de": "Fäuste", "en": "Fists"},
+		"description": {"de": "[TEMP] Immer dabei.", "en": "[TEMP] Always with you."},
+		"type": "weapon",
+		"power": 2,
+		"durability": -1,
+		"hidden": true
+	},
+	"crowbar": {
+		"name": {"de": "Brechstange", "en": "Crowbar"},
+		"description": {"de": "[TEMP] Öffnet Türen und Diskussionen.", "en": "[TEMP] Opens doors and discussions."},
+		"type": "weapon",
+		"power": 4,
+		"durability": -1
+	},
+	"holy_sword": {
+		"name": {"de": "Heiliges Schwert von [TEMP]", "en": "Holy Sword of [TEMP]"},
+		"description": {"de": "[TEMP] Das stärkste Schwert der Welt. Steht auf der Packung.", "en": "[TEMP] The strongest sword in the world. It says so on the box."},
+		"type": "weapon",
+		"power": 15,
+		"durability": 1
+	},
+	"bandage": {
+		"name": {"de": "Verband", "en": "Bandage"},
+		"description": {"de": "[TEMP] Heilt 10. Holt Leute vom Boden hoch.", "en": "[TEMP] Heals 10. Gets people back on their feet."},
+		"type": "consumable",
+		"heal": 10,
+		"revives": true
+	},
+	"canned_food": {
+		"name": {"de": "Ravioli-Dose", "en": "Can of Ravioli"},
+		"description": {"de": "[TEMP] Heilt 6. Auch als Bestechung beliebt.", "en": "[TEMP] Heals 6. Also popular as a bribe."},
+		"type": "consumable",
+		"heal": 6,
+		"tags": ["bribe", "cook_bonus"]
+	},
+	"scrap": {
+		"name": {"de": "Schrott", "en": "Scrap"},
+		"description": {"de": "[TEMP] Könnte mal was werden.", "en": "[TEMP] Could become something someday."},
+		"type": "material"
+	},
+	"jammer": {
+		"name": {"de": "Störsender", "en": "Jammer"},
+		"description": {"de": "[TEMP] Selbstgebaut aus einem Radiowecker. Die Aliens hassen ihn. Vielleicht.", "en": "[TEMP] Home-made from a clock radio. The aliens hate it. Maybe."},
+		"type": "key",
+		"tags": ["alien_signal"]
+	}
+}

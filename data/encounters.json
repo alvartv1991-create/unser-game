@@ -1,0 +1,27 @@
+{
+	"_note": "Fights. party: 'active' = the active party fights, 'all' = every recruited, living companion fights. Explained in data/README.md.",
+	"raiders_street": {
+		"enemies": ["raider_scavenger", "raider_scavenger"],
+		"party": "active",
+		"can_flee": true,
+		"music": "music_combat",
+		"cheats": [],
+		"loot": {"canned_food": 1}
+	},
+	"raiders_camp": {
+		"enemies": ["raider_brute", "raider_scavenger", "raider_scavenger"],
+		"party": "active",
+		"can_flee": true,
+		"music": "music_combat",
+		"cheats": [],
+		"loot": {"bandage": 1, "scrap": 2}
+	},
+	"alien_swarm_zone": {
+		"enemies": ["alien_swarm"],
+		"party": "all",
+		"can_flee": false,
+		"music": "music_alien_zone",
+		"cheats": ["konami"],
+		"loot": {}
+	}
+}

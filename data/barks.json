@@ -1,0 +1,8 @@
+{
+	"_note": "Short lines companions say on their own (after a glitch, after a fight, ...). H3 fills this in. Format: speaker -> situation -> list of {de, en}.",
+	"tinkerer": {
+		"glitch": [
+			{"de": "[TEMP] Hörst du das? Das ist kein Rauschen. Das ist Grammatik.", "en": "[TEMP] Hear that? That's not static. That's grammar."}
+		]
+	}
+}

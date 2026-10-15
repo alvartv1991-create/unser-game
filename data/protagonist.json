@@ -1,0 +1,10 @@
+{
+	"_note": "The protagonist: a fixed, ordinary person for now (maybe customizable later). Code reads the name through GameState.player_name().",
+	"id": "player",
+	"name": {"de": "[TEMP] Sascha", "en": "[TEMP] Sascha"},
+	"bio": {
+		"de": "[TEMP] Ganz normaler Mensch. War gerade beim Einkaufen, als die Welt unterging.",
+		"en": "[TEMP] A completely ordinary person. Was out shopping when the world ended."
+	},
+	"art_id": "player"
+}

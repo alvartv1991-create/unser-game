@@ -1,0 +1,9 @@
+{
+	"_note": "Combat log lines. {actor}, {target} and {amount} are filled in by the game. H1 fills this in.",
+	"log": {
+		"attack": {"de": "[TEMP] {actor} greift {target} an: {amount} Schaden.", "en": "[TEMP] {actor} attacks {target}: {amount} damage."},
+		"alien_ignores": [
+			{"de": "[TEMP] Der Schwarm hat dich nicht bemerkt.", "en": "[TEMP] The swarm didn't notice you."}
+		]
+	}
+}

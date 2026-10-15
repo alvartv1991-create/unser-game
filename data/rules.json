@@ -1,0 +1,19 @@
+{
+	"_note": "Game rules you can tune without touching code. Explained in data/README.md.",
+	"max_active_companions": 2,
+	"max_roster": 4,
+	"companion_combat_death": true,
+	"downed_turns": 2,
+	"moral_low": -25,
+	"moral_high": 25,
+	"moral_min": -100,
+	"moral_max": 100,
+	"hp_base": 20,
+	"hp_per_end": 4,
+	"talk_base": 25,
+	"talk_per_point": 3,
+	"talk_job_bonus": 15,
+	"flee_base": 40,
+	"flee_per_end": 4,
+	"defend_factor": 0.5
+}

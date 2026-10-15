@@ -29,7 +29,7 @@ The agents cannot talk to each other. They communicate through handoff notes (se
 ## Tech stack (fixed for the alpha)
 - Godot 4.7, standard build, GDScript only (no C#), using static typing. **Compatibility** renderer (2D only, runs on weak laptops).
 - **Pixel art setup:** base viewport 640×360, window 1280×720, stretch mode `viewport`, scale mode `integer`, default texture filter `Nearest`, snap 2D transforms and vertices to pixel.
-- Dialogue: the Dialogue Manager addon (nathanhoad), vendored in `addons/dialogue_manager/`.
+- Dialogue: the Dialogue Manager addon **4.1.0** (nathanhoad), vendored in `addons/dialogue_manager/` (the C# files are removed). Version 4 syntax: commands are `$> GameState.add_moral(5)`, choice conditions are `- Text [if GameState.moral_is("high") /]`, and what our API calls a "title" is a **cue** (`~ first_meet`). Don't use the old `do`/`set` syntax.
 - Game data: JSON files in `data/`, loaded by the `Data` autoload. The humans edit these files directly, so keep them readable. Tunable game rules live in `data/rules.json`.
 - Tests: our own small runner scene, `tests/test_runner.tscn` (no test addon).
 - **Art:** all art is pixel art drawn by the agents, following `docs/ART_GUIDE.md` and its shared palette, made with the sprite pipeline in `tools/pixelart/` or as plain PNGs. No third-party art, except one OFL/CC0 pixel font with German umlauts (ä ö ü ß), credited in `assets/CREDITS.md`.
@@ -38,15 +38,17 @@ The agents cannot talk to each other. They communicate through handoff notes (se
 - Locales: `de` (the source) and `en`. The language is chosen on first start and in Options.
 - **UI labels:** `tr("KEY")` with keys like `UI_NEW_GAME`, from CSV files in `localization/` with the columns `keys,de,en`. Codex uses `localization/ui.csv`; Claude uses `localization/combat.csv` and `localization/story.csv`.
 - **Data JSON:** every text field is `{"de": "…", "en": "…"}` and is read through `Data.text(value)`.
-- **Dialogue:** written in German in `.dialogue` files. English comes through Dialogue Manager's translation support (static line ids + `localization/dialogue.csv`). H3 sets up and documents this workflow.
+- **Dialogue:** written in German in `.dialogue` files. English comes through Dialogue Manager's translation support: a line ending in `[ID:SOME_KEY]` is translated by the row `SOME_KEY,de,en` in `localization/dialogue.csv` (verified in H0). Lines without an id stay German. H3 sets up and documents the full workflow.
 - Missing English shows the German text with an `[EN?]` prefix. It never crashes and never shows an empty string.
 
 ## Local setup
-- Godot executable (found on this PC; H0 confirms it works): `C:\Users\marco\Desktop\Random Thing\.tools\godot\Godot_v4.7.2-stable_win64_console.exe`. Another 4.7 copy is in `C:\Users\marco\Downloads\Godot_v4.7-stable_win64.exe\`.
+- **Godot executable** (4.7.2, verified in H0): `C:\Users\marco\Desktop\Random Thing\.tools\godot\Godot_v4.7.2-stable_win64_console.exe` (call it `<godot>` below). Use the `_console.exe` for command-line runs; the editor is the `.exe` next to it.
+- **After adding or changing PNG, CSV or .dialogue files, or `class_name` scripts:** `"<godot>" --headless --path . --import` (rebuilds Godot's import cache and class list; it takes a few seconds).
 - Run the game: `"<godot>" --path .`
-- Run the tests: `"<godot>" --headless --path . res://tests/test_runner.tscn` (exit code 1 = failure)
+- Run the tests: `"<godot>" --headless --path . res://tests/test_runner.tscn` (exit code 1 = failure). Only some files: add `-- --only <part of path>`.
 - Smoke test: `"<godot>" --headless --path . --quit-after 300` (must print no errors)
-- Build the sprites: see `tools/pixelart/README.md` (created in H0)
+- Build the sprites: `"<godot>" --headless --path . --script res://tools/pixelart/build.gd`, see `tools/pixelart/README.md`
+- The folder `test/` is the human's own Godot experiment. Godot ignores it (it contains its own project.godot) and so does git. Don't touch it.
 
 ## Folder layout and ownership
 Edit only files you own. If you need a change in someone else's file, write a request in your handoff note and work around it with a local stub.
@@ -94,6 +96,7 @@ signal dialogue_started(file: String, title: String)
 signal dialogue_finished(file: String, title: String)
 signal combat_started(encounter_id: String)
 signal combat_finished(result: Dictionary)        # {encounter_id, outcome: "win"|"lose"|"flee"|"talk"|"cheat", loot: {item_id: count}, died: [companion_id]}
+                                                  # the combat scene already added the loot to the inventory and killed the dead; result is for reacting (story, toasts)
 signal device_glitch(intensity: float, duration: float)   # alien tech interference; intensity 0..1, duration in seconds
 signal bark_requested(speaker_id: String, text: String)   # short floating line above a character (text already localized)
 ```
@@ -106,10 +109,12 @@ var party: Array[String]      # active companion ids (recruited and alive), max 
 var inventory: Dictionary     # item_id -> count
 var flags: Dictionary         # flag_id -> Variant
 var moral: int                # hidden "Solidarität", clamped to -100..100, never shown in the UI
-var objective: String         # localized text
+var objective: String         # translation key from localization/story.csv (e.g. "OBJ_FIND_THE_COOK"); show it with tr()
 var unlocked_areas: Array[String]
 
+func reset() -> void                      # empty state (title screen)
 func new_game(job_id: String) -> void     # the protagonist is a fixed person (for now), so the player only picks the former job
+func job_is(job_id: String) -> bool       # handy in dialogue: [if GameState.job_is("doctor") /]
 func player_name() -> String              # ALWAYS use this; custom name if set (later feature), else data/protagonist.json
 func recruited_alive() -> Array[String]   # every recruited, living companion; for encounters/quests with "party": "all"
 func combat_party(mode: String) -> Array[String]   # "active" -> party, "all" -> recruited_alive()
@@ -120,13 +125,14 @@ func moral_is(band: String) -> bool       # "low" | "neutral" | "high", threshol
 func recruit(companion_id: String) -> void
 func kill_companion(companion_id: String, reason: String) -> void   # permanent: alive = false, removed from party
 func is_alive(companion_id: String) -> bool
+func is_recruited(companion_id: String) -> bool
 func in_party(companion_id: String) -> bool
 func add_item(id: String, count: int = 1) -> void
 func remove_item(id: String, count: int = 1) -> bool
 func has_item(id: String, count: int = 1) -> bool
-func set_objective(text: String) -> void
+func set_objective(key: String) -> void
 func unlock_area(area_id: String) -> void
-func rest() -> void           # full heal for everyone; bonus if "cook" is alive and in the party
+func rest() -> void           # full heal for everyone; if "cook" is in the party, sets flag "well_fed" (combat may use it)
 func to_dict() -> Dictionary
 func from_dict(data: Dictionary) -> void
 ```
@@ -134,8 +140,11 @@ func from_dict(data: Dictionary) -> void
 ### Data
 ```gdscript
 func job(id: String) -> Dictionary        # likewise skill(), item(), companion(), enemy(), encounter(), cheat()
-func all(kind: String) -> Dictionary      # e.g. Data.all("jobs") -> {id: entry}
+func all(kind: String) -> Dictionary      # e.g. Data.all("jobs") -> {id: entry}; also all("audio") -> {audio_id: path}
+func has(kind: String, id: String) -> bool   # probe without logging an error
+var errors: PackedStringArray             # problems found in data/ (shown in the F1 debug menu)
 func rules() -> Dictionary                # data/rules.json
+func rule(key: String, default: Variant = null) -> Variant
 func protagonist() -> Dictionary          # data/protagonist.json
 func text(value: Variant) -> String       # {"de":…, "en":…} -> string in the current locale, with fallback
 ```
@@ -158,10 +167,12 @@ Scene hooks used by SceneRouter. Each one is optional, and a placeholder is used
 
 ### DialogueRunner
 ```gdscript
-func start(file: String, title: String = "start") -> void   # emits dialogue_started/finished; the player cannot move in between
+func start(file: String, title: String = "start") -> void   # title = the Dialogue Manager cue; emits dialogue_started/finished; the player cannot move in between
 func is_running() -> bool
-# A missing file or title shows "[TEMP] Kein Text: <file>:<title>". It never crashes.
-# Dialogue files may call any autoload, e.g. `do GameState.add_moral(-10)` or `do SceneRouter.start_combat("raiders_camp")`.
+var balloon: Node             # the balloon of the running dialogue (null when none)
+# A missing file or cue shows "[TEMP] Kein Text: <file> : <cue>". It never crashes.
+# Called during a scene change, it waits for the new scene first (balloons live under the current scene).
+# Dialogue files may call any autoload, e.g. `$> GameState.add_moral(-10)` or `$> SceneRouter.start_combat("raiders_camp")`.
 ```
 
 ### Art
