@@ -2,6 +2,7 @@
 
 ## Done
 - Recorded the human's new art direction from the two images attached in chat: "this art style is the current vision".
+- The human explicitly confirmed: **keep side-view platforming and adopt the references' art style** ("Side-View behalten, diesen Grafikstil übernehmen").
 - The images are visual references. They are not imported game assets, a new story script, or evidence of implemented gameplay.
 - This note describes the references; the original attachments remain in the conversation, not in the repository.
 
@@ -21,7 +22,7 @@
 
 ## Contract changes (the other agent must know)
 - No code/API, resolution, sprite-size or camera contract changed in this documentation update.
-- **Perspective remains an open clarification:** the references use an elevated oblique view, while the current game is a side-view platformer. The human has been asked whether the images also change the exploration perspective. Do not infer a gameplay rewrite from an art-style reference alone.
+- **Perspective confirmed:** keep the existing side-view platformer. Translate the references' lighting, materials, detail, atmosphere and HUD hierarchy into a side-on composition. Their elevated oblique camera is not the target.
 - **Art-guide reconciliation needed:** the references include ordinary cyan/magenta shop neon. The old "cyan/magenta always means alien" rule does not reproduce that look. Revise that convention with the new human direction in mind; distinguish interference with shape, animation, distortion and context, rather than hue alone.
 
 ## Requests to the other agent
@@ -29,13 +30,13 @@
 - Claude: align character sprites and portraits with the reference's readable silhouettes and expressive faces, retaining existing resource ids until a size change is agreed.
 - Codex's next environment/UI art pass should establish a short playable streetscape or arcade scene: layered background, warm interior, localized neon, pixel reflections, environmental props, compact HUD and a distinct interference effect.
 - Coordinate palette/light implementation before extending the strict palette lint: the reference look needs a planned treatment of emissive lights and reflections. Do not silently enlarge the palette, change renderer or abandon pixel-grid consistency.
-- If the human chooses the oblique perspective, revise exploration scope and H2/H4 tasks together before implementing it; movement, collision, depth sorting and scene composition would need different rules.
+- Keep platform edges, collision boundaries and traversal routes readable in side view. Use parallax and decorative background depth to express the references' spatial richness.
 
 ## New content ids
 - None.
 
 ## Questions for the humans (story/design)
-- Does the new reference change exploration from side-view platforming to an elevated oblique view? Clarification requested in chat.
+- Perspective question resolved by the human: side view remains. No further perspective decision is needed for the next art pass.
 
 ## Known issues / not done
 - This commit records art direction only; the game still uses H2's prototype visuals.
