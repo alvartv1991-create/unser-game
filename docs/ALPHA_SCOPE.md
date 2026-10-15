@@ -76,7 +76,7 @@ Stats range from 1 to 10: `int` Intelligenz, `str` Stärke, `end` Ausdauer, `kno
 - `max_hp = 20 + end × 4`
 - Initiative: `end + int / 2`, ties broken at random
 - Attack damage: `weapon.power + str / 2`, ±1 random. Defending halves the damage you take until your next turn.
-- **Talking** (humans only): chance = `25% + (int + kno) × 3% − enemy.resolve`, plus 15% for a matching job approach. Success ends the fight with outcome `talk`.
+- **Talking** (humans only): chance = `25% + approach stat × 3% × 2 − highest enemy resolve`, plus 15% for a job approach (approaches in `data/talk.json`: persuade = int, facts = kno, intimidate = str, plus one per job for police, doctor, civil servant). Success ends the fight with outcome `talk`.
 - Fleeing: `40% + end × 4%`. Always fails against aliens.
 - **Downed and death:**
   - A companion at 0 HP is **"Am Boden"** (downed) for `downed_turns` of their own turns. Any heal revives them.
@@ -106,7 +106,7 @@ Stats range from 1 to 10: `int` Intelligenz, `str` Stärke, `end` Ausdauer, `kno
 | id | Stats |
 |---|---|
 | `raider_scavenger` | HP 18, power 3, resolve 0. Flees below 30% HP. |
-| `raider_brute` | HP 34, power 6, resolve 25. Targets the ally with the lowest HP and sometimes finishes off downed ones. |
+| `raider_brute` | HP 44, power 7, resolve 25. Targets the ally with the lowest HP and sometimes finishes off downed ones (tuned in H1 with simulated fights). |
 | `alien_swarm` | Invulnerable. Ignores you, then hits the whole party for 12 every 2nd turn. |
 
 | Encounter id | Enemies | Party | Notes |

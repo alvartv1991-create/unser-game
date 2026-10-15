@@ -1,0 +1,41 @@
+{
+	"_note": "Ways to talk human enemies out of a fight (the 'Reden' action). stat = which stat makes it work. job = only that job can use it. moral = moral change when used. always_fails = never works (but has a fail line). Chance: see data/README.md.",
+	"persuade": {
+		"name": {"de": "Überzeugen", "en": "Persuade"},
+		"stat": "int",
+		"moral": 0
+	},
+	"facts": {
+		"name": {"de": "Mit Fakten kommen", "en": "Use facts"},
+		"stat": "kno",
+		"moral": 0
+	},
+	"intimidate": {
+		"name": {"de": "Einschüchtern", "en": "Intimidate"},
+		"stat": "str",
+		"moral": -3
+	},
+	"show_badge": {
+		"name": {"de": "Dienstausweis zeigen", "en": "Show your badge"},
+		"stat": "str",
+		"job": "police",
+		"moral": 0
+	},
+	"treat_wound": {
+		"name": {"de": "Wunde versorgen", "en": "Treat a wound"},
+		"stat": "int",
+		"job": "doctor",
+		"moral": 5
+	},
+	"ceasefire_form": {
+		"name": {"de": "Antrag auf Waffenstillstand", "en": "Ceasefire request form"},
+		"stat": "int",
+		"job": "civil_servant",
+		"moral": 0,
+		"always_fails": true,
+		"fail": {
+			"de": "[TEMP] Antrag abgelehnt. Begründung: Durchschlag fehlt. Die Plünderer stempeln dir eine.",
+			"en": "[TEMP] Request denied. Reason: missing carbon copy. The raiders stamp you one."
+		}
+	}
+}

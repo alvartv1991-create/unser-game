@@ -13,7 +13,9 @@
 	"talk_base": 25,
 	"talk_per_point": 3,
 	"talk_job_bonus": 15,
+	"talk_win_moral": 2,
 	"flee_base": 40,
 	"flee_per_end": 4,
-	"defend_factor": 0.5
+	"defend_factor": 0.5,
+	"well_fed_damage": 1
 }

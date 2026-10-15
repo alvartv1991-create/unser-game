@@ -7,7 +7,7 @@ extends Node
 const DATA_DIR := "res://data/"
 ## Files that hold {id: entry} tables, readable through all(kind).
 const TABLES: PackedStringArray = [
-	"jobs", "skills", "items", "companions", "enemies", "encounters", "cheats",
+	"jobs", "skills", "items", "companions", "enemies", "encounters", "cheats", "talk",
 	"speakers", "barks", "combat_text", "audio",
 ]
 const REQUIRED := {
@@ -18,6 +18,7 @@ const REQUIRED := {
 	"enemies": ["name", "kind", "hp", "power"],
 	"encounters": ["enemies", "party"],
 	"cheats": ["name", "sequence"],
+	"talk": ["name", "stat"],
 }
 const REQUIRED_RULES: PackedStringArray = [
 	"max_active_companions", "max_roster", "companion_combat_death", "downed_turns",
@@ -185,6 +186,13 @@ func validate(tables: Dictionary, rules_data: Dictionary, protagonist_data: Dict
 		var music := str(enc.get("music", ""))
 		if music != "":
 			_check_ref(tables, "audio", music, where + " › music", out)
+
+	for id in tables.get("talk", {}):
+		var approach: Dictionary = tables.talk[id]
+		if not STAT_KEYS.has(str(approach.get("stat", ""))):
+			out.append("talk.json › %s › stat: must be one of %s" % [id, ", ".join(STAT_KEYS)])
+		if approach.has("job"):
+			_check_ref(tables, "jobs", approach.job, "talk.json › %s › job" % id, out)
 
 	for id in tables.get("cheats", {}):
 		var sequence: Variant = tables.cheats[id].get("sequence", [])

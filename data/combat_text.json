@@ -1,9 +1,54 @@
 {
-	"_note": "Combat log lines. {actor}, {target} and {amount} are filled in by the game. H1 fills this in.",
+	"_note": "Combat log lines. The game fills in {actor}, {target}, {amount}, {turns}, {item}, {weapon}, {approach}. A list [ ... ] means: pick one at random. All [TEMP]: rewrite freely, but keep the {placeholders}.",
 	"log": {
-		"attack": {"de": "[TEMP] {actor} greift {target} an: {amount} Schaden.", "en": "[TEMP] {actor} attacks {target}: {amount} damage."},
+		"start": {"de": "[TEMP] Ärger!", "en": "[TEMP] Trouble!"},
+		"well_fed": {"de": "[TEMP] Gut gegessen: alle hauen etwas fester zu.", "en": "[TEMP] Well fed: everyone hits a bit harder."},
+		"attack": {"de": "[TEMP] {actor} trifft {target}: {amount} Schaden.", "en": "[TEMP] {actor} hits {target}: {amount} damage."},
 		"alien_ignores": [
-			{"de": "[TEMP] Der Schwarm hat dich nicht bemerkt.", "en": "[TEMP] The swarm didn't notice you."}
-		]
+			{"de": "[TEMP] Der Schwarm hat dich nicht bemerkt.", "en": "[TEMP] The swarm didn't notice you."},
+			{"de": "[TEMP] {actor} haut zu. Der Schwarm sortiert gerade Kupfer.", "en": "[TEMP] {actor} strikes. The swarm is busy sorting copper."},
+			{"de": "[TEMP] Kein Kratzer. Nicht mal ein Achselzucken. Es hat keine Achseln.", "en": "[TEMP] Not a scratch. Not even a shrug. It has no shoulders."},
+			{"de": "[TEMP] Der Schlag geht durch den Schwarm durch. Der Schwarm geht durch dich durch. Unentschieden.", "en": "[TEMP] The blow goes through the swarm. The swarm goes through you. It's a draw."}
+		],
+		"swarm_idle": [
+			{"de": "[TEMP] Der Schwarm saugt gedankenverloren eine Straßenlaterne leer.", "en": "[TEMP] The swarm absent-mindedly drains a streetlight."},
+			{"de": "[TEMP] Der Schwarm zerlegt ein Auto in seine Einzelteile. Und die Einzelteile in ihre Einzelteile.", "en": "[TEMP] The swarm takes a car apart. Then takes the parts apart."},
+			{"de": "[TEMP] Irgendwo piept ein Telefon im Takt des Schwarms.", "en": "[TEMP] Somewhere a phone beeps in time with the swarm."}
+		],
+		"swarm_hit": {"de": "[TEMP] Der Schwarm streift euch beiläufig. {amount} Schaden für alle.", "en": "[TEMP] The swarm brushes past you. {amount} damage to everyone."},
+		"weapon_broke": {"de": "[TEMP] KNACK. {weapon} zerbricht in tausend Teile. Auf der Packung stand \"unzerstörbar\".", "en": "[TEMP] CRACK. {weapon} shatters into a thousand pieces. The box said \"indestructible\"."},
+		"heal": {"de": "[TEMP] {actor} heilt {target} um {amount}.", "en": "[TEMP] {actor} heals {target} for {amount}."},
+		"revive": {"de": "[TEMP] {target} kommt wieder hoch!", "en": "[TEMP] {target} gets back up!"},
+		"downed": {"de": "[TEMP] {target} geht zu Boden! Noch {turns} Runden, um zu helfen.", "en": "[TEMP] {target} goes down! {turns} turns left to help."},
+		"downed_player": {"de": "[TEMP] {target} geht zu Boden!", "en": "[TEMP] {target} goes down!"},
+		"ko": {"de": "[TEMP] {target} ist k.o.", "en": "[TEMP] {target} is knocked out."},
+		"downed_tick": {"de": "[TEMP] {target} liegt am Boden. Noch {turns} Runde.", "en": "[TEMP] {target} is down. {turns} turn left."},
+		"downed_wait": {"de": "[TEMP] {target} liegt am Boden.", "en": "[TEMP] {target} is down."},
+		"died": {"de": "[TEMP] {target} rührt sich nicht mehr.", "en": "[TEMP] {target} isn't moving anymore."},
+		"defeated": {"de": "[TEMP] {target} bleibt liegen.", "en": "[TEMP] {target} stays down."},
+		"enemy_fled": {"de": "[TEMP] {target} rennt weg und ruft was von \"Rache\".", "en": "[TEMP] {target} runs off shouting something about \"revenge\"."},
+		"defend": {"de": "[TEMP] {actor} geht in Deckung.", "en": "[TEMP] {actor} takes cover."},
+		"barricade": {"de": "[TEMP] {actor} baut aus Schrott eine Barrikade.", "en": "[TEMP] {actor} builds a barricade out of junk."},
+		"stun": {"de": "[TEMP] {actor} nimmt {target} fest. {target} setzt aus.", "en": "[TEMP] {actor} arrests {target}. {target} loses a turn."},
+		"stun_fail": {"de": "[TEMP] {actor} will {target} festnehmen. Es hat keine Hände für Handschellen.", "en": "[TEMP] {actor} tries to arrest {target}. It has no hands for handcuffs."},
+		"stunned_skip": {"de": "[TEMP] {target} ist noch festgenommen.", "en": "[TEMP] {target} is still under arrest."},
+		"analyze": {"de": "[TEMP] {actor} findet eine Schwachstelle bei {target}.", "en": "[TEMP] {actor} spots a weak point on {target}."},
+		"analyze_alien": {"de": "[TEMP] {actor} analysiert {target}. Ergebnis: sehr viel. Und sehr egal.", "en": "[TEMP] {actor} analyzes {target}. Result: a lot. And it doesn't care."},
+		"file_form": {"de": "[TEMP] {actor} reicht ein Formular ein. Bearbeitungszeit: 6–8 Wochen.", "en": "[TEMP] {actor} files a form. Processing time: 6–8 weeks."},
+		"talk_attempt": {"de": "[TEMP] {actor} versucht es: {approach}.", "en": "[TEMP] {actor} tries: {approach}."},
+		"talk_success": {"de": "[TEMP] Die Gegner sehen sich an, zucken mit den Schultern und ziehen ab.", "en": "[TEMP] The enemies look at each other, shrug, and leave."},
+		"talk_fail": {"de": "[TEMP] Die Gegner lachen nur.", "en": "[TEMP] The enemies just laugh."},
+		"flee_success": {"de": "[TEMP] Ihr rennt weg. Würdevoll ist anders.", "en": "[TEMP] You run away. Not very dignified."},
+		"flee_fail": {"de": "[TEMP] Flucht misslungen!", "en": "[TEMP] Couldn't get away!"},
+		"flee_alien": {"de": "[TEMP] Wohin denn? Der Schwarm ist überall.", "en": "[TEMP] Where to? The swarm is everywhere."},
+		"flee_blocked": {"de": "[TEMP] Hier kommt keiner weg.", "en": "[TEMP] Nobody's getting out of here."},
+		"item": {"de": "[TEMP] {actor} benutzt {item}.", "en": "[TEMP] {actor} uses {item}."},
+		"signal": {"de": "[TEMP] {actor} funkt den Schwarm an. Er stockt … zuckt … und zieht beleidigt weiter.", "en": "[TEMP] {actor} radios the swarm. It stalls … twitches … and drifts off, offended."},
+		"signal_no_alien": {"de": "[TEMP] {actor} sendet ein Signal. Niemand antwortet.", "en": "[TEMP] {actor} sends a signal. Nobody answers."},
+		"cheat_code": {"de": "[TEMP] CHEAT AKTIVIERT. Ja, wirklich. Der Schwarm hat es auch gemerkt und ist gegangen.", "en": "[TEMP] CHEAT ACTIVATED. Yes, really. The swarm noticed too, and left."},
+		"intent": {"de": "[TEMP] {actor} sieht {target} an …", "en": "[TEMP] {actor} is eyeing {target} …"},
+		"wait": {"de": "[TEMP] {actor} wartet ab.", "en": "[TEMP] {actor} waits."},
+		"win": {"de": "[TEMP] Geschafft.", "en": "[TEMP] Made it."},
+		"lose": {"de": "[TEMP] Alle liegen am Boden.", "en": "[TEMP] Everyone is down."}
 	}
 }

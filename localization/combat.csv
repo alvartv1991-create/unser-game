@@ -5,3 +5,26 @@ COMBAT_ITEM,Gegenstand,Item
 COMBAT_DEFEND,Verteidigen,Defend
 COMBAT_TALK,Reden,Talk
 COMBAT_FLEE,Fliehen,Flee
+COMBAT_BACK,Zurück,Back
+COMBAT_CHOOSE_TARGET,Ziel wählen,Choose a target
+COMBAT_TURN,%s ist dran,%s's turn
+COMBAT_DOWNED,Am Boden — %d,Down — %d
+COMBAT_DOWNED_PLAYER,Am Boden,Down
+COMBAT_KO,K.o.,Knocked out
+COMBAT_DEAD,Tot,Dead
+COMBAT_DEFENDING,Deckung,Cover
+COMBAT_STUNNED,Festgenommen,Arrested
+COMBAT_EXPOSED,Schwachstelle,Weak spot
+COMBAT_GUARDED,Barrikade,Barricade
+COMBAT_COOLDOWN,%s (noch %d),%s (%d more)
+COMBAT_WITH_CHANCE,%s (%d %%),%s (%d %%)
+COMBAT_NO_ITEMS,Keine Gegenstände,No items
+COMBAT_ONLY_HUMANS,Nur gegen Menschen,Only against humans
+COMBAT_ONLY_ALIENS,Nur gegen Aliens,Only against aliens
+COMBAT_NO_ESCAPE,Keine Flucht möglich,No escape
+COMBAT_ALL_ALLIES,Alle,Everyone
+COMBAT_GAME_OVER,Alle liegen am Boden.,Everyone is down.
+COMBAT_RETRY,Nochmal versuchen,Try again
+COMBAT_LOAD,Letzten Spielstand laden,Load last save
+COMBAT_GIVE_UP,Aufgeben (Debug),Give up (debug)
+COMBAT_INTENT,Ziel von %s,%s's target
