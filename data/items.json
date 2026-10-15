@@ -30,7 +30,7 @@
 		"revives": true
 	},
 	"canned_food": {
-		"name": {"de": "Ravioli-Dose", "en": "Can of Ravioli"},
+		"name": {"de": "Konservendose", "en": "Canned Food"},
 		"description": {"de": "[TEMP] Heilt 6. Auch als Bestechung beliebt.", "en": "[TEMP] Heals 6. Also popular as a bribe."},
 		"type": "consumable",
 		"heal": 6,

@@ -48,8 +48,6 @@ The agents cannot talk to each other. They communicate through handoff notes (se
 - Run the tests: `"<godot>" --headless --path . res://tests/test_runner.tscn` (exit code 1 = failure). Only some files: add `-- --only <part of path>`.
 - Smoke test: `"<godot>" --headless --path . --quit-after 300` (must print no errors)
 - Build the sprites: `"<godot>" --headless --path . --script res://tools/pixelart/build.gd`, see `tools/pixelart/README.md`
-- The folder `test/` is the human's own Godot experiment. Godot ignores it (it contains its own project.godot) and so does git. Don't touch it.
-
 ## Folder layout and ownership
 Edit only files you own. If you need a change in someone else's file, write a request in your handoff note and work around it with a local stub.
 
