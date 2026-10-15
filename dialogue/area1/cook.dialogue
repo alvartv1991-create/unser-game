@@ -1,0 +1,53 @@
+# [TEMP] The cook in the bunker. Recruitable. Placeholder text.
+
+~ first_meet
+cook: [TEMP] Oh, du lebst! Gut. Ich hab nur eine Konserve gewärmt, und das wäre peinlich geworden. [#mood=happy] [ID:COOK_FIRST_MEET_01]
+cook: [TEMP] Ich bin hier unten, seit der Strom weg ist. Ich bin die einzige Person, die den Dosenöffner bedienen kann. [ID:COOK_FIRST_MEET_02]
+- [TEMP] Wir teilen das Essen. Halbe-halbe. [ID:COOK_FIRST_MEET_03]
+	$> GameState.add_moral(10)
+	cook: [TEMP] Halbe-halbe! Du bist mir sympathisch. [#mood=happy] [ID:COOK_FIRST_MEET_04]
+- [TEMP] Gib mir die Dose. Sofort. [ID:COOK_FIRST_MEET_05]
+	$> GameState.add_moral(-10)
+	cook: [TEMP] ... Na gut. Aber ich merke mir das. [#mood=sad] [ID:COOK_FIRST_MEET_06]
+- [TEMP] Als Arzt/Ärztin muss ich sagen, das Haltbarkeitsdatum war 1979. [if GameState.job_is("doctor") /] [#show_locked] [ID:COOK_FIRST_MEET_07]
+	cook: [TEMP] 1979 war ein gutes Jahr für Erbsen. [ID:COOK_FIRST_MEET_08]
+- [TEMP] Ich beantrage hiermit eine Essensration. In dreifacher Ausfertigung. [if GameState.job_is("civil_servant") /] [#show_locked] [ID:COOK_FIRST_MEET_09]
+	cook: [TEMP] Ich hab keinen Stempel. Nur eine Kelle. [ID:COOK_FIRST_MEET_10]
+	cook: [TEMP] Willst du mit der Kelle gestempelt werden? [ID:COOK_FIRST_MEET_11]
+cook: [TEMP] Da draußen ist es gefährlich. Plünderer, Stromausfall, und diese ... Dinger am Himmel. [ID:COOK_FIRST_MEET_12]
+=> recruit_choice
+
+~ recruit_choice
+cook: [TEMP] Nimmst du mich mit? Ich kann kochen. Und hauen. Meistens mit der Pfanne. [ID:COOK_RECRUIT_CHOICE_01]
+- [TEMP] Komm mit. [ID:COOK_RECRUIT_CHOICE_02]
+	$> GameState.recruit("cook")
+	$> GameState.set_flag("cook_recruited")
+	cook: [TEMP] Ich hol nur schnell meine Pfanne. Und meine andere Pfanne. [#mood=happy] [ID:COOK_RECRUIT_CHOICE_03]
+- [TEMP] Lieber nicht. Noch nicht. [ID:COOK_RECRUIT_CHOICE_04]
+	cook: [TEMP] Ich bleibe hier. Am Herd. Wie immer. [ID:COOK_RECRUIT_CHOICE_05]
+$> GameState.set_objective("OBJ_LEAVE_BUNKER")
+=> END
+
+~ idle
+if not GameState.is_recruited("cook")
+	cook: [TEMP] Überlegst du es dir noch mal? [ID:COOK_IDLE_01]
+	=> recruit_choice
+if not GameState.is_alive("tinkerer") and GameState.is_recruited("tinkerer")
+	cook: [TEMP] Ich koche für eine Person weniger. Das ist das Schlimmste daran. [#mood=sad] [ID:COOK_IDLE_02]
+	=> END
+% cook: [TEMP] Wenn das hier vorbei ist, mach ich einen Imbiss auf. "Zum Weltuntergang". Mit Pommes. [ID:COOK_IDLE_03]
+% cook: [TEMP] Die Dinger am Himmel essen nichts. Ich trau keinem, der nichts isst. [ID:COOK_IDLE_04]
+% cook: [TEMP] Ich hab Salz dabei. Man weiß nie, wann man Salz braucht. [ID:COOK_IDLE_05]
+=> END
+
+~ campfire
+cook: [TEMP] Setz dich. Ich mach was Warmes. Es heißt "Eintopf". Was drin ist, sag ich nicht. [ID:COOK_CAMPFIRE_01]
+- [TEMP] Ich geb meine Dose dazu. [if GameState.has_item("canned_food") /] [#show_locked] [ID:COOK_CAMPFIRE_02]
+	$> GameState.remove_item("canned_food")
+	$> GameState.add_moral(5)
+	cook: [TEMP] Jetzt ist es ein richtiger Eintopf! [#mood=happy] [ID:COOK_CAMPFIRE_03]
+- [TEMP] Danke. Ich hab Hunger. [ID:COOK_CAMPFIRE_04]
+	cook: [TEMP] Das ist das Netteste, was jemand seit Wochen zu mir gesagt hat. [ID:COOK_CAMPFIRE_05]
+$> GameState.rest()
+cook: [TEMP] Alle satt. Morgen geht es weiter. [ID:COOK_CAMPFIRE_06]
+=> END

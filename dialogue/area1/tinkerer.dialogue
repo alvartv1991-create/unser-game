@@ -1,0 +1,46 @@
+# [TEMP] The tinkerer on the rooftop, studying the signals. Recruitable. Placeholder text.
+
+~ first_meet
+$> GameState.set_flag("tinkerer_met")
+tinkerer: [TEMP] Pssst! Nicht bewegen. Die Schüssel hat gerade was empfangen. [ID:TINKERER_FIRST_MEET_01]
+tinkerer: [TEMP] Das sind keine Störungen. Das ist ein Muster. Die Satelliten funken zurück. [#mood=happy] [ID:TINKERER_FIRST_MEET_02]
+- [TEMP] Was sagen sie? [ID:TINKERER_FIRST_MEET_03]
+	tinkerer: [TEMP] Keine Ahnung. Aber sie sagen es sehr regelmäßig. [ID:TINKERER_FIRST_MEET_04]
+- [TEMP] Du redest mit einer Satellitenschüssel. [ID:TINKERER_FIRST_MEET_05]
+	$> GameState.add_moral(-5)
+	tinkerer: [TEMP] Sie hört wenigstens zu. [#mood=sad] [ID:TINKERER_FIRST_MEET_06]
+- [TEMP] Das klingt nach einer Trägerfrequenz mit Phasenmodulation. [if GameState.job_is("scientist") /] [#show_locked] [ID:TINKERER_FIRST_MEET_07]
+	tinkerer: [TEMP] JA! Endlich jemand, der Phasenmodulation sagt! [#mood=happy] [ID:TINKERER_FIRST_MEET_08]
+	$> GameState.add_moral(5)
+- [TEMP] Darf ich mal? Die Halterung ist locker. [if GameState.job_is("craftsman") /] [#show_locked] [ID:TINKERER_FIRST_MEET_09]
+	tinkerer: [TEMP] Oh. Danach ist das Signal doppelt so klar. Danke! [ID:TINKERER_FIRST_MEET_10]
+	$> GameState.add_moral(5)
+- [TEMP] Ich muss die Antenne leider beschlagnahmen. Ordnungswidrigkeit. [if GameState.job_is("police") /] [#show_locked] [ID:TINKERER_FIRST_MEET_11]
+	tinkerer: [TEMP] Die Ordnung ist seit drei Wochen aus. Wie der Strom. [ID:TINKERER_FIRST_MEET_12]
+if not GameState.is_alive("cook") and GameState.is_recruited("cook")
+	tinkerer: [TEMP] Du siehst aus, als hättest du jemanden verloren. Tut mir leid. [#mood=sad] [ID:TINKERER_FIRST_MEET_13]
+=> recruit_choice
+
+~ recruit_choice
+tinkerer: [TEMP] Ich brauche jemanden, der mich zu mehr Geräten bringt. Fernseher, Telefonzellen, Spielautomaten. [ID:TINKERER_RECRUIT_CHOICE_01]
+- [TEMP] Komm mit. Wir finden Geräte. [ID:TINKERER_RECRUIT_CHOICE_02]
+	$> GameState.recruit("tinkerer")
+	$> GameState.set_flag("tinkerer_recruited")
+	tinkerer: [TEMP] Ich nehm den Lötkolben mit. Und Batterien. Und noch mehr Batterien. [#mood=happy] [ID:TINKERER_RECRUIT_CHOICE_03]
+- [TEMP] Bleib bei deiner Schüssel. [ID:TINKERER_RECRUIT_CHOICE_04]
+	tinkerer: [TEMP] Okay. Sie und ich, wir verstehen uns. [ID:TINKERER_RECRUIT_CHOICE_05]
+$> GameState.set_objective("OBJ_PASS_RAIDER_CAMP")
+=> END
+
+~ idle
+if not GameState.is_recruited("tinkerer")
+	tinkerer: [TEMP] Hast du es dir anders überlegt? [ID:TINKERER_IDLE_01]
+	=> recruit_choice
+if not GameState.is_alive("cook") and GameState.is_recruited("cook")
+	tinkerer: [TEMP] Ich hab die Frequenz, auf der die Pfanne geklappert hat, noch im Ohr. [#mood=sad] [ID:TINKERER_IDLE_02]
+	tinkerer: [TEMP] Das ist albern. Ich weiß. [#mood=sad] [ID:TINKERER_IDLE_03]
+	=> END
+% tinkerer: [TEMP] Wusstest du, dass Spielautomaten die besten Antennen sind? Niemand weiß das. Außer mir. [ID:TINKERER_IDLE_04]
+% tinkerer: [TEMP] Ich hab einen Walkman umgebaut. Jetzt spielt er nur noch Rauschen. Aber besonderes Rauschen. [ID:TINKERER_IDLE_05]
+% tinkerer: [TEMP] Wenn das Militär nicht mal mehr weiß, wo Norden ist, wer dann? Ich. Ich hab einen Kompass. [ID:TINKERER_IDLE_06]
+=> END

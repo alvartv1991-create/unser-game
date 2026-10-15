@@ -1,2 +1,241 @@
 keys,de,en
+ALIEN_ZONE_ENTER_01,"[TEMP] Die Luft summt. Autos stehen herum, als hätte jemand sie vergessen. Manche nur noch zur Hälfte.",[TEMP] The air hums. Cars stand around as if someone forgot them. Some of them only half.
+ALIEN_ZONE_ENTER_02,"[TEMP] Mein Messgerät zeigt Werte, die es nicht kennt. Es zeigt einfach ""E"".","[TEMP] My meter is showing values it doesn't know. It just says ""E""."
+ALIEN_ZONE_ENTER_03,[TEMP] Hier riecht es nach heißem Metall. Und ein bisschen nach Zimt. Warum Zimt?,[TEMP] It smells like hot metal here. And a bit like cinnamon. Why cinnamon?
+ALIEN_ZONE_SNATCHING_01,[TEMP] Im Hintergrund hebt der Schwarm einen Kleinwagen an. Ganz vorsichtig. Wie ein Kind ein Geschenk.,"[TEMP] In the background, the swarm lifts a small car. Very gently. Like a child with a present."
+ALIEN_ZONE_SNATCHING_02,[TEMP] Dann nimmt er ihn auseinander. Schraube für Schraube. Die Schrauben behält er.,[TEMP] Then it takes it apart. Screw by screw. It keeps the screws.
+ALIEN_ZONE_SNATCHING_03,[TEMP] Wir sollten leise sein.,[TEMP] We should be quiet.
+ALIEN_ZONE_SNATCHING_04,[TEMP] Der Schwarm bemerkt euch nicht. Oder es ist ihm egal. Beides fühlt sich gleich an.,[TEMP] The swarm doesn't notice you. Or it doesn't care. Both feel the same.
+ALIEN_ZONE_SNATCHING_05,[TEMP] HEY! DAS IST EIN OPEL!,[TEMP] HEY! THAT'S AN OPEL!
+ALIEN_ZONE_SNATCHING_06,[TEMP] Der Schwarm bemerkt euch nicht. Das ist fast beleidigend.,[TEMP] The swarm doesn't notice you. That's almost insulting.
+ALIEN_ZONE_DILEMMA_01,[TEMP] Vor euch zerlegt der Schwarm einen Bus. Drinnen sitzt ein alter Mann und hält sich an seinem Hut fest.,"[TEMP] Ahead of you, the swarm is taking a bus apart. An old man sits inside, holding on to his hat."
+ALIEN_ZONE_DILEMMA_02,"[TEMP] Noch ein paar Sekunden, dann ist der Bus nur noch Einzelteile. Der Mann auch.",[TEMP] A few more seconds and the bus is just parts. So is the man.
+ALIEN_ZONE_DILEMMA_CHOICES_01,"[TEMP] Koch/Köchin, du lenkst ihn ab. Klapper mit der Pfanne, dann laufen wir.","[TEMP] Cook, you distract it. Bang the pan, then we run."
+ALIEN_ZONE_DILEMMA_CHOICES_02,[TEMP] Klar. Laut sein kann ich.,[TEMP] Sure. Being loud is my thing.
+ALIEN_ZONE_DILEMMA_CHOICES_03,[TEMP] Die Pfanne klappert. Der Schwarm dreht sich um. Zum ersten Mal sieht er jemanden an.,"[TEMP] The pan clangs. The swarm turns. For the first time, it looks at someone."
+ALIEN_ZONE_DILEMMA_CHOICES_04,[TEMP] Dann ist da nur noch die Pfanne.,[TEMP] Then there is only the pan.
+ALIEN_ZONE_DILEMMA_CHOICES_05,"[TEMP] Der alte Mann ist frei. Er nickt euch zu. Er weiß nicht, was er sagen soll. Niemand weiß das.",[TEMP] The old man is free. He nods at you. He doesn't know what to say. Nobody does.
+ALIEN_ZONE_DILEMMA_CHOICES_06,[TEMP] Wir holen ihn zusammen raus. Schnell.,[TEMP] We get him out together. Fast.
+ALIEN_ZONE_DILEMMA_CHOICES_07,[TEMP] Ihr zerrt den Mann durch das Fenster. Der Schwarm nimmt euch dabei die Taschen auseinander.,"[TEMP] You drag the man through the window. Meanwhile, the swarm takes your bags apart."
+ALIEN_ZONE_DILEMMA_CHOICES_08,[TEMP] Ihr habt ihn. Und ein paar Konserven weniger.,[TEMP] You've got him. And a few cans less.
+ALIEN_ZONE_DILEMMA_CHOICES_09,"[TEMP] Bastler/in, kannst du ihr Signal kurz stören?","[TEMP] Tinkerer, can you jam their signal for a moment?"
+ALIEN_ZONE_DILEMMA_CHOICES_10,[TEMP] Drei Sekunden. Mehr schaffe ich nicht. Lauft!,[TEMP] Three seconds. That's all I've got. Run!
+ALIEN_ZONE_DILEMMA_CHOICES_11,"[TEMP] Der Schwarm hält inne, als hätte er seinen Namen gehört. Ihr zieht den Mann heraus.","[TEMP] The swarm pauses, as if it heard its name. You pull the man out."
+ALIEN_ZONE_DILEMMA_CHOICES_12,[TEMP] Er reagiert auf Bewegung. Wirf was Glänzendes in die andere Richtung!,[TEMP] It reacts to movement. Throw something shiny the other way!
+ALIEN_ZONE_DILEMMA_CHOICES_13,[TEMP] Ein Radkappen-Wurf später schwebt der Schwarm einer Radkappe hinterher. Der Mann ist frei.,"[TEMP] One hubcap throw later, the swarm floats after a hubcap. The man is free."
+ALIEN_ZONE_DILEMMA_CHOICES_14,[TEMP] Ich ordne hiermit die Evakuierung des Busses an!,[TEMP] I hereby order the evacuation of this bus!
+ALIEN_ZONE_DILEMMA_CHOICES_15,[TEMP] Der Schwarm reagiert nicht auf Anordnungen. Der Mann auch nicht.,[TEMP] The swarm does not respond to orders. Neither does the man.
+ALIEN_ZONE_DILEMMA_CHOICES_16,[TEMP] Weitergehen. Nicht unser Problem.,[TEMP] Keep walking. Not our problem.
+ALIEN_ZONE_DILEMMA_CHOICES_17,[TEMP] Ihr geht weiter. Hinter euch klirrt es. Dann ist es still.,"[TEMP] You walk on. Behind you, something clinks. Then it's quiet."
+ALIEN_ZONE_DILEMMA_CHOICES_18,[TEMP] Ich werde dieses Geräusch nicht vergessen.,[TEMP] I will never forget that sound.
+ALIEN_ZONE_SWARM_BLOCKS_GATE_01,"[TEMP] Der Schwarm sammelt sich vor dem Tor. Er wird dichter, bis man durch ihn nicht mehr hindurchsieht.",[TEMP] The swarm gathers in front of the gate. It grows denser until you can't see through it.
+ALIEN_ZONE_SWARM_BLOCKS_GATE_02,[TEMP] Diesmal ignoriert er euch nicht.,"[TEMP] This time, it doesn't ignore you."
+ALIEN_ZONE_SWARM_BLOCKS_GATE_03,"[TEMP] Wenn wir das kämpfen, verlieren wir. Wir müssen schummeln! Ich kann ihr Signal senden!","[TEMP] If we fight this, we lose. We have to cheat! I can send their signal!"
+ALIEN_ZONE_SWARM_BLOCKS_GATE_04,[TEMP] Der Störsender aus dem Lager. Vielleicht ...,[TEMP] The jammer from the camp. Maybe ...
+ALIEN_ZONE_SWARM_BLOCKS_GATE_05,"[TEMP] Hoch, hoch, runter, runter ... Woher kenne ich das?","[TEMP] Up, up, down, down ... Where do I know that from?"
+ALIEN_ZONE_AFTER_CHEAT_01,"[TEMP] Der Schwarm zerfällt in tausend glitzernde Teile und treibt davon. Wie Konfetti nach einer Party, zu der niemand eingeladen war.",[TEMP] The swarm falls apart into a thousand glittering pieces and drifts away. Like confetti after a party nobody was invited to.
+ALIEN_ZONE_AFTER_CHEAT_02,[TEMP] Die haben uns nicht mal richtig bemerkt. Wir waren nur ein Fehler in ihrer Rechnung.,[TEMP] They didn't even really notice us. We were just a rounding error.
+ALIEN_ZONE_AFTER_CHEAT_03,[TEMP] Ich hab Hunger. Ist das normal nach einem Wunder?,[TEMP] I'm hungry. Is that normal after a miracle?
+COOK_FIRST_MEET_01,"[TEMP] Oh, du lebst! Gut. Ich hab nur eine Konserve gewärmt, und das wäre peinlich geworden.","[TEMP] Oh, you're alive! Good. I only warmed up one can, and that would have been awkward."
+COOK_FIRST_MEET_02,"[TEMP] Ich bin hier unten, seit der Strom weg ist. Ich bin die einzige Person, die den Dosenöffner bedienen kann.",[TEMP] I've been down here since the power went out. I'm the only one who can work the can opener.
+COOK_FIRST_MEET_03,[TEMP] Wir teilen das Essen. Halbe-halbe.,[TEMP] We share the food. Fifty-fifty.
+COOK_FIRST_MEET_04,[TEMP] Halbe-halbe! Du bist mir sympathisch.,[TEMP] Fifty-fifty! I like you.
+COOK_FIRST_MEET_05,[TEMP] Gib mir die Dose. Sofort.,[TEMP] Give me the can. Now.
+COOK_FIRST_MEET_06,[TEMP] ... Na gut. Aber ich merke mir das.,[TEMP] ... Fine. But I'll remember this.
+COOK_FIRST_MEET_07,"[TEMP] Als Arzt/Ärztin muss ich sagen, das Haltbarkeitsdatum war 1979.","[TEMP] Speaking as a doctor, that best-before date was 1979."
+COOK_FIRST_MEET_08,[TEMP] 1979 war ein gutes Jahr für Erbsen.,[TEMP] 1979 was a good year for peas.
+COOK_FIRST_MEET_09,[TEMP] Ich beantrage hiermit eine Essensration. In dreifacher Ausfertigung.,[TEMP] I hereby apply for a food ration. In triplicate.
+COOK_FIRST_MEET_10,[TEMP] Ich hab keinen Stempel. Nur eine Kelle.,[TEMP] I don't have a stamp. Just a ladle.
+COOK_FIRST_MEET_11,[TEMP] Willst du mit der Kelle gestempelt werden?,[TEMP] Do you want to be stamped with the ladle?
+COOK_FIRST_MEET_12,"[TEMP] Da draußen ist es gefährlich. Plünderer, Stromausfall, und diese ... Dinger am Himmel.","[TEMP] It's dangerous out there. Raiders, blackouts, and those ... things in the sky."
+COOK_RECRUIT_CHOICE_01,[TEMP] Nimmst du mich mit? Ich kann kochen. Und hauen. Meistens mit der Pfanne.,[TEMP] Will you take me along? I can cook. And hit things. Mostly with the pan.
+COOK_RECRUIT_CHOICE_02,[TEMP] Komm mit.,[TEMP] Come with me.
+COOK_RECRUIT_CHOICE_03,[TEMP] Ich hol nur schnell meine Pfanne. Und meine andere Pfanne.,[TEMP] Let me just grab my pan. And my other pan.
+COOK_RECRUIT_CHOICE_04,[TEMP] Lieber nicht. Noch nicht.,[TEMP] Better not. Not yet.
+COOK_RECRUIT_CHOICE_05,[TEMP] Ich bleibe hier. Am Herd. Wie immer.,[TEMP] I'll stay here. At the stove. As always.
+COOK_IDLE_01,[TEMP] Überlegst du es dir noch mal?,[TEMP] Thinking it over again?
+COOK_IDLE_02,[TEMP] Ich koche für eine Person weniger. Das ist das Schlimmste daran.,[TEMP] I'm cooking for one person fewer. That's the worst part.
+COOK_IDLE_03,"[TEMP] Wenn das hier vorbei ist, mach ich einen Imbiss auf. ""Zum Weltuntergang"". Mit Pommes.","[TEMP] When this is over, I'm opening a snack bar. ""The End of the World"". With fries."
+COOK_IDLE_04,"[TEMP] Die Dinger am Himmel essen nichts. Ich trau keinem, der nichts isst.",[TEMP] The things in the sky don't eat. I don't trust anyone who doesn't eat.
+COOK_IDLE_05,"[TEMP] Ich hab Salz dabei. Man weiß nie, wann man Salz braucht.",[TEMP] I brought salt. You never know when you'll need salt.
+COOK_CAMPFIRE_01,"[TEMP] Setz dich. Ich mach was Warmes. Es heißt ""Eintopf"". Was drin ist, sag ich nicht.","[TEMP] Sit down. I'm making something warm. It's called ""stew"". I won't say what's in it."
+COOK_CAMPFIRE_02,[TEMP] Ich geb meine Dose dazu.,[TEMP] I'll add my can.
+COOK_CAMPFIRE_03,[TEMP] Jetzt ist es ein richtiger Eintopf!,[TEMP] Now it's a proper stew!
+COOK_CAMPFIRE_04,[TEMP] Danke. Ich hab Hunger.,[TEMP] Thanks. I'm hungry.
+COOK_CAMPFIRE_05,"[TEMP] Das ist das Netteste, was jemand seit Wochen zu mir gesagt hat.",[TEMP] That's the nicest thing anyone has said to me in weeks.
+COOK_CAMPFIRE_06,[TEMP] Alle satt. Morgen geht es weiter.,[TEMP] Everyone's fed. We go on tomorrow.
+CULT_TEASER_01,"[TEMP] Hinter dem Kriechkeller flimmert ein Fernseher. Kein Bild, nur Rauschen.","[TEMP] Behind the crawlspace, a TV flickers. No picture, just static."
+CULT_TEASER_02,[TEMP] Jemand sitzt davor und summt. Genau im Takt des Rauschens.,"[TEMP] Someone sits in front of it, humming. Exactly in time with the static."
+CULT_TEASER_03,[TEMP] Hörst du es auch? Es zählt.,[TEMP] Do you hear it too? It's counting.
+CULT_TEASER_04,[TEMP] Was zählt es?,[TEMP] What is it counting?
+CULT_TEASER_05,[TEMP] Uns.,[TEMP] Us.
+CULT_TEASER_06,[TEMP] Wer bist du?,[TEMP] Who are you?
+CULT_TEASER_07,[TEMP] Früh dran. Du bist früh dran.,[TEMP] Early. You're early.
+CULT_TEASER_08,[TEMP] Ich hör nur Rauschen.,[TEMP] I only hear static.
+CULT_TEASER_09,[TEMP] Noch.,[TEMP] For now.
+CULT_TEASER_10,"[TEMP] Das Rauschen hat eine Struktur. Siebenundzwanzig Takte, dann Pause.","[TEMP] The static has a structure. Twenty-seven beats, then a pause."
+CULT_TEASER_11,[TEMP] Du zählst schon mit. Schön.,[TEMP] You're already counting along. Nice.
+CULT_TEASER_12,"[TEMP] An der Wand ist ein Symbol. Drei Kreise, einer davon falsch herum. Wie auch immer das geht.","[TEMP] There's a symbol on the wall. Three circles, one of them upside down. However that works."
+CULT_TEASER_13,"[TEMP] Als du dich umdrehst, ist der Fernseher aus. Und niemand ist mehr da.","[TEMP] When you turn around, the TV is off. And nobody is there anymore."
+CULT_TEASER_14,[TEMP] Ich hab das aufgenommen. Glaube ich. Die Kassette ist ... warm.,[TEMP] I recorded that. I think. The cassette is ... warm.
+GATE_LOCKED_01,[TEMP] Das Tor ist zu. Davor summt es. Da ist noch etwas im Weg.,[TEMP] The gate is shut. Something hums in front of it. Something is still in the way.
+GATE_LOCKED_02,[TEMP] Erst das Summen. Dann das Tor.,[TEMP] First the humming. Then the gate.
+GATE_OPEN_01,[TEMP] Das Tor quietscht wie ein Kassettenrekorder beim Vorspulen. Dahinter liegt der Rest der Welt.,[TEMP] The gate squeaks like a tape deck on fast-forward. Behind it lies the rest of the world.
+GATE_OPEN_02,[TEMP] An den Zaun hängst du die Pfanne. Jemand sollte sich erinnern.,[TEMP] You hang the pan on the fence. Someone should remember.
+GATE_OPEN_03,[TEMP] Die Pfanne gibt kein Signal mehr. Ich hab nachgemessen. Zweimal.,[TEMP] The pan doesn't give off a signal anymore. I measured. Twice.
+GATE_OPEN_04,"[TEMP] Du legst eine Batterie auf den Torpfosten. Für alle, die zu viel wussten.",[TEMP] You put a battery on the gatepost. For everyone who knew too much.
+GATE_OPEN_05,[TEMP] Ich koche heute nichts. Ich kann heute nicht.,[TEMP] I'm not cooking today. I can't today.
+GATE_COMING_SOON_01,"[TEMP] Ein Schild. ""Demnächst"". Darunter, kleiner: ""Wirklich. Bald.""","[TEMP] A sign. ""Coming soon"". Below it, smaller: ""Really. Soon."""
+GATE_COMING_SOON_02,[TEMP] Hier endet die Alpha. Danke fürs Spielen!,[TEMP] This is the end of the alpha. Thanks for playing!
+INTRO_START_01,"[TEMP] Es begann mit einem Piepen. Militärsatelliten empfingen Signale, die niemand bestellt hatte.",[TEMP] It started with a beep. Military satellites picked up signals nobody had ordered.
+INTRO_START_02,[TEMP] Dann fiel das GPS aus. Dann das Militärnetz. Die Generäle mussten wieder Karten falten.,[TEMP] Then GPS went down. Then the military network. The generals had to fold maps again.
+INTRO_START_03,"[TEMP] Fernseher flackerten. Telefonzellen klingelten, obwohl niemand anrief.",[TEMP] TVs flickered. Payphones rang with nobody calling.
+INTRO_START_04,[TEMP] Dann kamen sie.,[TEMP] Then they arrived.
+INTRO_START_05,[TEMP] Und dann ... ignorierten sie uns. Fast komplett.,[TEMP] And then ... they ignored us. Almost completely.
+RAIDERS_STREET_01,[TEMP] Halt! Das ist unsere Straße. Hier kostet Atmen Gebühr.,[TEMP] Stop! This is our street. Breathing costs a fee here.
+RAIDERS_STREET_02,[TEMP] Eine Konserve pro Lunge.,[TEMP] One can per lung.
+RAIDERS_STREET_03,"[TEMP] Hier, nehmt meine Konserve. Ihr seht hungrig aus.","[TEMP] Here, take my can. You look hungry."
+RAIDERS_STREET_04,[TEMP] Oh. Danke. Das ist ... unerwartet nett.,[TEMP] Oh. Thanks. That's ... unexpectedly nice.
+RAIDERS_STREET_05,[TEMP] Wir erzählen den anderen von dir.,[TEMP] We'll tell the others about you.
+RAIDERS_STREET_06,[TEMP] Polizei! Hände hoch! Ihr seid alle festgenommen.,[TEMP] Police! Hands up! You're all under arrest.
+RAIDERS_STREET_07,[TEMP] Es gibt keine Polizei mehr.,[TEMP] There are no police anymore.
+RAIDERS_STREET_08,[TEMP] Es gibt mich.,[TEMP] There's me.
+RAIDERS_STREET_09,"[TEMP] ... Okay, das stimmt.","[TEMP] ... Okay, that's true."
+RAIDERS_STREET_10,"[TEMP] Verschwindet, oder ich nehme euch eure Schuhe weg.","[TEMP] Get lost, or I'll take your shoes."
+RAIDERS_STREET_11,[TEMP] Das ist gemein. Wir haben nur ein Paar Schuhe für zwei!,[TEMP] That's mean. We only have one pair of shoes for two!
+RAIDERS_STREET_12,[TEMP] Kämpfen.,[TEMP] Fight.
+RAIDERS_CAMP_01,[TEMP] Halt. Das ist ein Checkpoint. Weiß jeder. Steht auf dem Schild.,[TEMP] Stop. This is a checkpoint. Everyone knows. It says so on the sign.
+RAIDERS_CAMP_02,"[TEMP] Das Schild haben wir aus einem Kindergarten. Da steht ""Bitte leise sein"". Aber wir meinen Checkpoint.","[TEMP] We got the sign from a kindergarten. It says ""Please be quiet"". But we mean checkpoint."
+RAIDERS_CAMP_CHOICES_01,[TEMP] Reden wir. Was wollt ihr eigentlich?,[TEMP] Let's talk. What do you actually want?
+RAIDERS_CAMP_CHOICES_02,"[TEMP] Hier, eine Konserve. Für den Durchgang.","[TEMP] Here, a can. For passage."
+RAIDERS_CAMP_CHOICES_03,[TEMP] Erbsen. Na gut. Durch.,[TEMP] Peas. Fine. Go through.
+RAIDERS_CAMP_CHOICES_04,[TEMP] Du blutest. Lass mich das verbinden.,[TEMP] You're bleeding. Let me bandage that.
+RAIDERS_CAMP_CHOICES_05,[TEMP] ... Das hat seit Wochen keiner gefragt.,[TEMP] ... Nobody's asked that in weeks.
+RAIDERS_CAMP_CHOICES_06,[TEMP] Euer Generator stottert. Ich kann das reparieren.,[TEMP] Your generator is sputtering. I can fix that.
+RAIDERS_CAMP_CHOICES_07,"[TEMP] Licht! Wir haben Licht! Geh durch, Meister/in.","[TEMP] Light! We have light! Go on through, boss."
+RAIDERS_CAMP_CHOICES_08,"[TEMP] Ich zeige meine Dienstmarke. Die ist zwar abgelaufen, aber glänzt noch.","[TEMP] I show my badge. It's expired, but it still shines."
+RAIDERS_CAMP_CHOICES_09,[TEMP] Glänzt echt schön. Okay. Durch.,[TEMP] Shines real nice. Okay. Go through.
+RAIDERS_CAMP_CHOICES_10,"[TEMP] Der Schwarm reagiert auf euren Lärm. Wenn ihr leise seid, ignoriert er euch.","[TEMP] The swarm reacts to your noise. If you're quiet, it ignores you."
+RAIDERS_CAMP_CHOICES_11,[TEMP] Deshalb das Schild! Wir hatten die ganze Zeit recht!,[TEMP] That's why the sign! We were right all along!
+RAIDERS_CAMP_CHOICES_12,[TEMP] Ich erteile Ihnen hiermit eine Durchgangsgenehmigung. Für mich.,[TEMP] I hereby grant you a transit permit. For me.
+RAIDERS_CAMP_CHOICES_13,[TEMP] Hat die einen Stempel?,[TEMP] Does it have a stamp?
+RAIDERS_CAMP_CHOICES_14,[TEMP] Der Stempel ist in Bearbeitung.,[TEMP] The stamp is being processed.
+RAIDERS_CAMP_CHOICES_15,[TEMP] Dann warte. Sechs bis acht Wochen. Hier am Zaun.,[TEMP] Then wait. Six to eight weeks. Here at the fence.
+RAIDERS_CAMP_CHOICES_16,[TEMP] Erinnert ihr euch an mich?,[TEMP] Do you remember me?
+RAIDERS_CAMP_CHOICES_17,[TEMP] Moment. Dich kenne ich. Du hast den Leuten in der Stadt geholfen.,[TEMP] Wait. I know you. You helped the people in town.
+RAIDERS_CAMP_CHOICES_18,[TEMP] Lass die durch. Die ist in Ordnung. Oder der. Egal.,[TEMP] Let this one through. They're alright.
+RAIDERS_CAMP_CHOICES_19,[TEMP] ... Na gut. Weil du es bist.,[TEMP] ... Fine. Because it's you.
+RAIDERS_CAMP_CHOICES_20,[TEMP] Kämpfen.,[TEMP] Fight.
+RAIDERS_CAMP_TALK_01,"[TEMP] Wir wollen, was alle wollen. Essen, Strom, und dass die Dinger am Himmel aufhören zu summen.","[TEMP] We want what everybody wants. Food, power, and the things in the sky to stop humming."
+RAIDERS_CAMP_TALK_02,"[TEMP] Sag mir, warum ich dich durchlassen soll. Aber sag es richtig.",[TEMP] Tell me why I should let you through. But say it right.
+RAIDERS_CAMP_TALK_03,"[TEMP] Weil hinter dem Zaun keine Konserven sind, nur Aliens.","[TEMP] Because behind the fence there are no cans, only aliens."
+RAIDERS_CAMP_TALK_04,[TEMP] ... Das stimmt. Aber das ist nicht mein Problem.,[TEMP] ... True. But that's not my problem.
+RAIDERS_CAMP_TALK_05,"[TEMP] Weil ihr den Kram, den ihr bewacht, gar nicht braucht.",[TEMP] Because you don't even need the junk you're guarding.
+RAIDERS_CAMP_TALK_06,[TEMP] Welchen Kram?,[TEMP] What junk?
+RAIDERS_CAMP_TALK_07,"[TEMP] Den Störsender da. Ihr wisst nicht mal, was das ist.",[TEMP] That jammer there. You don't even know what it is.
+RAIDERS_CAMP_TALK_08,[TEMP] Stimmt. Er macht Krach im Radio. Nimm ihn und geh.,[TEMP] True. It makes noise on the radio. Take it and go.
+RAIDERS_CAMP_TALK_09,[TEMP] Weil ich stärker bin.,[TEMP] Because I'm stronger.
+RAIDERS_CAMP_TALK_10,[TEMP] Das sehen wir gleich.,[TEMP] We'll see about that.
+RAIDERS_CAMP_THROUGH_01,"[TEMP] Und nimm das komische Radio mit. Es piept, wenn die Dinger kommen. Macht uns nervös.",[TEMP] And take that weird radio with you. It beeps when the things come. Makes us nervous.
+RAIDERS_CAMP_AFTER_FIGHT_01,"[TEMP] Aufhören! Wir geben auf. Nimm den Kram, nimm alles.","[TEMP] Stop! We give up. Take the stuff, take everything."
+RAIDERS_CAMP_AFTER_FIGHT_02,[TEMP] Lauf. Und lass dich hier nicht mehr blicken.,[TEMP] Run. And don't let me see you here again.
+RAIDERS_CAMP_AFTER_FIGHT_03,[TEMP] Danke. Ich werde ... ich weiß nicht. Gärtner. Oder so.,[TEMP] Thanks. I'll become ... I don't know. A gardener. Or something.
+RAIDERS_CAMP_AFTER_FIGHT_04,[TEMP] Fesseln und liegen lassen.,[TEMP] Tie them up and leave them.
+RAIDERS_CAMP_AFTER_FIGHT_05,"[TEMP] Das ist unbequem, aber fair.","[TEMP] That's uncomfortable, but fair."
+RAIDERS_CAMP_AFTER_FIGHT_06,[TEMP] Dafür ist es zu spät.,[TEMP] It's too late for that.
+RAIDERS_CAMP_AFTER_FIGHT_07,[TEMP] Es wird sehr still im Lager.,[TEMP] The camp goes very quiet.
+RAIDERS_CAMP_AFTER_FIGHT_08,[TEMP] ... Das war nicht nötig.,[TEMP] ... That wasn't necessary.
+RAIDERS_CAMP_AFTER_FIGHT_09,[TEMP] Ich ... sag dazu nichts.,[TEMP] I'm ... not saying anything about that.
+TINKERER_FIRST_MEET_01,[TEMP] Pssst! Nicht bewegen. Die Schüssel hat gerade was empfangen.,[TEMP] Psst! Don't move. The dish just picked something up.
+TINKERER_FIRST_MEET_02,[TEMP] Das sind keine Störungen. Das ist ein Muster. Die Satelliten funken zurück.,[TEMP] That's not interference. That's a pattern. The satellites are talking back.
+TINKERER_FIRST_MEET_03,[TEMP] Was sagen sie?,[TEMP] What are they saying?
+TINKERER_FIRST_MEET_04,[TEMP] Keine Ahnung. Aber sie sagen es sehr regelmäßig.,[TEMP] No idea. But they say it very regularly.
+TINKERER_FIRST_MEET_05,[TEMP] Du redest mit einer Satellitenschüssel.,[TEMP] You're talking to a satellite dish.
+TINKERER_FIRST_MEET_06,[TEMP] Sie hört wenigstens zu.,[TEMP] At least it listens.
+TINKERER_FIRST_MEET_07,[TEMP] Das klingt nach einer Trägerfrequenz mit Phasenmodulation.,[TEMP] Sounds like a carrier frequency with phase modulation.
+TINKERER_FIRST_MEET_08,"[TEMP] JA! Endlich jemand, der Phasenmodulation sagt!",[TEMP] YES! Finally someone who says phase modulation!
+TINKERER_FIRST_MEET_09,[TEMP] Darf ich mal? Die Halterung ist locker.,[TEMP] May I? The mount is loose.
+TINKERER_FIRST_MEET_10,[TEMP] Oh. Danach ist das Signal doppelt so klar. Danke!,[TEMP] Oh. Now the signal is twice as clear. Thanks!
+TINKERER_FIRST_MEET_11,[TEMP] Ich muss die Antenne leider beschlagnahmen. Ordnungswidrigkeit.,[TEMP] I'm afraid I have to confiscate this antenna. Regulatory offense.
+TINKERER_FIRST_MEET_12,[TEMP] Die Ordnung ist seit drei Wochen aus. Wie der Strom.,[TEMP] Regulations have been off for three weeks. Like the power.
+TINKERER_FIRST_MEET_13,"[TEMP] Du siehst aus, als hättest du jemanden verloren. Tut mir leid.",[TEMP] You look like you've lost someone. I'm sorry.
+TINKERER_RECRUIT_CHOICE_01,"[TEMP] Ich brauche jemanden, der mich zu mehr Geräten bringt. Fernseher, Telefonzellen, Spielautomaten.","[TEMP] I need someone to get me to more devices. TVs, payphones, arcade cabinets."
+TINKERER_RECRUIT_CHOICE_02,[TEMP] Komm mit. Wir finden Geräte.,[TEMP] Come along. We'll find devices.
+TINKERER_RECRUIT_CHOICE_03,[TEMP] Ich nehm den Lötkolben mit. Und Batterien. Und noch mehr Batterien.,[TEMP] I'm bringing the soldering iron. And batteries. And more batteries.
+TINKERER_RECRUIT_CHOICE_04,[TEMP] Bleib bei deiner Schüssel.,[TEMP] Stay with your dish.
+TINKERER_RECRUIT_CHOICE_05,"[TEMP] Okay. Sie und ich, wir verstehen uns.",[TEMP] Okay. She and I understand each other.
+TINKERER_IDLE_01,[TEMP] Hast du es dir anders überlegt?,[TEMP] Changed your mind?
+TINKERER_IDLE_02,"[TEMP] Ich hab die Frequenz, auf der die Pfanne geklappert hat, noch im Ohr.",[TEMP] I can still hear the frequency the pan made when it clanged.
+TINKERER_IDLE_03,[TEMP] Das ist albern. Ich weiß.,[TEMP] That's silly. I know.
+TINKERER_IDLE_04,"[TEMP] Wusstest du, dass Spielautomaten die besten Antennen sind? Niemand weiß das. Außer mir.",[TEMP] Did you know arcade cabinets make the best antennas? Nobody knows that. Except me.
+TINKERER_IDLE_05,[TEMP] Ich hab einen Walkman umgebaut. Jetzt spielt er nur noch Rauschen. Aber besonderes Rauschen.,[TEMP] I rebuilt a Walkman. Now it only plays static. But special static.
+TINKERER_IDLE_06,"[TEMP] Wenn das Militär nicht mal mehr weiß, wo Norden ist, wer dann? Ich. Ich hab einen Kompass.","[TEMP] If the military doesn't even know where north is anymore, who does? Me. I have a compass."
+VIDEOSTORE_CLERK_01,[TEMP] Willkommen bei Videospiele Krüger! Wir haben geöffnet. Wir haben immer geöffnet.,[TEMP] Welcome to Krüger's Video Games! We're open. We're always open.
+VIDEOSTORE_CLERK_02,"[TEMP] Die Welt geht unter, aber die Öffnungszeiten stehen an der Tür.","[TEMP] The world is ending, but the opening hours are on the door."
+VIDEOSTORE_CLERK_03,"[TEMP] Ich helfe dir, die Rollläden zu reparieren.",[TEMP] I'll help you fix the shutters.
+VIDEOSTORE_CLERK_04,[TEMP] Wirklich? Dann sind wir der einzige Laden mit Rollläden in der ganzen Stadt!,[TEMP] Really? Then we'll be the only shop in town with shutters!
+VIDEOSTORE_CLERK_05,"[TEMP] Nimm dir eine Konserve aus der Kasse. Ich hab keine Münzen mehr, nur noch Erbsen.","[TEMP] Take a can from the register. I'm out of coins, only peas left."
+VIDEOSTORE_CLERK_06,"[TEMP] Ich nehme mir, was in der Kasse ist.",[TEMP] I'll take what's in the register.
+VIDEOSTORE_CLERK_07,[TEMP] Da sind nur Erbsen drin. Und Spielmarken. Nimm sie halt.,"[TEMP] There's only peas in there. And tokens. Take them, then."
+VIDEOSTORE_CLERK_08,[TEMP] Der Automat hat einen Wackelkontakt. Gib mir zwei Minuten.,[TEMP] That cabinet has a loose connection. Give me two minutes.
+VIDEOSTORE_CLERK_09,[TEMP] Er läuft! Zum ersten Mal seit der Apokalypse läuft Galaxy Raiders!,[TEMP] It works! Galaxy Raiders is running for the first time since the apocalypse!
+VIDEOSTORE_CLERK_10,[TEMP] Ich hätte gern eine Quittung über meinen Besuch.,[TEMP] I'd like a receipt for my visit.
+VIDEOSTORE_CLERK_11,[TEMP] Für einen Besuch?,[TEMP] For a visit?
+VIDEOSTORE_CLERK_12,[TEMP] Für die Akten.,[TEMP] For the files.
+VIDEOSTORE_CLERK_13,[TEMP] Welche Akten? Das Amt ist doch ...,[TEMP] What files? The office is ...
+VIDEOSTORE_CLERK_14,[TEMP] Die Akten sind in meinem Herzen.,[TEMP] The files are in my heart.
+VIDEOSTORE_CLERK_15,[TEMP] Nur umsehen.,[TEMP] Just looking.
+VIDEOSTORE_CLERK_16,[TEMP] Fass das Schwert nicht an. Das ist ein Werbeaufsteller.,[TEMP] Don't touch the sword. It's a display piece.
+VIDEOSTORE_CLERK_17,[TEMP] Auf dem Dach sitzt übrigens jemand mit einer Satellitenschüssel und redet mit dem Himmel.,"[TEMP] By the way, someone's sitting on the roof with a satellite dish, talking to the sky."
+VIDEOSTORE_SWORD_SHELF_01,"[TEMP] Im Regal steht das Heilige Schwert von [TEMP]. Aus Pappmaché, Plastik und Hoffnung.","[TEMP] On the shelf stands the Holy Sword of [TEMP]. Made of papier-mâché, plastic and hope."
+VIDEOSTORE_SWORD_SHELF_02,"[TEMP] Auf dem Schild steht ""Promo-Artikel, nicht zum Verkauf, nicht zum Kämpfen"".","[TEMP] The sign says ""Promo item, not for sale, not for fighting""."
+VIDEOSTORE_SWORD_SHELF_03,[TEMP] Nehmen.,[TEMP] Take it.
+VIDEOSTORE_SWORD_SHELF_04,"[TEMP] Hey! ... Ach, nimm es. Es zerbricht eh beim ersten Schlag.","[TEMP] Hey! ... Oh, take it. It breaks on the first hit anyway."
+VIDEOSTORE_SWORD_SHELF_05,[TEMP] Dann muss der erste Schlag sitzen.,[TEMP] Then the first hit had better count.
+VIDEOSTORE_SWORD_SHELF_06,"[TEMP] Fragen, ob ich es haben darf.",[TEMP] Ask if I can have it.
+VIDEOSTORE_SWORD_SHELF_07,[TEMP] Du fragst? Das hat seit der Invasion niemand getan. Nimm es!,[TEMP] You're asking? Nobody's done that since the invasion. Take it!
+VIDEOSTORE_SWORD_SHELF_08,[TEMP] Stehen lassen.,[TEMP] Leave it.
+VIDEOSTORE_SWORD_SHELF_09,[TEMP] Das Schwert sieht dich enttäuscht an. Zumindest fühlt es sich so an.,"[TEMP] The sword looks at you, disappointed. At least it feels that way."
+EXAMINE_TV_FLICKER_01,"[TEMP] Ein Röhrenfernseher. Er zeigt kein Programm, nur ein Flimmern, das sich wiederholt.","[TEMP] A CRT TV. No program, just a flicker that keeps repeating."
+EXAMINE_TV_FLICKER_02,[TEMP] Das Flimmern hat einen Takt. Jemand sendet auf allen Kanälen gleichzeitig.,[TEMP] The flicker has a rhythm. Someone is broadcasting on every channel at once.
+EXAMINE_TV_FLICKER_03,[TEMP] Das ist das gleiche Muster wie auf dem Dach! Ich hab es gewusst!,[TEMP] That's the same pattern as on the roof! I knew it!
+EXAMINE_TV_FLICKER_04,"[TEMP] Wenigstens läuft keine Wiederholung von ""Wetten, dass..?"".",[TEMP] At least it's not another rerun of Dallas.
+EXAMINE_PAYPHONE_01,"[TEMP] Eine Telefonzelle. Der Hörer baumelt. Aus ihm kommt ein Freizeichen, das irgendwie ... nachdenkt.",[TEMP] A payphone. The receiver dangles. It gives a dial tone that sounds like it's ... thinking.
+EXAMINE_PAYPHONE_02,[TEMP] Abheben.,[TEMP] Pick up.
+EXAMINE_PAYPHONE_03,[TEMP] Am anderen Ende atmet niemand. Sehr deutlich.,[TEMP] Nobody is breathing on the other end. Very clearly.
+EXAMINE_PAYPHONE_04,[TEMP] Groschen einwerfen.,[TEMP] Insert a coin.
+EXAMINE_PAYPHONE_05,[TEMP] Das Telefon schluckt den Groschen und klingelt dann zurück. Bei dir.,[TEMP] The phone swallows the coin and then calls back. You.
+EXAMINE_PAYPHONE_06,[TEMP] In Ruhe lassen.,[TEMP] Leave it alone.
+EXAMINE_ARCADE_CABINET_01,"[TEMP] Ein Spielautomat. ""Galaxy Raiders"". Highscore-Liste - AAA, AAA, AAA, und ganz unten ZZZ.","[TEMP] An arcade cabinet. ""Galaxy Raiders"". High scores - AAA, AAA, AAA, and at the very bottom ZZZ."
+EXAMINE_ARCADE_CABINET_02,[TEMP] Die Platine ist die beste Antenne in der ganzen Straße. Niemand weiß das.,[TEMP] The circuit board is the best antenna on the whole street. Nobody knows that.
+EXAMINE_ARCADE_CABINET_03,[TEMP] Das Gerät hat keine Prüfplakette. Ich notiere das.,[TEMP] This device has no inspection sticker. I'm making a note.
+EXAMINE_ARCADE_CABINET_04,[TEMP] Ich hab keinen Groschen. Und keinen Mut für Level 2.,[TEMP] I don't have a coin. Or the courage for level 2.
+EXAMINE_SATELLITE_DISH_01,"[TEMP] Eine Satellitenschüssel, notdürftig mit Klebeband auf das Dach geschnallt.","[TEMP] A satellite dish, strapped to the roof with tape."
+EXAMINE_SATELLITE_DISH_02,[TEMP] Sie zeigt nicht zum Himmel. Sie zeigt auf einen ganz bestimmten Punkt im Himmel.,[TEMP] It doesn't point at the sky. It points at one very specific spot in the sky.
+EXAMINE_BURNT_CAR_01,"[TEMP] Ein ausgebranntes Auto. Auf dem Armaturenbrett liegt eine Kassette, die den Brand überlebt hat.",[TEMP] A burnt-out car. On the dashboard lies a cassette that survived the fire.
+EXAMINE_BURNT_CAR_02,"[TEMP] ""Best of Schlager 1983"". Natürlich überlebt so was.","[TEMP] ""Best of Schlager 1983"". Of course that survived."
+EXAMINE_BURNT_CAR_03,[TEMP] Kein Kennzeichen. Fahrerflucht. Vor der Apokalypse wäre das ein Fall gewesen.,"[TEMP] No license plate. Hit and run. Before the apocalypse, this would have been a case."
+EXAMINE_CHEAT_POSTER_01,"[TEMP] Ein Poster. ""Galaxy Raiders - Profi-Tipp!"" Darunter Pfeile.","[TEMP] A poster. ""Galaxy Raiders - Pro tip!"" Below it, arrows."
+EXAMINE_CHEAT_POSTER_02,"[TEMP] HOCH, HOCH, RUNTER, RUNTER, LINKS, RECHTS, LINKS, RECHTS.","[TEMP] UP, UP, DOWN, DOWN, LEFT, RIGHT, LEFT, RIGHT."
+EXAMINE_CHEAT_POSTER_03,"[TEMP] Klein gedruckt steht da ""Funktioniert in jedem Notfall"". Das ist seltsam spezifisch.","[TEMP] In small print it says ""Works in any emergency"". That's oddly specific."
+EXAMINE_ALIEN_STRUCTURE_01,"[TEMP] Ein Gebilde aus Autoteilen, Antennen und Toastern. Es ist sehr ordentlich gestapelt.","[TEMP] A structure made of car parts, antennas and toasters. It's stacked very neatly."
+EXAMINE_ALIEN_STRUCTURE_02,[TEMP] Die sortieren nach Farbe! Wer sortiert denn nach Farbe?,[TEMP] They sort by color! Who sorts by color?
+EXAMINE_ALIEN_STRUCTURE_03,[TEMP] Es summt. Ich fass das nicht an.,[TEMP] It hums. I'm not touching that.
+EXAMINE_BUNKER_DOOR_01,"[TEMP] Eine schwere Bunkertür. Jemand hat ""NICHT ÖFFNEN"" draufgeschrieben. Darunter in anderer Schrift ""DOCH"".","[TEMP] A heavy bunker door. Someone wrote ""DO NOT OPEN"" on it. Below, in different handwriting, ""DO""."
+EXAMINE_CULT_SYMBOL_01,"[TEMP] Drei Kreise, mit Kreide an die Wand gemalt. Einer ist falsch herum. Wie auch immer das geht.","[TEMP] Three circles, drawn on the wall in chalk. One is upside down. However that works."
+EXAMINE_CULT_SYMBOL_02,"[TEMP] Wenn man lange genug hinsieht, summt man mit. Du siehst lieber weg.","[TEMP] If you look long enough, you start humming along. You'd rather look away."
+HELLO_START_01,[TEMP] Hallo {{GameState.player_name()}}. Das ist ein Test.,[TEMP] Hello {{GameState.player_name()}}. This is a test.
 HELLO_TRANSLATION_TEST,[TEMP] Diese Zeile kommt aus der Übersetzungstabelle.,[TEMP] This line comes from the translation table.
+HELLO_START_03,[TEMP] Was willst du tun?,[TEMP] What do you want to do?
+HELLO_START_04,[TEMP] Einen Flag setzen,[TEMP] Set a flag
+HELLO_START_05,"[TEMP] Flag ""hello_flag"" gesetzt.","[TEMP] Flag ""hello_flag"" set."
+HELLO_START_06,[TEMP] Nett sein (+10 Moral),[TEMP] Be nice (+10 moral)
+HELLO_START_07,[TEMP] Wie nett. Moral jetzt: {{GameState.moral}}.,[TEMP] How nice. Moral now: {{GameState.moral}}.
+HELLO_START_08,[TEMP] Gemein sein (-10 Moral),[TEMP] Be mean (-10 moral)
+HELLO_START_09,[TEMP] Autsch. Moral jetzt: {{GameState.moral}}.,[TEMP] Ouch. Moral now: {{GameState.moral}}.
+HELLO_START_10,[TEMP] Puls fühlen (nur als Arzt/Ärztin),[TEMP] Check the pulse (doctors only)
+HELLO_START_11,[TEMP] Puls ist da. Glückwunsch.,[TEMP] There's a pulse. Congratulations.
+HELLO_START_12,[TEMP] Umarmen (nur bei hoher Moral sichtbar),[TEMP] Hug (only visible at high moral)
+HELLO_START_13,[TEMP] Das hat gutgetan.,[TEMP] That felt good.
+HELLO_START_14,[TEMP] Tschüss,[TEMP] Bye
+HELLO_START_15,[TEMP] Bis dann.,[TEMP] See you.

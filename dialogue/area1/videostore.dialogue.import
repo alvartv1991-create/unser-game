@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://ciabljxq3ilio"
+path="res://.godot/imported/videostore.dialogue-c1c6c3844f6a10809a4bcb511e8ec65e.tres"
+
+[deps]
+
+source_file="res://dialogue/area1/videostore.dialogue"
+dest_files=["res://.godot/imported/videostore.dialogue-c1c6c3844f6a10809a4bcb511e8ec65e.tres"]
+
+[params]
+
+defaults=true

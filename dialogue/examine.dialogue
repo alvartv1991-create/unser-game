@@ -1,0 +1,67 @@
+# [TEMP] Look-at comments. One cue per examine id (ALPHA_SCOPE § Content ids). Placeholder text.
+
+~ tv_flicker
+$> EventBus.device_glitch.emit(0.25, 0.8)
+[TEMP] Ein Röhrenfernseher. Er zeigt kein Programm, nur ein Flimmern, das sich wiederholt. [ID:EXAMINE_TV_FLICKER_01]
+if GameState.job_is("scientist")
+	player: [TEMP] Das Flimmern hat einen Takt. Jemand sendet auf allen Kanälen gleichzeitig. [ID:EXAMINE_TV_FLICKER_02]
+elif GameState.in_party("tinkerer")
+	tinkerer: [TEMP] Das ist das gleiche Muster wie auf dem Dach! Ich hab es gewusst! [#mood=happy] [ID:EXAMINE_TV_FLICKER_03]
+else
+	player: [TEMP] Wenigstens läuft keine Wiederholung von "Wetten, dass..?". [ID:EXAMINE_TV_FLICKER_04]
+=> END
+
+~ payphone
+[TEMP] Eine Telefonzelle. Der Hörer baumelt. Aus ihm kommt ein Freizeichen, das irgendwie ... nachdenkt. [ID:EXAMINE_PAYPHONE_01]
+- [TEMP] Abheben. [ID:EXAMINE_PAYPHONE_02]
+	[TEMP] Am anderen Ende atmet niemand. Sehr deutlich. [ID:EXAMINE_PAYPHONE_03]
+- [TEMP] Groschen einwerfen. [ID:EXAMINE_PAYPHONE_04]
+	[TEMP] Das Telefon schluckt den Groschen und klingelt dann zurück. Bei dir. [ID:EXAMINE_PAYPHONE_05]
+- [TEMP] In Ruhe lassen. [ID:EXAMINE_PAYPHONE_06]
+=> END
+
+~ arcade_cabinet
+[TEMP] Ein Spielautomat. "Galaxy Raiders". Highscore-Liste - AAA, AAA, AAA, und ganz unten ZZZ. [ID:EXAMINE_ARCADE_CABINET_01]
+if GameState.in_party("tinkerer")
+	tinkerer: [TEMP] Die Platine ist die beste Antenne in der ganzen Straße. Niemand weiß das. [ID:EXAMINE_ARCADE_CABINET_02]
+elif GameState.job_is("civil_servant")
+	player: [TEMP] Das Gerät hat keine Prüfplakette. Ich notiere das. [ID:EXAMINE_ARCADE_CABINET_03]
+else
+	player: [TEMP] Ich hab keinen Groschen. Und keinen Mut für Level 2. [ID:EXAMINE_ARCADE_CABINET_04]
+=> END
+
+~ satellite_dish
+[TEMP] Eine Satellitenschüssel, notdürftig mit Klebeband auf das Dach geschnallt. [ID:EXAMINE_SATELLITE_DISH_01]
+[TEMP] Sie zeigt nicht zum Himmel. Sie zeigt auf einen ganz bestimmten Punkt im Himmel. [ID:EXAMINE_SATELLITE_DISH_02]
+=> END
+
+~ burnt_car
+[TEMP] Ein ausgebranntes Auto. Auf dem Armaturenbrett liegt eine Kassette, die den Brand überlebt hat. [ID:EXAMINE_BURNT_CAR_01]
+[TEMP] "Best of Schlager 1983". Natürlich überlebt so was. [ID:EXAMINE_BURNT_CAR_02]
+if GameState.job_is("police")
+	player: [TEMP] Kein Kennzeichen. Fahrerflucht. Vor der Apokalypse wäre das ein Fall gewesen. [ID:EXAMINE_BURNT_CAR_03]
+=> END
+
+~ cheat_poster
+[TEMP] Ein Poster. "Galaxy Raiders - Profi-Tipp!" Darunter Pfeile. [ID:EXAMINE_CHEAT_POSTER_01]
+[TEMP] HOCH, HOCH, RUNTER, RUNTER, LINKS, RECHTS, LINKS, RECHTS. [ID:EXAMINE_CHEAT_POSTER_02]
+[TEMP] Klein gedruckt steht da "Funktioniert in jedem Notfall". Das ist seltsam spezifisch. [ID:EXAMINE_CHEAT_POSTER_03]
+=> END
+
+~ alien_structure
+$> EventBus.device_glitch.emit(0.5, 1.2)
+[TEMP] Ein Gebilde aus Autoteilen, Antennen und Toastern. Es ist sehr ordentlich gestapelt. [ID:EXAMINE_ALIEN_STRUCTURE_01]
+if GameState.in_party("tinkerer")
+	tinkerer: [TEMP] Die sortieren nach Farbe! Wer sortiert denn nach Farbe? [ID:EXAMINE_ALIEN_STRUCTURE_02]
+else
+	player: [TEMP] Es summt. Ich fass das nicht an. [ID:EXAMINE_ALIEN_STRUCTURE_03]
+=> END
+
+~ bunker_door
+[TEMP] Eine schwere Bunkertür. Jemand hat "NICHT ÖFFNEN" draufgeschrieben. Darunter in anderer Schrift "DOCH". [ID:EXAMINE_BUNKER_DOOR_01]
+=> END
+
+~ cult_symbol
+[TEMP] Drei Kreise, mit Kreide an die Wand gemalt. Einer ist falsch herum. Wie auch immer das geht. [ID:EXAMINE_CULT_SYMBOL_01]
+[TEMP] Wenn man lange genug hinsieht, summt man mit. Du siehst lieber weg. [ID:EXAMINE_CULT_SYMBOL_02]
+=> END

@@ -1,0 +1,20 @@
+# [TEMP] The hidden cult teaser. Cryptic, no answers. The humans decide what the cult is.
+
+~ teaser
+[TEMP] Hinter dem Kriechkeller flimmert ein Fernseher. Kein Bild, nur Rauschen. [ID:CULT_TEASER_01]
+[TEMP] Jemand sitzt davor und summt. Genau im Takt des Rauschens. [ID:CULT_TEASER_02]
+cultist: [TEMP] Hörst du es auch? Es zählt. [ID:CULT_TEASER_03]
+- [TEMP] Was zählt es? [ID:CULT_TEASER_04]
+	cultist: [TEMP] Uns. [ID:CULT_TEASER_05]
+- [TEMP] Wer bist du? [ID:CULT_TEASER_06]
+	cultist: [TEMP] Früh dran. Du bist früh dran. [ID:CULT_TEASER_07]
+- [TEMP] Ich hör nur Rauschen. [ID:CULT_TEASER_08]
+	cultist: [TEMP] Noch. [ID:CULT_TEASER_09]
+- [TEMP] Das Rauschen hat eine Struktur. Siebenundzwanzig Takte, dann Pause. [if GameState.job_is("scientist") /] [ID:CULT_TEASER_10]
+	cultist: [TEMP] Du zählst schon mit. Schön. [ID:CULT_TEASER_11]
+[TEMP] An der Wand ist ein Symbol. Drei Kreise, einer davon falsch herum. Wie auch immer das geht. [ID:CULT_TEASER_12]
+[TEMP] Als du dich umdrehst, ist der Fernseher aus. Und niemand ist mehr da. [ID:CULT_TEASER_13]
+$> GameState.set_flag("cult_teaser_found")
+if GameState.in_party("tinkerer")
+	tinkerer: [TEMP] Ich hab das aufgenommen. Glaube ich. Die Kassette ist ... warm. [ID:CULT_TEASER_14]
+=> END

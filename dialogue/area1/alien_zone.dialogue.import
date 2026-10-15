@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://cg4rv6n87aqry"
+path="res://.godot/imported/alien_zone.dialogue-03ec12ad391f507f25415573bcd05cac.tres"
+
+[deps]
+
+source_file="res://dialogue/area1/alien_zone.dialogue"
+dest_files=["res://.godot/imported/alien_zone.dialogue-03ec12ad391f507f25415573bcd05cac.tres"]
+
+[params]
+
+defaults=true

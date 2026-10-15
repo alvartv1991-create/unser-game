@@ -1,0 +1,11 @@
+# [TEMP] Intro: text cards before the bunker. Placeholder text, the humans write the real intro.
+
+~ start
+[TEMP] Es begann mit einem Piepen. Militärsatelliten empfingen Signale, die niemand bestellt hatte. [ID:INTRO_START_01]
+[TEMP] Dann fiel das GPS aus. Dann das Militärnetz. Die Generäle mussten wieder Karten falten. [ID:INTRO_START_02]
+[TEMP] Fernseher flackerten. Telefonzellen klingelten, obwohl niemand anrief. [ID:INTRO_START_03]
+[TEMP] Dann kamen sie. [ID:INTRO_START_04]
+[TEMP] Und dann ... ignorierten sie uns. Fast komplett. [ID:INTRO_START_05]
+$> GameState.set_flag("intro_done")
+$> GameState.set_objective("OBJ_TALK_TO_COOK")
+=> END

@@ -1,0 +1,111 @@
+# [TEMP] Raiders: the street fight, the camp checkpoint and the surrendering raider. Placeholder text.
+
+~ street
+raider_scavenger: [TEMP] Halt! Das ist unsere Straße. Hier kostet Atmen Gebühr. [ID:RAIDERS_STREET_01]
+raider_scavenger: [TEMP] Eine Konserve pro Lunge. [ID:RAIDERS_STREET_02]
+- [TEMP] Hier, nehmt meine Konserve. Ihr seht hungrig aus. [if GameState.has_item("canned_food") /] [#show_locked] [ID:RAIDERS_STREET_03]
+	$> GameState.remove_item("canned_food")
+	$> GameState.add_moral(10)
+	raider_scavenger: [TEMP] Oh. Danke. Das ist ... unerwartet nett. [ID:RAIDERS_STREET_04]
+	raider_scavenger: [TEMP] Wir erzählen den anderen von dir. [ID:RAIDERS_STREET_05]
+	$> GameState.set_flag("raiders_street_done")
+	$> GameState.set_objective("OBJ_VISIT_VIDEOSTORE")
+- [TEMP] Polizei! Hände hoch! Ihr seid alle festgenommen. [if GameState.job_is("police") /] [#show_locked] [ID:RAIDERS_STREET_06]
+	raider_scavenger: [TEMP] Es gibt keine Polizei mehr. [ID:RAIDERS_STREET_07]
+	player: [TEMP] Es gibt mich. [ID:RAIDERS_STREET_08]
+	raider_scavenger: [TEMP] ... Okay, das stimmt. [ID:RAIDERS_STREET_09]
+	$> SceneRouter.start_combat("raiders_street")
+- [TEMP] Verschwindet, oder ich nehme euch eure Schuhe weg. [ID:RAIDERS_STREET_10]
+	$> GameState.add_moral(-10)
+	raider_scavenger: [TEMP] Das ist gemein. Wir haben nur ein Paar Schuhe für zwei! [ID:RAIDERS_STREET_11]
+	$> SceneRouter.start_combat("raiders_street")
+- [TEMP] Kämpfen. [ID:RAIDERS_STREET_12]
+	$> SceneRouter.start_combat("raiders_street")
+=> END
+
+~ camp
+raider_brute: [TEMP] Halt. Das ist ein Checkpoint. Weiß jeder. Steht auf dem Schild. [ID:RAIDERS_CAMP_01]
+raider_brute: [TEMP] Das Schild haben wir aus einem Kindergarten. Da steht "Bitte leise sein". Aber wir meinen Checkpoint. [ID:RAIDERS_CAMP_02]
+=> camp_choices
+
+~ camp_choices
+- [TEMP] Reden wir. Was wollt ihr eigentlich? [ID:RAIDERS_CAMP_CHOICES_01]
+	=> camp_talk
+- [TEMP] Hier, eine Konserve. Für den Durchgang. [if GameState.has_item("canned_food") /] [#show_locked] [ID:RAIDERS_CAMP_CHOICES_02]
+	$> GameState.remove_item("canned_food")
+	raider_brute: [TEMP] Erbsen. Na gut. Durch. [ID:RAIDERS_CAMP_CHOICES_03]
+	$> GameState.set_flag("raiders_camp_resolved", "bribe")
+	=> camp_through
+- [TEMP] Du blutest. Lass mich das verbinden. [if GameState.job_is("doctor") /] [#show_locked] [ID:RAIDERS_CAMP_CHOICES_04]
+	raider_brute: [TEMP] ... Das hat seit Wochen keiner gefragt. [ID:RAIDERS_CAMP_CHOICES_05]
+	$> GameState.set_flag("raiders_camp_resolved", "job")
+	=> camp_through
+- [TEMP] Euer Generator stottert. Ich kann das reparieren. [if GameState.job_is("craftsman") /] [#show_locked] [ID:RAIDERS_CAMP_CHOICES_06]
+	raider_brute: [TEMP] Licht! Wir haben Licht! Geh durch, Meister/in. [ID:RAIDERS_CAMP_CHOICES_07]
+	$> GameState.set_flag("raiders_camp_resolved", "job")
+	=> camp_through
+- [TEMP] Ich zeige meine Dienstmarke. Die ist zwar abgelaufen, aber glänzt noch. [if GameState.job_is("police") /] [#show_locked] [ID:RAIDERS_CAMP_CHOICES_08]
+	raider_brute: [TEMP] Glänzt echt schön. Okay. Durch. [ID:RAIDERS_CAMP_CHOICES_09]
+	$> GameState.set_flag("raiders_camp_resolved", "job")
+	=> camp_through
+- [TEMP] Der Schwarm reagiert auf euren Lärm. Wenn ihr leise seid, ignoriert er euch. [if GameState.job_is("scientist") /] [#show_locked] [ID:RAIDERS_CAMP_CHOICES_10]
+	raider_brute: [TEMP] Deshalb das Schild! Wir hatten die ganze Zeit recht! [ID:RAIDERS_CAMP_CHOICES_11]
+	$> GameState.set_flag("raiders_camp_resolved", "job")
+	=> camp_through
+- [TEMP] Ich erteile Ihnen hiermit eine Durchgangsgenehmigung. Für mich. [if GameState.job_is("civil_servant") /] [#show_locked] [ID:RAIDERS_CAMP_CHOICES_12]
+	raider_brute: [TEMP] Hat die einen Stempel? [ID:RAIDERS_CAMP_CHOICES_13]
+	player: [TEMP] Der Stempel ist in Bearbeitung. [ID:RAIDERS_CAMP_CHOICES_14]
+	raider_brute: [TEMP] Dann warte. Sechs bis acht Wochen. Hier am Zaun. [ID:RAIDERS_CAMP_CHOICES_15]
+	=> camp_choices
+- [TEMP] Erinnert ihr euch an mich? [if GameState.moral_is("high") /] [ID:RAIDERS_CAMP_CHOICES_16]
+	raider_scavenger: [TEMP] Moment. Dich kenne ich. Du hast den Leuten in der Stadt geholfen. [ID:RAIDERS_CAMP_CHOICES_17]
+	raider_scavenger: [TEMP] Lass die durch. Die ist in Ordnung. Oder der. Egal. [ID:RAIDERS_CAMP_CHOICES_18]
+	raider_brute: [TEMP] ... Na gut. Weil du es bist. [ID:RAIDERS_CAMP_CHOICES_19]
+	$> GameState.set_flag("raiders_camp_resolved", "moral")
+	=> camp_through
+- [TEMP] Kämpfen. [ID:RAIDERS_CAMP_CHOICES_20]
+	$> SceneRouter.start_combat("raiders_camp")
+=> END
+
+~ camp_talk
+raider_brute: [TEMP] Wir wollen, was alle wollen. Essen, Strom, und dass die Dinger am Himmel aufhören zu summen. [ID:RAIDERS_CAMP_TALK_01]
+raider_brute: [TEMP] Sag mir, warum ich dich durchlassen soll. Aber sag es richtig. [ID:RAIDERS_CAMP_TALK_02]
+- [TEMP] Weil hinter dem Zaun keine Konserven sind, nur Aliens. [ID:RAIDERS_CAMP_TALK_03]
+	raider_brute: [TEMP] ... Das stimmt. Aber das ist nicht mein Problem. [ID:RAIDERS_CAMP_TALK_04]
+	=> camp_choices
+- [TEMP] Weil ihr den Kram, den ihr bewacht, gar nicht braucht. [ID:RAIDERS_CAMP_TALK_05]
+	raider_brute: [TEMP] Welchen Kram? [ID:RAIDERS_CAMP_TALK_06]
+	player: [TEMP] Den Störsender da. Ihr wisst nicht mal, was das ist. [ID:RAIDERS_CAMP_TALK_07]
+	raider_brute: [TEMP] Stimmt. Er macht Krach im Radio. Nimm ihn und geh. [ID:RAIDERS_CAMP_TALK_08]
+	$> GameState.set_flag("raiders_camp_resolved", "talk")
+	=> camp_through
+- [TEMP] Weil ich stärker bin. [ID:RAIDERS_CAMP_TALK_09]
+	raider_brute: [TEMP] Das sehen wir gleich. [ID:RAIDERS_CAMP_TALK_10]
+	$> SceneRouter.start_combat("raiders_camp")
+	=> END
+
+~ camp_through
+$> GameState.add_item("jammer")
+raider_brute: [TEMP] Und nimm das komische Radio mit. Es piept, wenn die Dinger kommen. Macht uns nervös. [ID:RAIDERS_CAMP_THROUGH_01]
+$> GameState.set_objective("OBJ_CROSS_ALIEN_ZONE")
+=> END
+
+~ camp_after_fight
+raider_scavenger: [TEMP] Aufhören! Wir geben auf. Nimm den Kram, nimm alles. [ID:RAIDERS_CAMP_AFTER_FIGHT_01]
+- [TEMP] Lauf. Und lass dich hier nicht mehr blicken. [ID:RAIDERS_CAMP_AFTER_FIGHT_02]
+	$> GameState.add_moral(5)
+	$> GameState.set_flag("raider_spared", true)
+	raider_scavenger: [TEMP] Danke. Ich werde ... ich weiß nicht. Gärtner. Oder so. [ID:RAIDERS_CAMP_AFTER_FIGHT_03]
+- [TEMP] Fesseln und liegen lassen. [ID:RAIDERS_CAMP_AFTER_FIGHT_04]
+	$> GameState.set_flag("raider_spared", true)
+	raider_scavenger: [TEMP] Das ist unbequem, aber fair. [ID:RAIDERS_CAMP_AFTER_FIGHT_05]
+- [TEMP] Dafür ist es zu spät. [if GameState.moral_is("low") /] [ID:RAIDERS_CAMP_AFTER_FIGHT_06]
+	$> GameState.add_moral(-30)
+	$> GameState.set_flag("raider_spared", false)
+	[TEMP] Es wird sehr still im Lager. [ID:RAIDERS_CAMP_AFTER_FIGHT_07]
+	if GameState.in_party("cook")
+		cook: [TEMP] ... Das war nicht nötig. [#mood=sad] [ID:RAIDERS_CAMP_AFTER_FIGHT_08]
+	if GameState.in_party("tinkerer")
+		tinkerer: [TEMP] Ich ... sag dazu nichts. [#mood=sad] [ID:RAIDERS_CAMP_AFTER_FIGHT_09]
+$> GameState.set_flag("raiders_camp_resolved", "fight")
+=> camp_through

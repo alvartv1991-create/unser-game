@@ -1,15 +1,52 @@
 {
-	"_note": "Who can speak in dialogue: display name and placeholder color for the portrait slot. H3 fills this in. The protagonist's name comes from protagonist.json.",
+	"_note": "Who can speak in dialogue: display name and placeholder color for the portrait slot. The speaker id is what you write before the colon in a .dialogue file (cook: Hallo!). 'player' is the protagonist (name from protagonist.json) and needs no entry here.",
 	"system": {
-		"name": {"de": "System", "en": "System"},
+		"name": {
+			"de": "System",
+			"en": "System"
+		},
 		"color": "#77727a"
 	},
 	"cook": {
-		"name": {"de": "[TEMP] Koch/Köchin", "en": "[TEMP] Cook"},
+		"name": {
+			"de": "[TEMP] Koch/Köchin",
+			"en": "[TEMP] Cook"
+		},
 		"color": "#c2622f"
 	},
 	"tinkerer": {
-		"name": {"de": "[TEMP] Bastler/in", "en": "[TEMP] Tinkerer"},
+		"name": {
+			"de": "[TEMP] Bastler/in",
+			"en": "[TEMP] Tinkerer"
+		},
 		"color": "#5d7a99"
+	},
+	"clerk": {
+		"name": {
+			"de": "[TEMP] Verkäufer/in",
+			"en": "[TEMP] Clerk"
+		},
+		"color": "#8a1a7a"
+	},
+	"cultist": {
+		"name": {
+			"de": "[TEMP] ???",
+			"en": "[TEMP] ???"
+		},
+		"color": "#3d2440"
+	},
+	"raider_scavenger": {
+		"name": {
+			"de": "[TEMP] Plünderer/in",
+			"en": "[TEMP] Scavenger"
+		},
+		"color": "#4f5e33"
+	},
+	"raider_brute": {
+		"name": {
+			"de": "[TEMP] Schläger/in",
+			"en": "[TEMP] Brute"
+		},
+		"color": "#8e3b2b"
 	}
 }

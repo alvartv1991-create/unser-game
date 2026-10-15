@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://sjxp1q6ujt3o"
+path="res://.godot/imported/cult.dialogue-1370c917beaeeab08291f193056a0b14.tres"
+
+[deps]
+
+source_file="res://dialogue/area1/cult.dialogue"
+dest_files=["res://.godot/imported/cult.dialogue-1370c917beaeeab08291f193056a0b14.tres"]
+
+[params]
+
+defaults=true

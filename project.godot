@@ -24,6 +24,7 @@ Data="*res://autoload/data.gd"
 GameState="*res://autoload/game_state.gd"
 SceneRouter="*res://autoload/scene_router.gd"
 DialogueRunner="*res://autoload/dialogue_runner.gd"
+StoryDirector="*res://scripts/story/story_director.gd"
 AudioManager="*res://autoload/audio_manager.gd"
 SaveSystem="*res://autoload/save_system.gd"
 
@@ -111,7 +112,7 @@ debug_overlay={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://localization/ui.de.translation", "res://localization/ui.en.translation", "res://localization/combat.de.translation", "res://localization/combat.en.translation", "res://localization/story.de.translation", "res://localization/story.en.translation", "res://localization/dialogue.de.translation", "res://localization/dialogue.en.translation")
+locale/translations=PackedStringArray("res://localization/ui.de.translation", "res://localization/ui.en.translation", "res://localization/combat.de.translation", "res://localization/combat.en.translation", "res://localization/story.de.translation", "res://localization/story.en.translation", "res://localization/dialogue.en.translation")
 locale/translations_pot_files=PackedStringArray("res://dialogue/test/hello.dialogue")
 locale/fallback="de"
 

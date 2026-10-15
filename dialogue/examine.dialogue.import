@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://3d7dwi8owt8"
+path="res://.godot/imported/examine.dialogue-fab9a9a657f5b8e9362a3fc48a5ef94a.tres"
+
+[deps]
+
+source_file="res://dialogue/examine.dialogue"
+dest_files=["res://.godot/imported/examine.dialogue-fab9a9a657f5b8e9362a3fc48a5ef94a.tres"]
+
+[params]
+
+defaults=true
