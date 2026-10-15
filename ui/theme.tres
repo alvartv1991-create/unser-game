@@ -1,3 +1,46 @@
-[gd_resource type="Theme" format=3]
-
+[gd_resource type="Theme" load_steps=9 format=3]
+[ext_resource type="FontFile" path="res://assets/fonts/pixelify_sans.ttf" id="1"]
+[ext_resource type="Texture2D" path="res://assets/ui/panel.png" id="2"]
+[ext_resource type="Texture2D" path="res://assets/ui/button.png" id="3"]
+[ext_resource type="Texture2D" path="res://assets/ui/focus.png" id="4"]
+[sub_resource type="StyleBoxTexture" id="Panel"]
+texture = ExtResource("2")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+[sub_resource type="StyleBoxTexture" id="Button"]
+texture = ExtResource("3")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 3.0
+content_margin_bottom = 3.0
+[sub_resource type="StyleBoxTexture" id="Focus"]
+texture = ExtResource("4")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+draw_center = false
+[sub_resource type="StyleBoxFlat" id="Fill"]
+bg_color = Color(0.56, 0.23, 0.17, 1)
 [resource]
+default_font = ExtResource("1")
+default_font_size = 14
+Label/colors/font_color = Color(0.89, 0.86, 0.80, 1)
+Button/colors/font_color = Color(0.89, 0.86, 0.80, 1)
+Button/styles/normal = SubResource("Button")
+Button/styles/hover = SubResource("Button")
+Button/styles/pressed = SubResource("Button")
+Button/styles/focus = SubResource("Focus")
+PanelContainer/styles/panel = SubResource("Panel")
+ProgressBar/styles/background = SubResource("Button")
+ProgressBar/styles/fill = SubResource("Fill")
