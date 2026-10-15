@@ -343,6 +343,9 @@ func _spawn_views() -> void:
 			_add_view(f, Vector2(640 - slot.x, slot.y))
 	_background.color = Color("#1c2238") if state.has_aliens() else Color("#2b2532")
 	_art_backdrop.call("set_alien", state.has_aliens())
+	# Optional hook for per-encounter backdrops (Codex, H4); the street stays until it exists.
+	if _art_backdrop.has_method("set_backdrop"):
+		_art_backdrop.call("set_backdrop", str(state.encounter.get("backdrop", "street")))
 	_refresh_intent()
 
 

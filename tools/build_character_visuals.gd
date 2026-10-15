@@ -59,14 +59,28 @@ func head(id: String) -> Array:
 		rows[7] = ".077no40o040o0"
 		rows[8] = "..07nnooooooo0"
 	elif id == "clerk":
+		# Hair bun at the back of the head, so the clerk is not a recolored protagonist.
 		rows[1] = "...066666600.."
-		rows[2] = "..06777776660."
-		rows[3] = ".0677776666660"
+		rows[2] = "0006777776660."
+		rows[3] = "06677776666660"
+		rows[4] = "0667777ooooo70"
+		rows[5] = "006777ooo0ooo0"
 	elif id == "cultist":
-		rows[0] = "...00000000..."
-		rows[1] = "..011pppp110.."
-		rows[2] = ".01ppppppp110."
-		rows[3] = ".01ppp777pp10."
+		# Pointed hood with the face in its shadow: the only figure without a visible hairline.
+		rows = [
+			"...00000000...",
+			"..01pppppppp0.",
+			".01pppppppppp0",
+			".01pppp1111pp0",
+			"01ppppp1mmmmp0",
+			"01pppp1mmnnnp0",
+			"01pppp1mn0n0p0",
+			"01pppp1mnnnnp0",
+			"01ppppp1mmmp10",
+			".01pppppppppp0",
+			".01ppppppppp0.",
+			"..0011111100..",
+		]
 	elif id == "raider_scavenger":
 		rows[0] = "...00000000..."
 		rows[1] = "..0efffffef0.."
@@ -74,12 +88,21 @@ func head(id: String) -> Array:
 		rows[3] = ".0effffffffff0"
 		rows[9] = "...0nmmmmmmo0."
 	elif id == "raider_brute":
-		rows[0] = "....000000...."
-		rows[1] = "...066666600.."
-		rows[2] = "..06777776660."
-		rows[3] = ".0677766666660"
-		rows[8] = "..00nnoooomoo0"
-		rows[9] = "...0mmmmmmmo0."
+		# Shaved head with a rust mohawk: reads as the brute at a glance, even next to the scavengers.
+		rows = [
+			".....00000....",
+			"....0cccb0....",
+			"..000cbbb000..",
+			".0onnnbbnnnnn0",
+			".0onnnnooooon0",
+			".0nnnnooo0ooo0",
+			".0nnnoo5o05oo0",
+			"..0nnooo0o0oo0",
+			"..00nnoooomoo0",
+			"...0mmmmmmmo0.",
+			"....0nnnnno0..",
+			".....00nn00...",
+		]
 	return rows
 
 func body(id: String) -> Array:
@@ -101,14 +124,24 @@ func body(id: String) -> Array:
 		for i in rows.size():
 			rows[i] = str(rows[i]).replace("j", "f").replace("k", "g").replace("q", "7")
 	elif id == "raider_brute":
-		rows = [".00bbbbbbbb00.", "0nbccbb1bbcbn0", "0nncbbb1bbcnn0", "0nncbbb1bbcnn0", "0nmcbbb1bbcmn0", "0nmbbbb1bbbmn0", "0nn7bbb1bb7nn0", "0mn77777777nm0", "0nn02222220nn0", ".000222222000.", "...02222220..."]
+		# 16 px wide with scrap-metal shoulder pads and bare arms: the widest figure in the cast.
+		rows = [".0000bbbbbb0000.", "0344bbbcc1bbb440", "0333bbcbb1bbb330", "0nn0cbbb1bbc0nn0", "0nn0cbbb1bbc0nn0", "0nm0bbbb1bbb0mn0", "0nm07bbb1bb70mn0", "0mn0777777770nm0", "0nn0022222200nn0", ".00002222220000.", "....02222220...."]
+	return rows
+
+func robe(step: int) -> Array:
+	# The cultist's robe covers the legs down to the ankles; the hem sways one pixel while walking.
+	var rows: Array = ["01pppppppp10", "01pppppppp10", "01ppppppppp10", "01ppppppppp10", "01pppppppppp10", "00111111111100"]
+	# Shift the hem (step 1) or the upper robe (step 3) one pixel right; the other part stays put.
+	var shifted := [4, 5] if step % 4 == 1 else ([0, 1, 2, 3] if step % 4 == 3 else [])
+	for i: int in shifted:
+		rows[i] = "." + str(rows[i])
 	return rows
 
 func frame(id: String, pose: String, step: int = 0) -> Array[String]:
 	var rows := blank()
 	var bob := -1 if pose in ["walk", "idle", "combat_idle"] and step % 2 == 1 else 0
 	stamp(rows, head(id), Vector2i(8, 1 + bob))
-	stamp(rows, body(id), Vector2i(8 if id == "raider_brute" else 9, 13 + bob))
+	stamp(rows, body(id), Vector2i(7 if id == "raider_brute" else 9, 13 + bob))
 	var legs: Array = ["02222022220", "02222022220", "02220.22220", "01220.22210", "01210.21210", "0110..0110.", "0550..05550", "0000..00000"]
 	if pose == "walk":
 		if step % 4 == 1:
@@ -120,6 +153,10 @@ func frame(id: String, pose: String, step: int = 0) -> Array[String]:
 	if pose == "fall":
 		legs = ["02222022220", "02220.22220", "01220..2210", "01210..2110", "0110...0110", "0550...0550", "0000...05550", ".......00000"]
 	stamp(rows, legs, Vector2i(10, 24))
+	if id == "cultist" and pose != "jump":
+		stamp(rows, robe(step if pose == "walk" else 0), Vector2i(9, 24))
+	elif id == "cultist":
+		stamp(rows, robe(0).slice(0, 4), Vector2i(9, 24))
 	var sleeve := "j" if id == "player" else ("5" if id == "cook" else ("f" if id in ["tinkerer", "raider_scavenger"] else ("b" if id == "raider_brute" else "p")))
 	if pose == "attack":
 		stamp(rows, ["00000000", sleeve.repeat(5) + "nno", sleeve.repeat(4) + "nno0", "00000000"], Vector2i(21, 16 - step % 2))
@@ -162,8 +199,9 @@ func build_portrait(id: String) -> void:
 		for x in str(b[y]).length():
 			if str(b[y])[x] != ".":
 				fill(rows, Rect2i(13 + x * 3, 40 + y * 3, 3, 3), str(b[y])[x])
-	fill(rows, Rect2i(28, 36, 10, 7), "n")
-	fill(rows, Rect2i(28, 36, 10, 2), "m")
+	# The hood keeps the cultist's neck in shadow.
+	fill(rows, Rect2i(28, 36, 10, 7), "1" if id == "cultist" else "n")
+	fill(rows, Rect2i(28, 36, 10, 2), "0" if id == "cultist" else "m")
 	if id == "player":
 		fill(rows, Rect2i(25, 46, 3, 18), "k")
 		fill(rows, Rect2i(39, 46, 2, 18), "i")

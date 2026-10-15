@@ -9,7 +9,7 @@ The art contract for everyone who draws: Claude (character systems), Codex (visu
 - **Readable, expressive characters.** Clear hair/hat and clothing silhouettes, a shaded three-quarter face, material highlights and distinct job/role accents. Keep feet on the same baseline and preserve all animation ids. Portraits should match the sprite's face and clothing.
 - **Readability beats detail.** At 640×360, avoid noisy foregrounds covering characters or platform edges. Show the visual result in the actual viewport, including both languages.
 
-Current playable references: `scenes/levels/test_visual_street.tscn` (environment), `scenes/ui/test_art_gallery.tscn` (characters/portraits), and `scenes/combat/test_combat.tscn` (combat). Details of the approved direction are recorded in `docs/handoff/H2_visual_direction.md`.
+Current playable references: `scenes/levels/test_visual_street.tscn` (environment), `scenes/ui/test_art_gallery.tscn` (characters/portraits), and `scenes/combat/test_combat.tscn` (combat). Each encounter names its combat backdrop in `data/encounters.json` (`backdrop`: `street`, `camp`, `alien_zone`); until the camp and zone art exist, every fight uses the street. Details of the approved direction are recorded in `docs/handoff/H2_visual_direction.md`.
 
 ![palette](art/palette.png)
 
@@ -72,6 +72,7 @@ Never scale pixel art by non-whole factors, and never rotate it (FX excepted).
 5. **Backgrounds stay darker and lower in contrast** (`1 2 3 i p e`), so characters and interactive things stand out.
 6. **Characters face right.** The engine flips them.
 7. Interactive objects get a slightly brighter edge or highlight than pure decoration.
+8. **Every character needs its own silhouette**, not only its own colors: hat, hood, hair shape, build or clothing outline. Current cast: cook (chef hat), tinkerer (glasses), clerk (hair bun), cultist (hood and ankle-length robe), scavenger (cap), brute (mohawk, shoulder pads, the widest body). `tests/pixelart/test_character_silhouettes.gd` fails if two idle frames share an outline.
 
 ## Animations
 Contract names from AGENTS.md § Art. Missing animations fall back to `idle`.
