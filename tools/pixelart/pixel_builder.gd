@@ -69,6 +69,10 @@ static func parse(text: String, palette: Dictionary, source: String = "<text>") 
 							anim.copy = option.substr(5)
 						elif option.begins_with("png="):
 							anim.png = option.substr(4)
+						elif option.begins_with("from="):
+							anim.from = option.substr(5)
+						elif option.begins_with("rotate="):
+							anim.rotate = option.substr(7)
 						else:
 							result.errors.append("%s: unknown option \"%s\"" % [where, option])
 					result.anims.append(anim)
@@ -96,6 +100,8 @@ static func parse(text: String, palette: Dictionary, source: String = "<text>") 
 	for each in result.anims:
 		names[each.name] = each
 	for each in result.anims:
+		if each.from != "":
+			_resolve_from(each, names, result, source)
 		if each.copy != "" and not names.has(each.copy):
 			result.errors.append("%s: @anim %s copies unknown animation \"%s\"" % [source, each.name, each.copy])
 		elif each.copy == "" and each.png == "" and each.frames.is_empty():
@@ -104,7 +110,52 @@ static func parse(text: String, palette: Dictionary, source: String = "<text>") 
 
 
 static func _new_anim(anim_name: String) -> Dictionary:
-	return {name = anim_name, fps = 4.0, loop = true, frames = [], copy = "", png = ""}
+	return {name = anim_name, fps = 4.0, loop = true, frames = [], copy = "", png = "", from = "", rotate = ""}
+
+
+## from=<anim>[:frame] takes one frame of another animation; rotate=cw|ccw turns it a quarter
+## (e.g. a standing pose becomes a lying one). The result is moved down to stand on the bottom edge.
+static func _resolve_from(anim: Dictionary, names: Dictionary, result: Dictionary, source: String) -> void:
+	var parts: PackedStringArray = anim.from.split(":")
+	var source_anim: Dictionary = names.get(parts[0], {})
+	var index := int(parts[1]) if parts.size() > 1 else 0
+	if source_anim.is_empty() or index >= source_anim.frames.size():
+		result.errors.append("%s: @anim %s: from=%s has no such frame" % [source, anim.name, anim.from])
+		return
+	var grid: PackedStringArray = source_anim.frames[index]
+	if anim.rotate != "":
+		if result.size.x != result.size.y:
+			result.errors.append("%s: @anim %s: rotate needs a square @size" % [source, anim.name])
+			return
+		if anim.rotate != "cw" and anim.rotate != "ccw":
+			result.errors.append("%s: @anim %s: rotate must be cw or ccw" % [source, anim.name])
+			return
+		grid = _drop_to_bottom(_rotate(grid, anim.rotate == "cw"))
+	anim.frames.append(grid)
+
+
+static func _rotate(grid: PackedStringArray, clockwise: bool) -> PackedStringArray:
+	var n := grid.size()
+	var rotated := PackedStringArray()
+	for new_y in n:
+		var row := ""
+		for new_x in n:
+			row += grid[n - 1 - new_x][new_y] if clockwise else grid[new_x][n - 1 - new_y]
+		rotated.append(row)
+	return rotated
+
+
+static func _drop_to_bottom(grid: PackedStringArray) -> PackedStringArray:
+	var empty_rows := 0
+	for i in range(grid.size() - 1, -1, -1):
+		if grid[i].replace(TRANSPARENT, "").replace(" ", "") != "":
+			break
+		empty_rows += 1
+	if empty_rows == 0:
+		return grid
+	var dropped := grid.slice(grid.size() - empty_rows)
+	dropped.append_array(grid.slice(0, grid.size() - empty_rows))
+	return dropped
 
 
 ## Validates and pads a finished frame: rows padded on the right, missing rows added on TOP

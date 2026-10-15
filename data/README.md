@@ -19,7 +19,9 @@ These files hold the game's numbers and short texts. **You can edit them without
 | `moral_low` / `moral_high` | From which value moral counts as "low"/"high" (unlocks hidden options) |
 | `moral_min` / `moral_max` | Lowest and highest possible moral |
 | `hp_base`, `hp_per_end` | Max HP = hp_base + Ausdauer × hp_per_end |
-| `talk_base`, `talk_per_point`, `talk_job_bonus` | Chance in % to talk your way out: talk_base + (Intelligenz + Wissen) × talk_per_point, + talk_job_bonus for a matching job, − the enemy's resolve |
+| `talk_base`, `talk_per_point`, `talk_job_bonus` | Chance in % to talk your way out: talk_base + (the approach's stat × talk_per_point × 2), + talk_job_bonus for a job approach, − the highest resolve among the enemies (always between 5 and 95) |
+| `talk_win_moral` | Moral bonus for ending a fight by talking |
+| `well_fed_damage` | Extra damage for everyone in the fight after resting with the cook |
 | `flee_base`, `flee_per_end` | Chance in % to flee: flee_base + Ausdauer × flee_per_end |
 | `defend_factor` | Damage multiplier while defending (0.5 = half) |
 
@@ -39,7 +41,10 @@ Up to 10 jobs are planned; add one by copying an existing block.
 | `perks` | Special bonuses that combat or dialogue use, e.g. `{"healing_item_bonus": 0.5}` |
 
 ## `skills.json`: skills of jobs and companions
-`name`, `description`, `target` (`ally`, `all_allies`, `enemy`, `all_enemies`, `self`, `none`), `effect` (what it does: `heal`, `damage_reduction`, `stun`, `analyze`, `nothing`, `cheat`, … The combat agent defines the list), plus numbers like `power`, `duration`, `scales_with` (which stat makes it stronger), `revives` (gets downed people up) and `only_vs` (`human` or `alien`).
+`name`, `description`, `target` (`ally`, `all_allies`, `enemy`, `none`), `effect` (what it does: `heal`, `damage_reduction`, `stun`, `analyze`, `nothing`, `cheat`), plus numbers like `power`, `duration`, `scales_with` (which stat makes it stronger), `revives` (gets downed people up), `only_vs` (`human` or `alien`) and `cooldown` (how many of your own turns you wait before using it again; 0 = every turn).
+
+## `talk.json`: ways to talk enemies out of a fight
+`name`, `stat` (which stat makes it work: `int`, `str`, `end`, `kno`), `job` (only that job gets this option), `moral` (moral change whenever it's used), `always_fails` (never works) and `fail` (its own line when it fails).
 
 ## `items.json`: items
 `type` is `weapon`, `consumable`, `material` or `key`. Weapons have `power` and `durability` (−1 = never breaks, 1 = breaks after one hit, like the holy sword). Consumables have `heal`. `tags` are extra markers, e.g. `bribe` (can be used as a bribe). `hidden: true` keeps it out of the inventory.
@@ -48,7 +53,7 @@ Up to 10 jobs are planned; add one by copying an existing block.
 `name`, `role` (a short description), `stats`, `skills`, `weapon`, `art_id`. Whether a companion is recruited or dead is saved per playthrough, not here.
 
 ## `enemies.json`: enemies
-`kind` is `human`, `alien` or `animal`. `hp`, `power` (damage), `resolve` (how hard to talk down, in %), `flee_below` (flees below this share of HP, e.g. 0.3 = 30%), `finishes_downed` (chance to finish off a downed character), `talkable`, `invulnerable`, `ai` (behavior), `art_id`.
+`kind` is `human`, `alien` or `animal`. `hp`, `power` (damage), `initiative` (who acts first; the party's is Ausdauer + Intelligenz / 2), `resolve` (how hard to talk down, in %), `flee_below` (flees below this share of HP, e.g. 0.3 = 30%), `finishes_downed` (chance to finish off a downed character), `talkable`, `invulnerable`, `ai` (behavior), `art_id`.
 
 ## `encounters.json`: fights
 `enemies` (list of enemy ids), `party` (`"active"` = the active party fights, `"all"` = every recruited, living companion fights), `can_flee`, `music` (audio id), `cheats` (cheat codes that work here), `loot` (items after winning).

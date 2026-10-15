@@ -51,6 +51,15 @@ func test_spriteframes_text_has_all_animations() -> void:
 	assert_eq(text.count('[sub_resource type="AtlasTexture"'), 2, "copies reuse atlas textures")
 
 
+func test_from_rotate_turns_and_drops_frame() -> void:
+	var text := "@sprite x\n@size 4x4\n@anim idle\n.0..\n.0..\n.0..\n.5..\n@anim downed from=idle rotate=ccw\n"
+	var parsed := PixelBuilder.parse(text, PixelBuilder.load_palette(), "rot")
+	assert_eq(parsed.errors.size(), 0, "no errors: " + "; ".join(parsed.errors))
+	var lying: PackedStringArray = parsed.anims[1].frames[0]
+	assert_eq(lying[3], "0005", "standing column became the bottom row, feet (5) to the right")
+	assert_eq(lying[0], "....", "empty rows moved to the top")
+
+
 func test_bad_input_is_reported() -> void:
 	var parsed := PixelBuilder.parse("@sprite x\n@size 2x2\n@anim a\nZZ\n", PixelBuilder.load_palette(), "bad")
 	assert_true("\n".join(parsed.errors).contains("not a palette letter"), "unknown letter reported")

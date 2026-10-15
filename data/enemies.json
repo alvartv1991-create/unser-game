@@ -1,10 +1,11 @@
 {
-	"_note": "kind: human, alien or animal. resolve = how hard to talk them down (percent). Explained in data/README.md.",
+	"_note": "kind: human, alien or animal. resolve = how hard to talk them down (percent). initiative = who acts first (party: Ausdauer + Intelligenz / 2). Explained in data/README.md.",
 	"raider_scavenger": {
 		"name": {"de": "[TEMP] Plünderer", "en": "[TEMP] Scavenger"},
 		"kind": "human",
 		"hp": 18,
 		"power": 3,
+		"initiative": 6,
 		"resolve": 0,
 		"flee_below": 0.3,
 		"finishes_downed": 0.0,
@@ -15,8 +16,9 @@
 	"raider_brute": {
 		"name": {"de": "[TEMP] Schläger", "en": "[TEMP] Brute"},
 		"kind": "human",
-		"hp": 34,
-		"power": 6,
+		"hp": 44,
+		"power": 7,
+		"initiative": 4,
 		"resolve": 25,
 		"flee_below": 0.0,
 		"finishes_downed": 0.3,
@@ -29,6 +31,7 @@
 		"kind": "alien",
 		"hp": 9999,
 		"power": 12,
+		"initiative": 10,
 		"invulnerable": true,
 		"attack_every": 2,
 		"attack_all": true,

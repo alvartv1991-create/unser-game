@@ -35,6 +35,7 @@ Run these from the project folder. `<godot>` is the path in AGENTS.md § Local s
 .........0oooo0
 
 @anim jump copy=idle once   <- reuses idle's frames (handy for placeholders)
+@anim downed from=idle:0 rotate=ccw   <- frame 0 of idle, turned a quarter (cw or ccw), moved to the bottom
 @anim walk fps=8 loop png=walk_strip.png   <- frames from a PNG strip next to the .pxl
 ```
 

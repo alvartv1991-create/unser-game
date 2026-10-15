@@ -47,6 +47,9 @@ func new_game(job_id: String) -> void:
 		max_hp = max_hp,
 		weapon_id = str(job.get("start_weapon", "fists")),
 	}
+	# The equipped weapon is always an inventory item too (except bare fists).
+	if player.weapon_id != "fists":
+		add_item(player.weapon_id)
 	var start_items: Dictionary = job.get("start_items", {})
 	for item_id in start_items:
 		add_item(item_id, int(start_items[item_id]))
@@ -189,6 +192,20 @@ func remove_item(id: String, count: int = 1) -> bool:
 
 func has_item(id: String, count: int = 1) -> bool:
 	return int(inventory.get(id, 0)) >= count
+
+
+## Equips a weapon the player owns ("fists" always works). Use it in dialogue after giving a weapon:
+## $> GameState.equip_weapon("holy_sword")
+func equip_weapon(item_id: String) -> bool:
+	if item_id != "fists" and not has_item(item_id):
+		push_warning("GameState.equip_weapon: \"%s\" is not in the inventory" % item_id)
+		return false
+	if not Data.has("items", item_id) or Data.item(item_id).get("type", "") != "weapon":
+		push_warning("GameState.equip_weapon: \"%s\" is not a weapon" % item_id)
+		return false
+	player.weapon_id = item_id
+	EventBus.party_changed.emit()
+	return true
 
 
 # --- Progress --------------------------------------------------------------

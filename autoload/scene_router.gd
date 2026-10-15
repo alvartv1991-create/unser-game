@@ -184,6 +184,10 @@ func toggle_debug_menu() -> void:
 		get_tree().root.add_child(_debug_menu)
 
 
+func is_debug_menu_open() -> bool:
+	return is_instance_valid(_debug_menu)
+
+
 func _close_debug_menu() -> void:
 	if is_instance_valid(_debug_menu):
 		_debug_menu.queue_free()

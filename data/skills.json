@@ -1,5 +1,5 @@
 {
-	"_note": "Skills of jobs and companions. H1 (combat) defines what each 'effect' does. Explained in data/README.md.",
+	"_note": "Skills of jobs and companions. effect: heal, damage_reduction, stun, analyze, nothing, cheat. cooldown = own turns to wait before using it again (0 = every turn). Explained in data/README.md.",
 	"first_aid": {
 		"name": {"de": "Erste Hilfe", "en": "First Aid"},
 		"description": {"de": "[TEMP] Heilt eine Person um 6 + Intelligenz. Holt Leute vom Boden hoch.", "en": "[TEMP] Heals one person for 6 + intelligence. Gets people back on their feet."},
@@ -7,15 +7,16 @@
 		"effect": "heal",
 		"power": 6,
 		"scales_with": "int",
-		"revives": true
+		"revives": true,
+		"cooldown": 1
 	},
 	"barricade": {
 		"name": {"de": "Barrikade", "en": "Barricade"},
-		"description": {"de": "[TEMP] Die Gruppe nimmt eine Runde lang nur halben Schaden.", "en": "[TEMP] The party takes half damage for one round."},
+		"description": {"de": "[TEMP] Die Gruppe nimmt nur halben Schaden, bis du wieder dran bist.", "en": "[TEMP] The party takes half damage until your next turn."},
 		"target": "all_allies",
 		"effect": "damage_reduction",
 		"power": 50,
-		"duration": 1
+		"cooldown": 2
 	},
 	"arrest": {
 		"name": {"de": "Festnehmen", "en": "Arrest"},
@@ -23,21 +24,24 @@
 		"target": "enemy",
 		"effect": "stun",
 		"duration": 1,
-		"only_vs": "human"
+		"only_vs": "human",
+		"cooldown": 2
 	},
 	"analyze": {
 		"name": {"de": "Analysieren", "en": "Analyze"},
-		"description": {"de": "[TEMP] Findet eine Schwäche: +30 % Schaden gegen das Ziel für 3 Runden.", "en": "[TEMP] Finds a weakness: +30% damage against the target for 3 turns."},
+		"description": {"de": "[TEMP] Findet eine Schwäche: +30 % Schaden gegen das Ziel für 3 Runden.", "en": "[TEMP] Finds a weakness: +30% damage against the target for 3 rounds."},
 		"target": "enemy",
 		"effect": "analyze",
 		"power": 30,
-		"duration": 3
+		"duration": 3,
+		"cooldown": 2
 	},
 	"file_form": {
 		"name": {"de": "Formular einreichen", "en": "File a Form"},
 		"description": {"de": "[TEMP] Es passiert nichts. Bearbeitungszeit: 6–8 Wochen.", "en": "[TEMP] Nothing happens. Processing time: 6–8 weeks."},
 		"target": "none",
-		"effect": "nothing"
+		"effect": "nothing",
+		"cooldown": 0
 	},
 	"emergency_ration": {
 		"name": {"de": "Notration", "en": "Emergency Ration"},
@@ -45,13 +49,15 @@
 		"target": "all_allies",
 		"effect": "heal",
 		"power": 5,
-		"revives": true
+		"revives": true,
+		"cooldown": 2
 	},
 	"send_signal": {
 		"name": {"de": "Signal senden", "en": "Send Signal"},
 		"description": {"de": "[TEMP] Funkt die Aliens in ihrer eigenen Sprache an. Nur gegen Aliens.", "en": "[TEMP] Radios the aliens in their own language. Only against aliens."},
-		"target": "all_enemies",
+		"target": "none",
 		"effect": "cheat",
-		"only_vs": "alien"
+		"only_vs": "alien",
+		"cooldown": 0
 	}
 }
