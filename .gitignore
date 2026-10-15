@@ -1,0 +1,14 @@
+# Godot cache and imports database
+.godot/
+*.tmp
+
+# Builds (H6)
+builds/
+
+# OS clutter
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# The human's Godot experiment, not part of the game (ask before removing)
+/test/
