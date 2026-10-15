@@ -32,6 +32,9 @@ var _text: DialogueLabel
 var _next_marker: Label
 var _choice_box: PanelContainer
 var _choice_list: VBoxContainer
+var _choice_scroll: ScrollContainer
+const CHOICE_MAX_HEIGHT := 236.0   # the space above the dialogue box at 640x360
+const CHOICE_WIDTH := 460.0
 
 
 func _ready() -> void:
@@ -172,7 +175,7 @@ func _fill_choices() -> void:
 		var button := Button.new()
 		button.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		button.custom_minimum_size = Vector2(380, 0)
+		button.custom_minimum_size = Vector2(CHOICE_WIDTH - 12, 0)
 		button.text = response.text
 		if state == ChoiceRules.LOCKED:
 			button.text = "[%s] %s" % [ChoiceRules.reason(response.condition_as_text, response.tags), response.text]
@@ -185,8 +188,14 @@ func _fill_choices() -> void:
 		_choice_list.add_child(button)
 		_choices.append({"button": button, "response": response})
 	_choice_box.show()
-	if first:
-		first.grab_focus.call_deferred()
+	# Many choices (e.g. greyed-out job options) scroll instead of leaving the screen.
+	_choice_scroll.custom_minimum_size.y = 0
+	await get_tree().process_frame
+	if not is_instance_valid(_choice_list):
+		return
+	_choice_scroll.custom_minimum_size.y = minf(_choice_list.get_combined_minimum_size().y, CHOICE_MAX_HEIGHT)
+	if first and is_instance_valid(first):
+		first.grab_focus()
 
 
 func _choose(response: DialogueResponse) -> void:
@@ -296,6 +305,12 @@ func _build() -> void:
 	_choice_box.offset_right = -8
 	_choice_box.offset_bottom = -110
 	root.add_child(_choice_box)
+	_choice_scroll = ScrollContainer.new()
+	_choice_scroll.follow_focus = true
+	_choice_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	_choice_scroll.custom_minimum_size.x = CHOICE_WIDTH
+	_choice_box.add_child(_choice_scroll)
 	_choice_list = VBoxContainer.new()
 	_choice_list.add_theme_constant_override("separation", 2)
-	_choice_box.add_child(_choice_list)
+	_choice_list.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_choice_scroll.add_child(_choice_list)

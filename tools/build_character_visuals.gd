@@ -3,6 +3,8 @@ extends SceneTree
 ## Sources remain editable .pxl files and retain the established 32x32 contract.
 const Builder := preload("res://tools/pixelart/pixel_builder.gd")
 const IDS := ["player", "cook", "tinkerer", "clerk", "cultist", "raider_scavenger", "raider_brute"]
+## Emotional portrait variants for the main cast: assets/portraits/<id>_<mood>.png ([#mood=happy] in dialogue).
+const MOODS := {"player": ["happy", "sad"], "cook": ["happy", "sad"], "tinkerer": ["happy", "sad"]}
 var palette: Dictionary
 
 func _initialize() -> void:
@@ -10,6 +12,8 @@ func _initialize() -> void:
 	for id: String in IDS:
 		build_character(id)
 		build_portrait(id)
+		for mood: String in MOODS.get(id, []):
+			build_portrait(id, mood)
 	quit()
 
 func blank(size: int = 32) -> Array[String]:
@@ -105,6 +109,27 @@ func head(id: String) -> Array:
 		]
 	return rows
 
+## Changes the face of a head template: a smile and blush (happy), or a frown, lowered brows and a tear (sad).
+func with_mood(rows: Array, mood: String) -> Array:
+	var out: Array = rows.duplicate()
+	var put := func(row: int, col: int, color: String) -> void:
+		out[row] = str(out[row]).substr(0, col) + color + str(out[row]).substr(col + 1)
+	if mood == "happy":
+		put.call(8, 8, "m")
+		put.call(8, 12, "m")
+		for col in [9, 10, 11]:
+			put.call(9, col, "m")
+		put.call(8, 6, "r")
+	elif mood == "sad":
+		put.call(9, 10, "o")
+		put.call(8, 10, "m")
+		put.call(9, 9, "m")
+		put.call(9, 11, "m")
+		put.call(5, 8, "0")
+		put.call(7, 11, "l")
+	return out
+
+
 func body(id: String) -> Array:
 	var rows: Array = [
 		".00jjjjjj00.", "0jkkjqqqjjj0", "0jkjjqqqjij0", "0jkjjqqqjij0",
@@ -179,13 +204,13 @@ func build_character(id: String) -> void:
 	write(path, source)
 	build_source(path, source)
 
-func build_portrait(id: String) -> void:
+func build_portrait(id: String, mood: String = "") -> void:
 	var rows := blank(64)
 	fill(rows, Rect2i(0, 0, 64, 64), "i")
 	for y in range(6, 63):
 		fill(rows, Rect2i(4, y, 1, 1), "j" if y % 4 else "i")
 	# Two-pixel portrait clusters, then extra one-pixel material highlights.
-	var h := head(id)
+	var h := with_mood(head(id), mood)
 	for y in h.size():
 		for x in str(h[y]).length():
 			if str(h[y])[x] != ".":
@@ -206,8 +231,9 @@ func build_portrait(id: String) -> void:
 		fill(rows, Rect2i(25, 46, 3, 18), "k")
 		fill(rows, Rect2i(39, 46, 2, 18), "i")
 		fill(rows, Rect2i(28, 46, 9, 2), "r")
-	var source := "# [TEMP] Visual portrait; matches the world sprite, no fixed character identity implied.\n@image %s\n@size 64x64\n\n%s\n" % [id, "\n".join(rows)]
-	var path := "res://assets/portraits/src/%s.pxl" % id
+	var name := id if mood == "" else "%s_%s" % [id, mood]
+	var source := "# [TEMP] Visual portrait; matches the world sprite, no fixed character identity implied.\n@image %s\n@size 64x64\n\n%s\n" % [name, "\n".join(rows)]
+	var path := "res://assets/portraits/src/%s.pxl" % name
 	write(path, source)
 	build_source(path, source)
 
