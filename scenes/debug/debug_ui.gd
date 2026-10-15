@@ -7,7 +7,7 @@ const FONT_SIZE := 10
 
 
 static func small_theme() -> Theme:
-	var theme := Theme.new()
+	var theme := (load("res://ui/theme.tres") as Theme).duplicate() as Theme
 	theme.default_font_size = FONT_SIZE
 	return theme
 

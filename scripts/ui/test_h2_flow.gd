@@ -51,6 +51,15 @@ func get_tree_safe_attach() -> void:
 		title_node.rebuild()
 		title_node.select_job("civil_servant")
 		await shot(locale + "_jobs")
+		for action in title_node.find_children("*", "Button", true, false):
+			if action.text == tr("UI_START"):
+				action.pressed.emit()
+				break
+		await EventBus.scene_changed
+		while SceneRouter.is_changing_scene():
+			await get_tree().process_frame
+		check(SceneRouter.current_scene_path.ends_with("test_visual_street.tscn"), "New game does not use the original street graphics")
+		await shot(locale + "_new_game_street")
 		GameState.new_game("doctor")
 		GameState.recruit("cook")
 		GameState.recruit("tinkerer")
@@ -83,6 +92,14 @@ func get_tree_safe_attach() -> void:
 		await get_tree().create_timer(0.4).timeout
 		check(player.position.y > 290, "Cannot drop through one-way platform")
 		player.position = Vector2(80, 304)
+		GameState.add_item("crowbar")
+		overlay.open_menu("inventory")
+		for action in overlay.menu.find_children("*", "Button", true, false):
+			if action.text == tr("UI_EQUIP"):
+				action.pressed.emit()
+				break
+		check(GameState.player.weapon_id == "crowbar", "Inventory did not equip the weapon through H1 GameState")
+		overlay.close_menu()
 		for menu_page in ["pause", "options", "inventory", "party"]:
 			overlay.open_menu(menu_page)
 			var stopped := player.position
@@ -119,13 +136,27 @@ func get_tree_safe_attach() -> void:
 			DialogueRunner.balloon.queue_free()
 		await frames()
 		var encounter := get_tree().current_scene.get_node("Encounter") as WorldInteractable
+		CombatScreen.force_autopilot = true
+		CombatScreen.force_speed = 0.05
+		var combat_results: Array[Dictionary] = []
+		var record_result := func(result: Dictionary) -> void: combat_results.append(result)
+		EventBus.combat_finished.connect(record_result)
 		encounter.activate()
-		await frames()
+		await frames(1)
 		check(SceneRouter.is_in_combat(), "Encounter did not start")
 		check(not overlay.hud.visible, "HUD visible in combat")
-		EventBus.combat_finished.emit({"encounter_id": "raiders_street", "outcome": "win", "loot": {}, "died": []})
+		var combat_frames := 0
+		while SceneRouter.is_in_combat() and combat_frames < 1200:
+			combat_frames += 1
+			await get_tree().process_frame
+		EventBus.combat_finished.disconnect(record_result)
+		CombatScreen.force_autopilot = false
+		CombatScreen.force_speed = -1.0
 		await frames()
+		check(combat_results.size() == 1, "Real combat did not emit exactly one result")
 		check(not SceneRouter.is_in_combat(), "Combat did not return to level")
+		if SceneRouter.is_in_combat():
+			await SceneRouter.go_to("res://scenes/levels/test_platforming.tscn", "start")
 		var story := get_tree().current_scene.get_node("Story") as WorldInteractable
 		story.activate()
 		await frames()

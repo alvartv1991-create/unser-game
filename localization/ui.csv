@@ -68,3 +68,14 @@ UI_STREET_CONTROLS,A/D: laufen · Leertaste: springen · Esc: Menü,A/D: move ·
 UI_STREET_ARCADE,[TEMP] SPIELHALLE,[TEMP] ARCADE
 UI_STREET_CAFE,[TEMP] CAFÉ,[TEMP] CAFÉ
 UI_STREET_OPEN,OFFEN,OPEN
+UI_EQUIP,Ausrüsten,Equip
+UI_EQUIPPED,Ausgerüstet,Equipped
+UI_ART_GALLERY,Grafikübersicht,Art gallery
+UI_ART_ANIMATION,Animation: %s,Animation: %s
+UI_ART_PLAYER,[TEMP] Hauptfigur,[TEMP] Protagonist
+UI_ART_COOK,[TEMP] Koch/Köchin,[TEMP] Cook
+UI_ART_TINKERER,[TEMP] Bastler/in,[TEMP] Tinkerer
+UI_ART_CLERK,[TEMP] Verkäufer/in,[TEMP] Clerk
+UI_ART_CULTIST,[TEMP] Kultfigur,[TEMP] Cult figure
+UI_ART_RAIDER_SCAVENGER,[TEMP] Plünderer/in,[TEMP] Scavenger
+UI_ART_RAIDER_BRUTE,[TEMP] Schläger/in,[TEMP] Brute

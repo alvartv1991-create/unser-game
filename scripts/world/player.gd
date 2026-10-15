@@ -59,7 +59,7 @@ func rebuild_followers() -> void:
 		followers.append(follower)
 
 func blocked() -> bool:
-	return DialogueRunner.is_running() or SceneRouter.is_in_combat() or SceneRouter.is_changing_scene() or get_tree().paused or is_instance_valid(SceneRouter.get("_debug_menu"))
+	return DialogueRunner.is_running() or SceneRouter.is_in_combat() or SceneRouter.is_changing_scene() or get_tree().paused or SceneRouter.is_debug_menu_open()
 
 func _physics_process(delta: float) -> void:
 	var locked := blocked()

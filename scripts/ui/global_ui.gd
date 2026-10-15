@@ -28,7 +28,7 @@ func _ready() -> void:
 	menu.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(menu)
 	toast_label = UiKit.label("", self)
-	toast_label.position = Vector2(20, 320)
+	toast_label.position = Vector2(20, 292)
 	toast_label.size.x = 600
 	toast_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	debug_label = UiKit.label("", self)
@@ -48,7 +48,7 @@ func _ready() -> void:
 	refresh_hud()
 
 func _process(delta: float) -> void:
-	if page != "" and is_instance_valid(SceneRouter.get("_debug_menu")):
+	if page != "" and SceneRouter.is_debug_menu_open():
 		close_menu()
 	hud.visible = not GameState.player.is_empty() and get_tree().get_first_node_in_group("player") != null and not SceneRouter.is_in_combat()
 	toast_time = maxf(0, toast_time - delta)
@@ -60,7 +60,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("debug_overlay") and OS.is_debug_build():
 		debug_label.visible = not debug_label.visible
 		get_viewport().set_input_as_handled()
-	elif event.is_action_pressed("pause") and not SceneRouter.is_changing_scene() and not SceneRouter.is_in_combat() and not DialogueRunner.is_running() and not is_instance_valid(SceneRouter.get("_debug_menu")):
+	elif event.is_action_pressed("pause") and not SceneRouter.is_changing_scene() and not SceneRouter.is_in_combat() and not DialogueRunner.is_running() and not SceneRouter.is_debug_menu_open():
 		if page != "":
 			close_menu()
 		elif get_tree().get_first_node_in_group("player"):
@@ -237,6 +237,12 @@ func build_inventory(column: VBoxContainer) -> void:
 		row.add_child(icon)
 		UiKit.label("%s ×%d" % [Data.text(item.name), GameState.inventory[id]], row)
 		UiKit.label(Data.text(item.description), column, true)
+		if item.get("type", "") == "weapon" and not GameState.player.is_empty():
+			var equipped: bool = GameState.player.get("weapon_id", "fists") == id
+			var equip := UiKit.button("UI_EQUIPPED" if equipped else "UI_EQUIP", column, func() -> void:
+				GameState.equip_weapon(id)
+				open_menu("inventory"))
+			equip.disabled = equipped
 		if int(item.get("heal", 0)) > 0:
 			for target in ["player"] + GameState.recruited_alive():
 				var state: Dictionary = GameState.player if target == "player" else GameState.companions[target]

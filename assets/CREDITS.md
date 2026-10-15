@@ -20,4 +20,11 @@ Runtime rain, small puddle ripples and steady light pools are implemented in
 `scripts/world/visual_street.gd`. The human's chat images are style references;
 neither reference image is embedded or shipped as a game asset.
 
+## Integrated character/combat visual pass
+The human authorized Codex to redraw the H1 character graphics in the new style.
+Editable sources: `assets/sprites/characters/src/*.pxl` and `assets/portraits/src/*.pxl`;
+reproducible templates: `tools/build_character_visuals.gd`.
+Character resource ids and animation names are retained. The combat backdrop reuses
+the original street layers; machine-shard FX are original code in `scripts/fx/alien_swarm.gd`.
+
 Add every font, sound or other outside asset to this table, with its source link and license.

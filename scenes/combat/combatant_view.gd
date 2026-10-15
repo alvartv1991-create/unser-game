@@ -31,6 +31,11 @@ func setup(f: Combatant) -> void:
 	_is_enemy = f.is_enemy()
 	body = Node2D.new()
 	add_child(body)
+	var shadow := Polygon2D.new()
+	shadow.polygon = PackedVector2Array([Vector2(-22, 0), Vector2(-12, -4), Vector2(12, -4), Vector2(22, 0), Vector2(12, 4), Vector2(-12, 4)])
+	shadow.color = Color(0.078, 0.063, 0.102, 0.8)
+	add_child(shadow)
+	move_child(shadow, 0)
 	var frames_path := SPRITE_DIR + f.art_id + ".tres"
 	# A sprite that exists but doesn't load (e.g. its PNG isn't imported yet) also gets the placeholder.
 	var frames := load(frames_path) as SpriteFrames if ResourceLoader.exists(frames_path) else null

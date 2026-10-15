@@ -28,6 +28,7 @@ var _encounter_id := ""
 var _rng := RandomNumberGenerator.new()
 var _views: Dictionary = {}            # fighter id -> CombatantView
 var _background: ColorRect
+var _art_backdrop: Node2D
 var _fighter_layer: Node2D
 var _order_bar: HBoxContainer
 var _log: RichTextLabel
@@ -341,6 +342,7 @@ func _spawn_views() -> void:
 			var slot: Vector2 = PARTY_SLOTS[mini(i, PARTY_SLOTS.size() - 1)]
 			_add_view(f, Vector2(640 - slot.x, slot.y))
 	_background.color = Color("#1c2238") if state.has_aliens() else Color("#2b2532")
+	_art_backdrop.call("set_alien", state.has_aliens())
 	_refresh_intent()
 
 
@@ -442,11 +444,8 @@ func _build_ui() -> void:
 	_background = ColorRect.new()
 	_background.set_anchors_preset(Control.PRESET_FULL_RECT)
 	add_child(_background)
-	var ground := ColorRect.new()
-	ground.color = Color("#3b2a24")
-	ground.position = Vector2(0, 226)
-	ground.size = Vector2(640, 10)
-	add_child(ground)
+	_art_backdrop = (load("res://scripts/fx/combat_backdrop.gd") as GDScript).new()
+	add_child(_art_backdrop)
 	_fighter_layer = Node2D.new()
 	add_child(_fighter_layer)
 

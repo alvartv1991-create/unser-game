@@ -12,11 +12,16 @@ func _ready() -> void:
 	backdrop.color = Color("1c2238")
 	backdrop.set_anchors_preset(Control.PRESET_FULL_RECT)
 	add_child(backdrop)
-	var skyline := TextureRect.new()
-	skyline.texture = load("res://assets/backgrounds/title.png")
-	skyline.set_anchors_preset(Control.PRESET_FULL_RECT)
-	skyline.stretch_mode = TextureRect.STRETCH_SCALE
-	add_child(skyline)
+	for suffix in ["sky", "distance", "world", "foreground"]:
+		var skyline := TextureRect.new()
+		var crop := AtlasTexture.new()
+		crop.atlas = load("res://assets/backgrounds/street_%s.png" % suffix)
+		crop.region = Rect2(0, 0, 640, 360)
+		skyline.texture = crop
+		skyline.set_anchors_preset(Control.PRESET_FULL_RECT)
+		skyline.stretch_mode = TextureRect.STRETCH_SCALE
+		skyline.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		add_child(skyline)
 	body = Control.new()
 	body.set_anchors_preset(Control.PRESET_FULL_RECT)
 	add_child(body)
@@ -44,6 +49,8 @@ func rebuild() -> void:
 			load_button.disabled = not SaveSystem.has_save(0) and not SaveSystem.has_save(1)
 			UiKit.button("UI_VISUAL_PREVIEW", column, func() -> void:
 				SceneRouter.go_to("res://scenes/levels/test_visual_street.tscn", "start"))
+			UiKit.button("UI_ART_GALLERY", column, func() -> void:
+				SceneRouter.go_to("res://scenes/ui/test_art_gallery.tscn"))
 			UiKit.button("UI_OPTIONS", column, overlay_menu.bind("options"))
 			UiKit.button("UI_QUIT", column, func() -> void: get_tree().quit())
 		"jobs": build_jobs(column)
@@ -77,7 +84,7 @@ func build_jobs(column: VBoxContainer) -> void:
 	UiKit.button("UI_START", footer, func() -> void:
 		GameState.new_game(selected_job)
 		AudioManager.play_sfx("sfx_ui_confirm")
-		SceneRouter.go_to("res://scenes/levels/test_platforming.tscn", "start"))
+		SceneRouter.go_to("res://scenes/levels/test_visual_street.tscn", "start"))
 
 func select_job(id: String) -> void:
 	selected_job = id
