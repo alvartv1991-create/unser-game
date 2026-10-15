@@ -58,6 +58,7 @@ COOK_IDLE_02,[TEMP] Ich koche für eine Person weniger. Das ist das Schlimmste d
 COOK_IDLE_03,"[TEMP] Wenn das hier vorbei ist, mach ich einen Imbiss auf. ""Zum Weltuntergang"". Mit Pommes.","[TEMP] When this is over, I'm opening a snack bar. ""The End of the World"". With fries."
 COOK_IDLE_04,"[TEMP] Die Dinger am Himmel essen nichts. Ich trau keinem, der nichts isst.",[TEMP] The things in the sky don't eat. I don't trust anyone who doesn't eat.
 COOK_IDLE_05,"[TEMP] Ich hab Salz dabei. Man weiß nie, wann man Salz braucht.",[TEMP] I brought salt. You never know when you'll need salt.
+COOK_CAMPFIRE_07,"[TEMP] Du wärmst dir die Hände am Feuer. Es knistert. Das ist das Netteste, was heute passiert ist.",[TEMP] You warm your hands at the fire. It crackles. That's the nicest thing that happened today.
 COOK_CAMPFIRE_01,"[TEMP] Setz dich. Ich mach was Warmes. Es heißt ""Eintopf"". Was drin ist, sag ich nicht.","[TEMP] Sit down. I'm making something warm. It's called ""stew"". I won't say what's in it."
 COOK_CAMPFIRE_02,[TEMP] Ich geb meine Dose dazu.,[TEMP] I'll add my can.
 COOK_CAMPFIRE_03,[TEMP] Jetzt ist es ein richtiger Eintopf!,[TEMP] Now it's a proper stew!
@@ -85,12 +86,14 @@ GATE_OPEN_02,[TEMP] An den Zaun hängst du die Pfanne. Jemand sollte sich erinne
 GATE_OPEN_03,[TEMP] Die Pfanne gibt kein Signal mehr. Ich hab nachgemessen. Zweimal.,[TEMP] The pan doesn't give off a signal anymore. I measured. Twice.
 GATE_OPEN_04,"[TEMP] Du legst eine Batterie auf den Torpfosten. Für alle, die zu viel wussten.",[TEMP] You put a battery on the gatepost. For everyone who knew too much.
 GATE_OPEN_05,[TEMP] Ich koche heute nichts. Ich kann heute nicht.,[TEMP] I'm not cooking today. I can't today.
-GATE_COMING_SOON_01,"[TEMP] Ein Schild. ""Demnächst"". Darunter, kleiner: ""Wirklich. Bald.""","[TEMP] A sign. ""Coming soon"". Below it, smaller: ""Really. Soon."""
+GATE_COMING_SOON_01,"[TEMP] Ein Schild. ""Demnächst"". Darunter, kleiner, ""Wirklich. Bald.""","[TEMP] A sign. ""Coming soon"". Below it, smaller, ""Really. Soon."""
 GATE_COMING_SOON_02,[TEMP] Hier endet die Alpha. Danke fürs Spielen!,[TEMP] This is the end of the alpha. Thanks for playing!
 INTRO_START_01,"[TEMP] Es begann mit einem Piepen. Militärsatelliten empfingen Signale, die niemand bestellt hatte.",[TEMP] It started with a beep. Military satellites picked up signals nobody had ordered.
 INTRO_START_02,[TEMP] Dann fiel das GPS aus. Dann das Militärnetz. Die Generäle mussten wieder Karten falten.,[TEMP] Then GPS went down. Then the military network. The generals had to fold maps again.
 INTRO_START_03,"[TEMP] Fernseher flackerten. Telefonzellen klingelten, obwohl niemand anrief.",[TEMP] TVs flickered. Payphones rang with nobody calling.
 INTRO_START_04,[TEMP] Dann kamen sie.,[TEMP] Then they arrived.
+INTRO_START_06,[TEMP] Das Militär schickte eine Atombombe. Danach gab es kein Militär mehr.,"[TEMP] The military sent a nuclear bomb. After that, there was no military anymore."
+INTRO_START_07,"[TEMP] Der Schwarm saugt Wasser, Metall und Strom ab. Ganze Städte gehen aus wie Taschenlampen.","[TEMP] The swarm drains water, metal and electricity. Whole cities go out like flashlights."
 INTRO_START_05,[TEMP] Und dann ... ignorierten sie uns. Fast komplett.,[TEMP] And then ... they ignored us. Almost completely.
 RAIDERS_STREET_01,[TEMP] Halt! Das ist unsere Straße. Hier kostet Atmen Gebühr.,[TEMP] Stop! This is our street. Breathing costs a fee here.
 RAIDERS_STREET_02,[TEMP] Eine Konserve pro Lunge.,[TEMP] One can per lung.

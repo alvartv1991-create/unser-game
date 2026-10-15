@@ -1,6 +1,7 @@
 # [TEMP] The cook in the bunker. Recruitable. Placeholder text.
 
 ~ first_meet
+$> GameState.set_flag("cook_met")
 cook: [TEMP] Oh, du lebst! Gut. Ich hab nur eine Konserve gewärmt, und das wäre peinlich geworden. [#mood=happy] [ID:COOK_FIRST_MEET_01]
 cook: [TEMP] Ich bin hier unten, seit der Strom weg ist. Ich bin die einzige Person, die den Dosenöffner bedienen kann. [ID:COOK_FIRST_MEET_02]
 - [TEMP] Wir teilen das Essen. Halbe-halbe. [ID:COOK_FIRST_MEET_03]
@@ -41,6 +42,9 @@ if not GameState.is_alive("tinkerer") and GameState.is_recruited("tinkerer")
 => END
 
 ~ campfire
+if not GameState.in_party("cook")
+	[TEMP] Du wärmst dir die Hände am Feuer. Es knistert. Das ist das Netteste, was heute passiert ist. [ID:COOK_CAMPFIRE_07]
+	=> END
 cook: [TEMP] Setz dich. Ich mach was Warmes. Es heißt "Eintopf". Was drin ist, sag ich nicht. [ID:COOK_CAMPFIRE_01]
 - [TEMP] Ich geb meine Dose dazu. [if GameState.has_item("canned_food") /] [#show_locked] [ID:COOK_CAMPFIRE_02]
 	$> GameState.remove_item("canned_food")

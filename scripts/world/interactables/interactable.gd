@@ -18,6 +18,9 @@ extends Area2D
 @export_enum("tv", "payphone", "radio", "arcade") var kind: String = "tv"
 @export var intensity: float = 0.25
 @export var prop: String = "crate"
+## Gate: cue in `file` to play when the gate opens (instead of going to `destination` directly).
+## Campfire: cue in `file` to play after resting (e.g. the cook's campfire scene). Empty = none.
+@export var after_title: String = ""
 var prompt: Label
 var sprite: Sprite2D
 var cooldown: float = 0.0
@@ -116,7 +119,12 @@ func activate() -> void:
 			if not destination.is_empty():
 				SceneRouter.go_to(destination, spawn_id)
 		"Gate":
-			if GameState.get_flag(gate_flag, false):
+			if GameState.get_flag(gate_flag, false) and after_title != "":
+				DialogueRunner.start(file, after_title)
+				await EventBus.dialogue_finished
+				if not destination.is_empty():
+					SceneRouter.go_to(destination, spawn_id)
+			elif GameState.get_flag(gate_flag, false):
 				SceneRouter.go_to(destination, spawn_id)
 			else:
 				DialogueRunner.start(file, title)
@@ -130,3 +138,5 @@ func activate() -> void:
 			GameState.rest()
 			var saved := SaveSystem.save_game(0)
 			get_tree().call_group("global_ui", "toast_key", "UI_SAVED" if saved else "UI_SAVE_UNAVAILABLE")
+			if after_title != "":
+				DialogueRunner.start(file, after_title)

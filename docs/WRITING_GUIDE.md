@@ -115,6 +115,8 @@ F1 (debug menu) → `dialogue/test_dialogue.tscn`, the **dialogue tester**:
 
 Fights started from a dialogue really start in the tester. Story follow-ups after fights only run in the real levels.
 
+**In the real game:** the levels start the dialogue (see the table in `docs/handoff/H3.md`). To check that the whole of Area 1 still plays through after your changes, run the automated playthrough: F1 → `debug/test_area1_playthrough.tscn` (it plays 5 runs by itself and prints "Area 1 playthrough: 0 failures" in the console).
+
 ## 7. Naming and placeholders
 - Cues and ids: `snake_case`, English (`first_meet`, `camp_after_fight`).
 - One file per character or place. Look-at comments go into `examine.dialogue`, one cue per thing.

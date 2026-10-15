@@ -9,3 +9,46 @@ OBJ_PASS_RAIDER_CAMP,[TEMP] Komm am Lager der Plünderer vorbei.,[TEMP] Get past
 OBJ_CROSS_ALIEN_ZONE,[TEMP] Durchquere die Zone. Leise.,[TEMP] Cross the zone. Quietly.
 OBJ_OPEN_GATE,[TEMP] Öffne das Tor.,[TEMP] Open the gate.
 OBJ_CHOOSE_AREA,"[TEMP] Wähle, wohin es weitergeht.",[TEMP] Choose where to go next.
+AREA_SIGN_VIDEOSTORE,[TEMP] VIDEOSPIELE KRÜGER,[TEMP] KRÜGER'S VIDEO GAMES
+AREA_SIGN_OPEN,[TEMP] GEÖFFNET,[TEMP] OPEN
+AREA_SIGN_CAMP,[TEMP] CHECKPOINT - BITTE LEISE SEIN,[TEMP] CHECKPOINT - PLEASE BE QUIET
+AREA_SIGN_BUNKER,[TEMP] SCHUTZRAUM,[TEMP] SHELTER
+AREA_MAP_TITLE,[TEMP] Karte,[TEMP] Map
+AREA_MAP_AREA1,[TEMP] Vorstadt (erkundet),[TEMP] Suburb (explored)
+AREA_MAP_AREA2,[TEMP] Gebiet 2 (demnächst),[TEMP] Area 2 (coming soon)
+END_TITLE,[TEMP] Ende der Alpha,[TEMP] End of the alpha
+END_JOB,[TEMP] Früher warst du %s.,[TEMP] You used to be a %s.
+END_CAMP,[TEMP] Das Lager der Plünderer: %s,[TEMP] The raider camp: %s
+END_CAMP_FIGHT,[TEMP] freigeprügelt.,[TEMP] punched your way through.
+END_CAMP_TALK,[TEMP] weggeredet.,[TEMP] talked your way through.
+END_CAMP_BRIBE,[TEMP] mit Erbsen bestochen.,[TEMP] bribed with peas.
+END_CAMP_JOB,[TEMP] mit deinem alten Beruf gelöst.,[TEMP] solved with your old job.
+END_CAMP_MORAL,[TEMP] Jemand hat sich an deine guten Taten erinnert.,[TEMP] someone remembered your good deeds.
+END_CAMP_NONE,[TEMP] nie hingekommen.,[TEMP] never got there.
+END_RAIDER_SPARED,"[TEMP] Den Plünderer, der aufgegeben hat, hast du laufen lassen.",[TEMP] You let the surrendering raider go.
+END_RAIDER_KILLED,"[TEMP] Den Plünderer, der aufgegeben hat, hast du nicht laufen lassen.",[TEMP] You did not let the surrendering raider go.
+END_DILEMMA,[TEMP] Der Mann im Bus: %s,[TEMP] The man in the bus: %s
+END_DILEMMA_COOK_DISTRACTION,[TEMP] gerettet. Die Pfanne hat geklappert.,[TEMP] saved. The pan clanged.
+END_DILEMMA_RESCUE_TOGETHER,[TEMP] gemeinsam gerettet. Ein paar Konserven weniger.,[TEMP] saved together. A few cans fewer.
+END_DILEMMA_TINKERER_JAM,"[TEMP] gerettet, drei Sekunden Funkstille sei Dank.","[TEMP] saved, thanks to three seconds of radio silence."
+END_DILEMMA_SCIENTIST_DISTRACTION,"[TEMP] gerettet, dank Wissenschaft und einer Radkappe.","[TEMP] saved, thanks to science and a hubcap."
+END_DILEMMA_WALK_AWAY,[TEMP] nicht gerettet. Du bist weitergegangen.,[TEMP] not saved. You walked on.
+END_DILEMMA_NONE,[TEMP] nie gesehen.,[TEMP] never seen.
+END_ALIVE,[TEMP] %s lebt und ist dabei.,[TEMP] %s is alive and with you.
+END_DIED_STORY,[TEMP] %s ist gestorben. Wegen einer Entscheidung.,[TEMP] %s died. Because of a decision.
+END_DIED_COMBAT,[TEMP] %s ist im Kampf gefallen.,[TEMP] %s fell in combat.
+END_NOT_RECRUITED,[TEMP] %s ist nicht mitgekommen.,[TEMP] %s did not come along.
+END_SWORD_BROKEN,[TEMP] Das Heilige Schwert hat genau einen Schlag gehalten. Wie versprochen.,[TEMP] The holy sword lasted exactly one hit. As promised.
+END_SWORD_INTACT,[TEMP] Das Heilige Schwert ist noch ganz. Du hast es nie benutzt. Klug.,[TEMP] The holy sword is still in one piece. You never used it. Wise.
+END_SWORD_LEFT,[TEMP] Das Heilige Schwert steht noch im Regal und wartet.,"[TEMP] The holy sword is still on the shelf, waiting."
+END_CULT_FOUND,[TEMP] Du hast das Summen gehört. Es zählt noch.,[TEMP] You heard the humming. It's still counting.
+END_CULT_MISSED,[TEMP] ???,[TEMP] ???
+END_MORAL,[TEMP] Solidarität: %s,[TEMP] Solidarity: %s
+END_MORAL_1,[TEMP] Arschloch,[TEMP] Jerk
+END_MORAL_2,[TEMP] Eher unangenehm,[TEMP] Rather unpleasant
+END_MORAL_3,[TEMP] Ganz normal verzweifelt,[TEMP] Normally desperate
+END_MORAL_4,[TEMP] Guter Mensch,[TEMP] Good person
+END_MORAL_5,[TEMP] Heilige/r,[TEMP] Saint
+END_THANKS,[TEMP] Danke fürs Testen! Probier einen anderen Beruf oder eine andere Entscheidung.,[TEMP] Thanks for testing! Try a different job or a different decision.
+END_NEW_GAME,[TEMP] Neues Spiel,[TEMP] New game
+AREA_SIGN_EXIT,[TEMP] AUSGANG,[TEMP] EXIT

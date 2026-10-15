@@ -5,6 +5,8 @@
 [TEMP] Dann fiel das GPS aus. Dann das Militärnetz. Die Generäle mussten wieder Karten falten. [ID:INTRO_START_02]
 [TEMP] Fernseher flackerten. Telefonzellen klingelten, obwohl niemand anrief. [ID:INTRO_START_03]
 [TEMP] Dann kamen sie. [ID:INTRO_START_04]
+[TEMP] Das Militär schickte eine Atombombe. Danach gab es kein Militär mehr. [ID:INTRO_START_06]
+[TEMP] Der Schwarm saugt Wasser, Metall und Strom ab. Ganze Städte gehen aus wie Taschenlampen. [ID:INTRO_START_07]
 [TEMP] Und dann ... ignorierten sie uns. Fast komplett. [ID:INTRO_START_05]
 $> GameState.set_flag("intro_done")
 $> GameState.set_objective("OBJ_TALK_TO_COOK")

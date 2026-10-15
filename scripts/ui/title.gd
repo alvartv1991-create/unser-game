@@ -84,7 +84,7 @@ func build_jobs(column: VBoxContainer) -> void:
 	UiKit.button("UI_START", footer, func() -> void:
 		GameState.new_game(selected_job)
 		AudioManager.play_sfx("sfx_ui_confirm")
-		SceneRouter.go_to("res://scenes/levels/test_visual_street.tscn", "start"))
+		SceneRouter.go_to("res://scenes/levels/area1_bunker.tscn", "start"))
 
 func select_job(id: String) -> void:
 	selected_job = id
